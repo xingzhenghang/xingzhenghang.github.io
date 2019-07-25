@@ -1,0 +1,857 @@
+/* general */
+#html {
+  height: 100%;
+}
+#body {
+  background-image: url(/static/img/noise.png);
+  background-attachment: fixed;
+  color: #3c3c3c;
+  font-family: Microsoft YaHei, Simsum, serif;
+  font-size: small;
+  height: 100%;
+  margin: 0 auto;
+  min-height: 510px;
+}
+#body,
+#footer {
+  min-width: 960px;
+}
+#body.nav,
+#body.search {
+  overflow-y: hidden;
+}
+ol, ul {
+  margin: 0;
+  padding: 0;
+}
+:-moz-focusring {
+  outline: 0;
+}
+
+/* top controls */
+#setdefault, #navpane {
+  position: absolute;
+  top: 20px;
+}
+#setdefault:not([hidden]) {
+  background-image: linear-gradient(to bottom, #f1a84a, #db6e18);
+  border: 1px solid #db6e15;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px #f7ca7f;
+  color: white;
+  cursor: pointer;
+  display: block;
+  left: calc(100% * (50 / 960) + 20px);
+  padding: 2px 4px;
+  text-align: center;
+}
+#setdefault:hover {
+  background-image: linear-gradient(to bottom, #db6e18, #f1a84a);
+}
+
+#navpane {
+  right: calc(100% * (50 / 960) + 20px);
+}
+#navpane > a:not([hidden]) {
+  background-image: url(/static/img/icon/controls-431.png);
+  cursor: pointer;
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  text-indent: -9999px;
+  width: 24px;
+}
+#navpane > #fx-accounts {
+  background: url(/static/img/icon/tools.png) no-repeat;
+  background-position: 6px -155px;
+  padding: 0 10px 0 30px;
+  text-indent: 0;
+  width: auto;
+}
+#navpane > a[data-pane="nav"] {
+  background-position: -119px -30px;
+}
+#navpane > a[data-pane="quickdial"] {
+  background-position: -89px -30px;
+}
+#navpane > a[data-pane="search"] {
+  background-position: -149px -30px;
+}
+#navpane > a[data-pane="blank"] {
+  background-position: -179px -30px;
+}
+.nav > #navpane > a[data-pane="nav"],
+#navpane > a[data-pane="nav"]:active,
+#navpane > a[data-pane="nav"]:hover {
+  background-position: -119px 0;
+}
+.quickdial > #navpane > a[data-pane="quickdial"],
+#navpane > a[data-pane="quickdial"]:active,
+#navpane > a[data-pane="quickdial"]:hover {
+  background-position: -89px 0;
+}
+.search > #navpane > a[data-pane="search"],
+#navpane > a[data-pane="search"]:active,
+#navpane > a[data-pane="search"]:hover {
+  background-position: -149px 0;
+}
+.blank > #navpane > a[data-pane="blank"],
+#navpane > a[data-pane="blank"]:active,
+#navpane > a[data-pane="blank"]:hover {
+  background-position: -179px 0;
+}
+
+#promo {
+  background-image: url(/static/img/promo-201902-i.gif), url(/static/img/promo-201902-ii.gif), url(/static/img/promo-201902-iii.png);
+  background-position: calc(50% - 310px - 282px / 2) top, calc(50% + 310px + 282px / 2) top, top;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  display: none;
+  height: 148px;
+  margin: 0 0 -148px;
+}
+.quickdial > #promo:not([hidden]) {
+  display: block;
+}
+.quickdial > #promo > button {
+  background-color: transparent;
+  background-image: url(/static/img/icon/remove.png);
+  background-repeat: no-repeat;
+  border: 0;
+  cursor: pointer;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+  -moz-appearance: none;
+}
+.quickdial > #promo > button:hover {
+  background-position: 0 -20px;
+}
+
+/* view switcher */
+#nav,
+#quickdial,
+#search,
+#blank,
+#overlay {
+  display: none;
+  height: 100%;
+  margin: auto;
+  width: 100%;
+}
+.nav > #nav,
+.quickdial > #quickdial,
+.search > #search,
+.blank > #blank {
+  display: block;
+}
+.nav > section#nav {
+  height: calc(100% - 50px);
+  margin-top: 35px;
+}
+
+#nav > iframe,
+#search > iframe {
+  border: 0;
+  height: 100%;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* quickdial view */
+#searchform {
+  display: block;
+  height: 60px;
+  margin: auto;
+  padding: 50px 0 20px;
+  overflow: hidden;
+  width: 605px;
+}
+#searchform[hidden] {
+  height: 0;
+}
+#searchform > fieldset {
+  border: 0;
+  margin: 0;
+  padding: 3px;
+}
+#searchform[hidden] > fieldset {
+  display: none;
+}
+#searchform > fieldset:first-of-type > a {
+  display: inline-block;
+  height: 32px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: bottom;
+  width: 100px;
+}
+#searchform > fieldset:last-of-type {
+  margin-left: 100px;
+}
+#searchform > fieldset > input[name="q"] {
+  border: 1px solid #d8d8d8;
+  border-right: none;
+  height: 30px;
+  padding: 0 5px;
+  width: 400px;
+}
+#searchform > fieldset > input[name="q"]:focus {
+  border: 1px solid #009ae2;
+  border-right: none;
+}
+#searchform > fieldset > input[type="submit"] {
+  background-image: linear-gradient(to bottom, #fbfbfb, #f3f3f3);
+  border: 1px solid #d8d8d8;
+  cursor: pointer;
+  height: 32px;
+  width: 86px;
+  -moz-appearance: none;
+}
+#searchform > fieldset > input[name="q"]:focus + input[type="submit"] {
+  background-image: linear-gradient(to bottom, #44adfb, #1e96e8);
+  border: 1px solid #009ae2;
+  color: white;
+}
+
+/* quickdial tab switcher */
+#quick_dial_tabpanels {
+  height: calc(100% - 130px);
+}
+#searchform[hidden] ~ #quick_dial_tabpanels {
+  height: calc(100% - 80px);
+}
+
+#quick_dial_tabpanels {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+#quick_dial_tabpanels > div {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition-delay: 0s;
+  transition-duration: 400ms;
+  transition-property: left;
+  transition-timing-function: linear;
+  width: 100%;
+}
+
+/* quickdial grid */
+#grid {
+  overflow: hidden;
+}
+
+#grid > ul {
+  background: url(/static/img/icon/fake_scroll.png) no-repeat 0 0;
+  display: none;
+  list-style-type: none;
+  position: fixed;
+  right: calc(100% * 50 / 960 + 10px);
+  bottom: 60px;
+}
+#quick_dial_tabpanels > #grid > ul[data-scroll] {
+  display: block;
+}
+#grid > ul[data-scroll="-1"] {
+  background-position: 0 -70px;
+}
+#grid > ul[data-scroll="1"] {
+  background-position: 0 -140px;
+}
+#grid > ul > li {
+  height: 25px;
+  text-indent: -9999px;
+  width: 30px;
+}
+
+#grid > ol {
+  list-style: none;
+  margin: -10px auto 50px;
+  max-width: 1160px;
+  overflow: hidden;
+  width: calc(100% - 2 * 40px);
+}
+#footer.off ~ #quickdial > #quick_dial_tabpanels > #grid > ol {
+  margin-bottom: 0;
+}
+#grid > ol > li {
+  border: 1px #d8d8d8 solid;
+  box-sizing: border-box;
+  float: left;
+  height: 25px;
+  margin: 10px;
+  position: relative;
+  width: calc((100% - 80px) / 4);
+  -moz-box-sizing: border-box; /* Fx 28 and earlier */
+}
+
+#grid > ol > li > button {
+  background-color: transparent;
+  background-image: url(/static/img/icon/controls-431.png);
+  background-position: 147px 0;
+  cursor: pointer;
+  border: 0;
+  display: none;
+  height: 24px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 24px;
+  -moz-appearance: none;
+}
+#grid > ol > li > button:first-of-type {
+  background-position: 177px 0;
+  left: 0;
+  right: auto;
+}
+#grid > ol > li > button:nth-of-type(2) {
+  background-position: 207px 0;
+  left: 24px;
+  right: auto;
+}
+
+#grid > ol > li > a {
+  color: #3c3c3c;
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  width: 100%;
+}
+/* hackish style ... */
+#grid > ol > li.frame > a {
+  bottom: 0;
+  position: absolute;
+  transition-duration: 0.5s;
+  transition-property: height;
+  transition-timing-function: ease-in;
+}
+#grid > ol > li > a > .thumb {
+  background: no-repeat white;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+#grid > ol > li.frame > a > .thumb {
+  transition-duration: 0.5s;
+  transition-property: opacity;
+  transition-timing-function: ease-in;
+}
+#grid > ol > li > a > .thumb > ul {
+  height: 40px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  top: 50%;
+  width: 160px;
+}
+#grid > ol > li > a > .thumb > ul > li {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 0 2px;
+}
+#grid > ol > li > a > .thumb > ul > li > a {
+  color: #bcbcbc;
+}
+#grid > ol > li > a > .thumb > ul > li > a:hover {
+  color: #ef8200;
+}
+#grid > ol > li > a > .title {
+  background: #fafafa;
+  bottom: 0;
+  display: block;
+  height: 25px;
+  line-height: 25px;
+  overflow: hidden;
+  position: absolute;
+  text-indent: 3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+/* hackish style ... */
+#grid > ol > li > a > .title > form {
+  background-color: #fafafa;
+  color: #767676;
+  height: 22px;
+}
+#grid > ol > li > a > .title > form > input[type="text"] {
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  border: none;
+  height: 23px;
+  margin: 0 0 0 -2px;
+  padding: 1px 0 1px 26px;
+  width: calc(100% - 52px);
+}
+#grid > ol > li > a > .title > form > input[type="submit"] {
+  background-color: #d7d7d7;
+  background-image: url(/static/img/icon/search-icon.png);
+  border: none;
+  height: 25px;
+  margin: 0;
+  padding: 0;
+  text-indent: -9999px;
+  width: 26px;
+}
+#grid > ol > li > a > .title > form > input[type="submit"]:hover {
+  background-color: #a4d0ef;
+}
+#grid > ol > li.frame > iframe {
+  background-color: white;
+  border: none;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#grid > ol > li[draggable="false"] {
+  border-style: dashed;
+}
+#grid > ol > li[draggable="false"] > a > .thumb {
+  background: url(/static/img/icon/plus.png) no-repeat center center, url(/static/img/noise.png) repeat rgba(242, 242, 242, 0.49);
+}
+#grid > ol > li[draggable="false"] > a > .title {
+  display: none;
+}
+
+#grid > ol > li:hover {
+  border-color: #9a9fa4;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.85);
+}
+#grid > ol > li:hover > button {
+  display: block;
+}
+
+#grid > ol > li.frame:hover > button {
+  z-index: 1;
+}
+#grid > ol > li.frame:hover > a {
+  height: 25px;
+  transition-timing-function: ease-out;
+}
+#grid > ol > li.frame:hover > a > .thumb {
+  opacity: 0;
+  transition-timing-function: ease-out;
+}
+
+#grid > ol > li > button:hover {
+  background-position: 147px 25px;
+}
+#grid > ol > li > button:first-of-type:hover {
+  background-position: 177px 25px;
+}
+#grid > ol > li > button:nth-of-type(2):hover {
+  background-position: 207px 25px;
+}
+
+/* customized grid */
+#grid.c2 > ol {
+  max-width: 580px;
+}
+#grid.c2 > ol > li {
+  width: calc((100% - 40px) / 2);
+}
+#grid.c3 > ol {
+  max-width: 870px;
+}
+#grid.c3 > ol > li {
+  width: calc((100% - 60px) / 3);
+}
+#grid.c5 > ol {
+  max-width: 1450px;
+}
+#grid.c5 > ol > li {
+  width: calc((100% - 100px) / 5);
+}
+#grid.c6 > ol {
+  max-width: 1740px;
+}
+#grid.c6 > ol > li {
+  width: calc((100% - 120px) / 6);
+}
+
+/* footer controls */
+#footer {
+  background: url(/static/img/noise.png) repeat rgba(242, 242, 242, 0.98);
+  border-top: 1px #d8d8d8 solid;
+  bottom: 0;
+  height: 50px;
+  padding-top: 12px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+.nav > #footer {
+  display: none;
+}
+
+/* firefox logo */
+#footer > a {
+  display: block;
+  float: left;
+  margin: -5px 0 0 40px;
+}
+
+/* right aligned toggle & launcher */
+#toggle, #launcher {
+  float: right;
+  margin: 0 34px 0 0;
+}
+#toggle {
+  background: url(/static/img/icon/bottom.png) no-repeat -80px -26px;
+  cursor: pointer;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 6px 0 0;
+  text-indent: -9999px;
+  width: 10px;
+}
+
+#footer.off {
+  background: transparent;
+  border-top: none;
+}
+#footer.off > a,
+#footer.off > #launcher {
+  display: none;
+}
+#footer.off > #toggle {
+  background-position: -80px 4px;
+}
+
+/* launcher items */
+#launcher > li:not([hidden]) {
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 25px;
+  padding: 0 6px;
+  position: relative;
+}
+#launcher > li[data-menu="tools"]:before,
+#launcher > li[data-menu="page-settings"]:before {
+  background: url(/static/img/icon/bottom.png);
+  background-repeat: no-repeat;
+  content: "　";
+  display: inline-block;
+  width: 16px;
+}
+#launcher > li[data-menu="tools"]:before {
+  background-position: -16px 2px;
+}
+#launcher > li[data-menu="page-settings"]:before {
+  background-position: -46px 2px;
+}
+#launcher > li:hover,
+#launcher.tools > li[data-menu="tools"],
+#launcher.page-settings > li[data-menu="page-settings"] {
+  background: url(/static/img/noise.png) repeat #dedede;
+  border: 1px solid #c9ced2;
+  border-radius: 3px;
+}
+#launcher > li[data-menu="tools"]:hover:before,
+#launcher.tools > li[data-menu="tools"]:before {
+  background-position: -16px -28px;
+}
+#launcher > li[data-menu="page-settings"]:hover:before,
+#launcher.page-settings > li[data-menu="page-settings"]:before {
+  background-position: -46px -28px;
+}
+
+/* popups of launcher items */
+#launcher > li > div,
+#launcher > li > ul,
+#launcher > li > form {
+  background: url(/static/img/noise.png) repeat #fff;
+  border: 1px solid #d8d8d8;
+  bottom: 30px;
+  box-shadow: 0 0 6px 0 #000;
+  cursor: default;
+  display: none;
+  line-height: 28px;
+  padding: 12px 5px;
+  position: absolute;
+  right: 0;
+  text-align: left;
+  white-space: nowrap;
+}
+#launcher.tools > li > #tools,
+#launcher.page-settings > li > #page-settings {
+  display: block;
+}
+
+/* tools, like about:home */
+#tools > li {
+  background: url(/static/img/icon/tools.png) no-repeat, url(/static/img/noise.png) repeat #fff;
+  cursor: pointer;
+  list-style: none;
+  padding: 0 5px 0 34px;
+}
+#tools > li[id="downloads"] {
+  background-position: 3px -2px;
+}
+#tools > li[id="bookmarks"] {
+  background-position: 3px -122px;
+}
+#tools > li[id="history"] {
+  background-position: 3px -62px;
+}
+#tools > li[id="addons"] {
+  background-position: 3px -32px;
+}
+#tools > li[id="sync"] {
+  background-position: 3px -152px;
+}
+#tools > li[id="settings"] {
+  background-position: 3px -92px;
+}
+#tools > li:hover {
+  background-color: #f2f2f2;
+}
+
+/* page-settings */
+
+#page-settings > fieldset {
+  border: none;
+  border-top: 1px solid #d8d8d8;
+  margin: 7px 14px;
+}
+#page-settings > fieldset > div > input + input,
+#page-settings > fieldset > div > label + input,
+#page-settings > fieldset > div > label + label,
+#page-settings > fieldset > div > select + label {
+  margin-left: 8px;
+}
+
+#bgcolor-radio > label {
+  border: 1px solid #d8d8d8;
+  cursor: pointer;
+  display: inline-block;
+  height: 22px;
+  text-indent: -9999px;
+  width: 22px;
+}
+#bgcolor-radio > label:nth-of-type(1) {
+  background: white;
+}
+#bgcolor-radio > label:nth-of-type(2) {
+  background: #fff8ed;
+}
+#bgcolor-radio > label:nth-of-type(3) {
+  background: #fdfece;
+}
+#bgcolor-radio > label:nth-of-type(4) {
+  background: #edfffb;
+}
+#bgcolor-radio > label:nth-of-type(5) {
+  background: #edf7ff;
+}
+#bgcolor-radio > label:nth-of-type(6) {
+  background: #f4edff;
+}
+#bgcolor-radio > label:nth-of-type(7) {
+  border: none;
+  cursor: auto;
+  text-indent: 0;
+  width: auto;
+}
+#bgcolor-radio > label > input[name='bgcolor'] {
+  display: none;
+}
+#page-settings input,
+#page-settings label,
+#page-settings select {
+  cursor: pointer;
+}
+
+/* add/edit overlay */
+#overlay {
+  background: rgba(25, 25, 25, 0.5);
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+#overlay > div {
+  background: url(/static/img/noise.png) white;
+  box-shadow: 0 0 6px 0 #000;
+  height: 366px;
+  margin: 100px auto 0;
+  padding: 12px 8px;
+  width: 704px;
+}
+
+#dial_editor > input {
+  width: 44%;
+}
+#dial_editor > input[type="submit"] {
+  width: 7%;
+}
+
+#editor_tabs {
+  background: white;
+  border: 1px solid #dfdfdf;
+  height: 32px;
+  margin: 10px 0 0;
+  padding: 5px 5px 0;
+}
+#editor_tabs > li:not([hidden]) {
+  background: #eee;
+  border: 1px solid #dfdfdf;
+  display: inline-block;
+  line-height: 28px;
+  margin: 2px 1px 0;
+  padding: 1px 4px 0;
+  text-align: center;
+  width: 85px;
+}
+#editor_tabs.editor_related > li[data-tab="editor_related"],
+#editor_tabs.editor_bookmark > li[data-tab="editor_bookmark"],
+#editor_tabs.editor_promoted > li[data-tab="editor_promoted"] {
+  background: white;
+  border-bottom: 1px solid white;
+}
+
+#editor_tabpanels {
+  background: white;
+  border: 1px solid #dfdfdf;
+  border-top: none;
+  box-shadow: inset 0 0 0 2px white;
+  height: 290px;
+  overflow: auto;
+}
+#editor_tabpanels > div,
+#editor_tabpanels > ul {
+  display: none;
+}
+#editor_tabs.editor_related + #editor_tabpanels > #editor_related,
+#editor_tabs.editor_bookmark + #editor_tabpanels > #editor_bookmark,
+#editor_tabs.editor_promoted + #editor_tabpanels > #editor_promoted {
+  display: block;
+}
+
+#editor_related > figure {
+  display: inline-block;
+  height: 277px;
+  margin: 0;
+  padding: 5px 20px;
+  vertical-align: text-top;
+  width: calc(49% - 2 * 20px);
+}
+#editor_related > figure > figcaption {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #dfdfdf;
+  font-weight: bold;
+}
+#editor_related > figure + figure {
+  border-left: 1px solid #dfdfdf;
+}
+#editor_related > figure > ul {
+  margin-top: 5px;
+}
+#editor_related > figure > ul > li,
+#editor_bookmark > li,
+#editor_promoted > ul > li {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+#editor_bookmark {
+  margin: 5px 20px;
+}
+#editor_bookmark > li {
+  width: 49%;
+}
+#editor_promoted > ul > li {
+  height: 28px;
+  line-height: 28px;
+  margin: 2px;
+  text-align: center;
+  width: 16%;
+}
+#editor_related > figure > ul > li > a,
+#editor_related > figure > ul > li > a:visited,
+#editor_bookmark > li > a,
+#editor_bookmark > li > a:visited {
+  background-repeat: no-repeat;
+  background-position: 0 3px;
+  background-size: 16px;
+  color: #3c3c3c;
+  display: inline-block;
+  line-height: 20px;
+  max-width: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  text-indent: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#editor_promoted > ul:first-of-type {
+  border-bottom: 1px dotted #ddd;
+}
+#editor_promoted > ul > li > a,
+#editor_promoted > ul > li > a:visited {
+  color: #3c3c3c;
+  max-width: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#prompt-close {
+  background: url(/static/img/icon/close.png) no-repeat -9px -3px transparent;
+  border-radius: 14px;
+  cursor: pointer;
+  display: inline-block;
+  height: 28px;
+  left: 700px;
+  position: relative;
+  top: -389px;
+  width: 28px;
+}
+#prompt-close:hover {
+  background-position: -9px -43px;
+}
+
+/* responsive */
+@media only screen and (max-width: 960px) {
+  #setdefault {
+    left: 70px;
+  }
+  .quickdial > #promo {
+    left: 691px;
+    white-space: nowrap;
+  }
+  #navpane {
+    right: 70px;
+  }
+  /* #prevtab, #nexttab ... not needed with min-width on body */
+}
+@media only screen and (min-width: 1920px) {
+  #setdefault {
+    left: 120px;
+  }
+  #navpane {
+    right: 120px;
+  }
+}
+
+@media only screen and (min-height: 850px) and (min-width: 1440px) {}
+
+@media only screen and (min-width: 1384px) {
+  .quickdial > #promo {
+    left: calc(50% + 1160px / 2 - 10px - 169px);
+  }
+}
