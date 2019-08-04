@@ -1,4 +1,4 @@
-java="java.com/zh_CN/download";
+java="https://java.com/zh_CN/download/";
 xvn="";
 xvo="";
 xdt="";
