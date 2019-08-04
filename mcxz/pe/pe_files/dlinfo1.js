@@ -1,7 +1,7 @@
 xvn="";
 xvo="";
 xdt="";
-xlk="https://www.lanzous.com/i572eoh";
+xlk="https://www.lanzous.com/i5bpn7g";
 betavn="";
 betavo="";
 betadt="";
