@@ -1,3 +1,4 @@
+java="java.com/zh_CN/download";
 xvn="";
 xvo="";
 xdt="";
