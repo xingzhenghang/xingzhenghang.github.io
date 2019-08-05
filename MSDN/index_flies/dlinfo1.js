@@ -1,8 +1,8 @@
 xvn="Office";
 xvo="";
 xdt="";
-xlk="https://www.xingzhenghang.tk/mcxz/pc/pc.html";
+xlk="https://www.xingzhenghang.tk/MSDN/Office";
 betavn="Windows";
 betavo="";
 betadt="";
-betalk="https://www.xingzhenghang.tk/mcxz/pe/pe.html";
+betalk="https://www.xingzhenghang.tk/MSDN/Windows";
