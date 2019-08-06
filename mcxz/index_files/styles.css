@@ -13,7 +13,7 @@ div{
 }
 
 header{
-  background-color: #212124;
+  background-color: #1a73e8;
   color: #ddb86b;
   font-size:14px;
 }
@@ -26,13 +26,13 @@ a{
 
 p{
   text-indent:2em;
-  background-color: #212124;
+  background-color: #1a73e8;
   color:rgb(219,184,107);
 }
 
 
 .main{
-  background-color: #212124;
+  background-color: #1a73e8;
   color:rgb(219,184,107);
   padding:5%;
   box-shadow: 0 2px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -46,7 +46,7 @@ p{
 
 .title{
   font-size:50px;
-  background-color: #212124;
+  background-color: #1a73e8;
   color:rgb(219,184,107);
 }
 
