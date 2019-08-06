@@ -55,7 +55,7 @@ img{
 }
 
 div button {
-  background-color: rgb(33,33,36);
+  background-color: rgb(26, 115, 232);
   border: none;
   color:rgb(219,184,107);
   padding: 15px 20px;
@@ -71,7 +71,7 @@ div button {
 
 button .button0{
   font-size: 18px;
-  background-color: rgb(33,33,36)
+  background-color: rgb(26, 115, 232)
 }
   
   .button1{
@@ -80,6 +80,6 @@ button .button0{
 }
 
 button .little{
-  background-color: rgb(33,33,36);
+  background-color: rgb(26, 115, 232);
   font-size: 10px;
 }
