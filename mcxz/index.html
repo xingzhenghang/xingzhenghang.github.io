@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html>
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-
 <html lang="zh-cmn-Hans">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
 <title>MC 下载</title>
 <link rel="stylesheet" href="https://www.xingzhenghang.tk/ui/css/mdui.min.css"/>
 <script async src="https://www.xingzhenghang.tk/js/mdui.js"></script>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width"/>
 </head>
 
 <body>
@@ -22,37 +16,38 @@
 <body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
 <header class="mdui-appbar mdui-appbar-fixed">
 <div class="mdui-toolbar mdui-color-theme">
-<i class="mdui-icon material-icons">&#xe5d2;</i>
+<span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
 <span class="mdui-typo-title">MC 下载</span>
+</div>
 </div>
 
 <p>
 
 <div>
-<div class="mdui-row">
-<div class="mdui-col-sm-6 mdui-col-md-4">
 <div class="mdui-card">
+<div class="mdui-container doc-container">
   <div class="mdui-card-media">
     <img src="https://mdui-aliyun.cdn.w3cbus.com/docs/assets/docs/img/card.jpg"/>
     <div class="mdui-card-media-covered">
       <div class="mdui-card-primary">
         <div class="mdui-card-primary-title">PE 版</div>
         <div class="mdui-card-primary-subtitle">Android 版本</div>
-        <div class="mdui-card-content">如果你是手机，请选择这个。</div>
       </div>
+        <div class="mdui-card-content">如果你是手机，请选择这个。</div>
       <div class="mdui-card-actions">
-        <button class="mdui-btn mdui-ripple mdui-ripple-white">打开</button>
+       <a href="./pe" target="_blank" class="mdui-btn mdui-ripple mdui-ripple-white">打开</a>
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 
 <p>
 
 <div>
-<div class="mdui-row">
-<div class="mdui-col-sm-6 mdui-col-md-4">
 <div class="mdui-card">
+<div class="mdui-container doc-container">
   <div class="mdui-card-media">
     <img src="https://mdui-aliyun.cdn.w3cbus.com/docs/assets/docs/img/card.jpg"/>
     <div class="mdui-card-media-covered">
@@ -62,68 +57,54 @@
       </div>
       <div class="mdui-card-actions">
         <div class="mdui-card-content">如果你是电脑，请选择这个。</div>
-        <button class="mdui-btn mdui-ripple mdui-ripple-white">打开</button>
+       <a href="./pc" target="_blank" class="mdui-btn mdui-ripple mdui-ripple-white">打开</a>
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 
 <p>
 
 <div>
-<div class="mdui-row">
-<div class="mdui-col-sm-6 mdui-col-md-4">
 <div class="mdui-card">
+<div class="mdui-container doc-container">
   <div class="mdui-card-media">
     <img src="https://mdui-aliyun.cdn.w3cbus.com/docs/assets/docs/img/card.jpg"/>
     <div class="mdui-card-media-covered">
       <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title">查看最新/全部版本记录! </div>
+        <div class="mdui-card-primary-title">查看最新/全部版本记录! 
         <div class="mdui-card-primary-subtitle">来自 Minecraft Wiki - 最详细的官方我的世界百科</div>
-      </div>
       <div class="mdui-card-actions">
-        <button class="mdui-btn mdui-ripple mdui-ripple-white">点击跳转</button>
+       <a href="//www.mcbbs.net/forum.php?mod=forumdisplay&fid=139&filter=typeid&typeid=2400&mobile=2" target="_blank" class="mdui-btn mdui-ripple mdui-ripple-white">打开</a>
       </div>
     </div>
   </div>
 </div>
-
+</div>
+</div>
 
 <p>
 
 <div>
-<div class="mdui-row">
-<div class="mdui-col-sm-6 mdui-col-md-4">
 <div class="mdui-card">
+<div class="mdui-container doc-container">
   <div class="mdui-card-media">
     <img src="https://mdui-aliyun.cdn.w3cbus.com/docs/assets/docs/img/card.jpg"/>
+
     <div class="mdui-card-media-covered">
       <div class="mdui-card-primary">
         <div class="mdui-card-primary-title">查看最新版本快讯! </div>
         <div class="mdui-card-primary-subtitle">来自 MCBBS - 我的世界中文论坛</div>
-      </div>
       <div class="mdui-card-actions">
-        <button class="mdui-btn mdui-ripple mdui-ripple-white">点击跳转</button>
-      </div>
+       <a href="//minecraft-zh.gamepedia.com/Template:Bedrock_Edition_versions" target="_blank" class="mdui-btn mdui-ripple mdui-ripple-white">打开</a>      </div>
     </div>
   </div>
 </div>
-<script>
-var $$ = mdui.JQ;
-$$('#demo-jq-showoverlay').on('click', function () {
-$$.showOverlay();
-setTimeout(function () {
-$$.hideOverlay();
-}, 2000);
-});
+</div>
 
-$$('#demo-jq-lockscreen').on('click', function () {
-$$.lockScreen();
-setTimeout(function () {
-$$.unlockScreen();
-}, 2000);
-});
-</script>
+<p>
 
 </body>
 <html>
