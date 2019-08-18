@@ -9,13 +9,25 @@
 <meta name="format-detection" content="telephone=no"/>
 <meta name="viewport" content="width=device-width"/>
 
+<script>
+  if ('serviceWorker' in navigator) 
+      navigator.serviceWorker.register('./pwa.js').then(function (registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }).catch(function (err) {
+          console.log('ServiceWorker registration failed: ', err);
+      });
+  }
+</script>
+<link rel="manifest" href="./manifest.json">
 <link rel="icon" type="image/png" sizes="32x32" href="//www.xingzhenghang.tk/images/minecraft_32px_1126406_easyicon.net.png">
 <link rel="icon" type="image/png" sizes="16x16" href="//www.xingzhenghang.tk/images/minecraft_16px_1126406_easyicon.net.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="MC 下载"><link rel="apple-touch-icon" href="//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png">
-<link rel="mask-icon" href="//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png" color="#F3F3F3"><meta name="msapplication-TileImage" content="//h5.sinaimg.cn/m/weibo-lite/appicon.png">
-<meta name="msapplication-TileColor" content="#000000">
+<link rel="mask-icon" href="//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png" color="#3F51B5">
+<meta name="msapplication-TileImage" content="//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png">
+<meta name="msapplication-TileColor" content="#3F51B5">
+<meta name="theme-color" content="#3F51B5" />
 </head>
 
 <body>
@@ -153,15 +165,6 @@
 
 <p>
 
-   
-<script>
-  if ('serviceWorker' in navigator) 
-      navigator.serviceWorker.register('./pwa.js').then(function (registration) {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }).catch(function (err) {
-          console.log('ServiceWorker registration failed: ', err);
-      });
-  }
-</script>
+
 </body>
 <html>
