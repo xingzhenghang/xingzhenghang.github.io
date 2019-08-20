@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<title>MC 下载</title>
+<link rel="stylesheet" href="https://www.xingzhenghang.tk/ui/css/mdui.min.css"/>
+<script async src="https://www.xingzhenghang.tk/js/mdui.js"></script>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width"/>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./pwa.js')
+        .then((reg) => {
+          console.log('Service worker registered.', reg);
+        });
+  });
+}
+</script>
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" type="image/png" sizes="32x32" href="//www.xingzhenghang.tk/images/minecraft_32px_1126406_easyicon.net.png">
+<link rel="icon" type="image/png" sizes="16x16" href="//www.xingzhenghang.tk/images/minecraft_16px_1126406_easyicon.net.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="MC 下载"><link rel="apple-touch-icon" href="//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png">
+<link rel="mask-icon" href="//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png" color="#3F51B5">
+<meta name="msapplication-TileImage" content="//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png">
+<meta name="msapplication-TileColor" content="#3F51B5">
+<meta name="theme-color" content="#3F51B5" />
+</head>
+
+<body>
+<div>
+<div class="mdui-container">
+
+<div class="mdui-drawer" id="main-drawer">
+<div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
+<div class="mdui-collapse-item ">
+<div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+   <div class="mdui-list-item-content">PE 版</div>
+   <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+   </div>
+      <div class="mdui-collapse-item-body mdui-list">
+      <a href="//www.lanzous.com/i5kljbg" class="mdui-list-item mdui-ripple ">破解版</a>
+      <a href="//www.lanzous.com/i5bpn7g" class="mdui-list-item mdui-ripple ">原版</a>
+</div>
+</div>
+
+<div class="mdui-collapse-item ">
+<div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+   <div class="mdui-list-item-content">PC 版</div>
+   <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+   </div>
+      <div class="mdui-collapse-item-body mdui-list">
+      <a href="//java.com/zh_CN/download/" class="mdui-list-item mdui-ripple ">请先下载 Java </a>
+      <a href="http://mcdl2.down.v0vcq.cn/modpack/mc/Minecraft1.12.2.zip" class="mdui-list-item mdui-ripple ">破解版</a>
+      <a href="//s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.exe" class="mdui-list-item mdui-ripple ">原版</a>
+</div>
+</div>
+
+<div class="mdui-collapse-item mdui-collapse-item-open">
+<div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+   <div class="mdui-list-item-content">资源</div>
+   <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+   </div>
+      <div class="mdui-collapse-item-body mdui-list">
+      <a href="//www.mcbbs.net/forum.php?mod=forumdisplay&fid=139&filter=typeid&typeid=2400&mobile=2" class="mdui-list-item mdui-ripple ">最新版本快讯</a>
+      <a href="//minecraft-zh.gamepedia.com/Template:Bedrock_Edition_versions" class="mdui-list-item mdui-ripple ">最新/全部版本记录</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<a id="anchor-top"></a>
+
+<p>
+
+<div>
+<div class="mdui-card">
+<div class="mdui-container doc-container">
+  <div class="mdui-card-media">
+    <img src="//www.xingzhenghang.tk/images/card.jpg"/>
+    <div class="mdui-card-media-covered">
+      <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">PE 版</div>
+        <div class="mdui-card-primary-subtitle">Android 版本</div>
+        <div class="mdui-card-content">如果你是手机，请选择这个。</div>
+      <div class="mdui-card-actions">
+       <a href="./pe" target="_blank" class="mdui-btn mdui-ripple mdui-ripple-white">打开</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<p>
+
+<div>
+<div class="mdui-card">
+<div class="mdui-container doc-container">
+  <div class="mdui-card-media">
+    <img src="//www.xingzhenghang.tk/images/card.jpg"/>
+    <div class="mdui-card-media-covered">
+      <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">PC 版</div>
+        <div class="mdui-card-primary-subtitle">Windows 版本</div>
+      <div class="mdui-card-actions">
+        <div class="mdui-card-content">如果你是电脑，请选择这个。</div>
+       <a href="./pc" target="_blank" class="mdui-btn mdui-ripple mdui-ripple-white">打开</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<p>
+
+<div>
+<div class="mdui-card">
+<div class="mdui-container doc-container">
+  <div class="mdui-card-media">
+    <img src="//www.xingzhenghang.tk/images/card.jpg"/>
+    <div class="mdui-card-media-covered">
+      <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">查看最新/全部版本记录! 
+        <div class="mdui-card-primary-subtitle">来自 Minecraft Wiki - 最详细的官方我的世界百科</div>
+      <div class="mdui-card-actions">
+       <a href="//minecraft-zh.gamepedia.com/Template:Bedrock_Edition_versions" target="_blank" class="mdui-btn mdui-ripple mdui-ripple-white">打开</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<p>
+
+<div>
+<div class="mdui-card">
+<div class="mdui-container doc-container">
+  <div class="mdui-card-media">
+    <img src="//www.xingzhenghang.tk/images/card.jpg"/>
+    <div class="mdui-card-media-covered">
+      <div class="mdui-card-primary">
+        <div class="mdui-card-primary-title">查看最新版本快讯! </div>
+        <div class="mdui-card-primary-subtitle">来自 MCBBS - 我的世界中文论坛</div>
+      <div class="mdui-card-actions">
+       <a href="//www.mcbbs.net/forum.php?mod=forumdisplay&fid=139&filter=typeid&typeid=2400&mobile=2" target="_blank" class="mdui-btn mdui-ripple mdui-ripple-white">打开</a>      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<p>
+
+
+</body>
+<html>
