@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<title>小 X 博客</title>
+<link rel="stylesheet" href="https://www.xingzhenghang.tk/ui/css/mdui.min.css"/>
+<script async src="https://www.xingzhenghang.tk/js/mdui.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width"/>
+
+</head>
+
+<body>
+
+<!-- top bar 顶栏 -->
+<div class="mdui-color-indigo mdui-toolbar">
+  <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">chrome_reader_mode</i></a>
+  <span class="mdui-typo-title">小 X 博客</span>
+</div>
+
+
+<div class="mdui-container doc-container">
+<br>
+<div class="mdui-typo">
+  <h1 class="doc-title mdui-text-color-indigo">腾讯TIM已经发布安全更新解决火绒发现的TX升级程序被劫持问题</h1>
+
+  <p><strong>作者：</strong> <abbr title="Responsive web design">小 X</abbr> <strong/> <kbd>科技资讯,软件资讯类</kbd> <strong/> <kbd>2019/8/22</kbd></p>
+
+<hr/>
+<p>上周日火绒安全团队发现有攻击者借助路由器劫持腾讯QQ/TIM系列软件的升级程序并利用漏洞向用户投放病毒。</p>
+<p>实际上腾讯的升级程序存在校验问题因此无法检测到被篡改的升级包，也正是如此攻击者才想到通过路由来劫持。</p>
+<p>想要成功利用漏洞并展开攻击的话并不算容易，所幸这次攻击并没有运营商参与不然那真可能引起大规模的感染。</p>
+<img class="mdui-img-fluid mdui-img-rounded" src="2_1.png"/>
+  <h2 class="doc-title mdui-text-color-indigo">腾讯TIM已经发布新版本修复：</h2>
+<p>经过测试发现现在的腾讯TIM已经可以检测到新版本，这个新版本小版本号略微有些变化说明是修复版本。</p>
+<p>虽然腾讯没发布公告说这个版本就是用来修复火绒发现的漏洞的，但TIM已经挺长时间没更新因此不会突然更新。</p>
+<p>所以往好处想就是TIM团队已经率先将这枚漏洞修复，许多年没更新的QQ 轻聊版大概率应该是不会再获得更新。</p>
+<p>其他版本如 QQ 桌面平台的 正式版 及 QQ 国际版 等请用户自行检测， 国际版 和 轻聊版 命运差不多估计也不会修复。</p>
+  <h2 class="doc-title mdui-text-color-indigo">此前消息：</h2>
+<p>火绒安全实验室在分析后发现这个漏洞利用过程不涉及本地存在的劫持，大概率是运营商劫持或者路由劫持投毒。</p>
+<p>而用户给出的反馈是路由器曾经刷过第三方的路由固件，火绒工程师由此向路由器劫持方向跟进并追查劫持线索。</p>
+<p>追踪过程中火绒团队发现当腾讯QQ系列发送升级请求后，其请求升级地址遭到劫持并下载 txudp.exe 的病毒包。</p>
+<p>经过分析火绒工程师发现是用户路由器劫持腾讯QQ的升级网址，然后直接向用户下发伪造的 txudp.exe 程序包。</p>
+<p>正常情况下的升级逻辑是将本地软件的版本信息发送给服务器，之后腾讯服务器按照版本信息下发对应的升级包。</p>
+<p>而在这个过程中腾讯此前修复会增加升级内容的校验，只要校验通过后就会自动解压指定的压缩包并执行其程序。</p>
+<p>由于存在漏洞黑客制作的病毒包可通过校验，因此在劫持下发包后腾讯便按照预设流行自动解压并安装运行病毒。</p>
+<p>最终用户可能在完全不知情的情况下遭到病毒的感染，估计用户也不可能想到升级QQ 都能给自己电脑带来病毒。</p>
+
+ <kbd>QQ</kbd>
+ <kbd>TIM</kbd>
+ <kbd>漏洞</kbd>
+ <kbd>火绒</kbd>
+ <kbd>腾讯</kbd>
+
+
+<div class="mdui-typo-body-2-opacity">本文来源 蓝点网 山外的鸭子哥，由 小 X 整理编辑，其版权均为 蓝点网 所有，文章内容系作者个人观点，不代表 蓝点网 对观点赞同或支持。如需转载，请注明文章来源。</div>
+
+<div>
+<div>
+</body>
+</html>
