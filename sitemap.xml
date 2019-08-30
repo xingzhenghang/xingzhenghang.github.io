@@ -9,73 +9,88 @@
 
 <url>
   <loc>https://www.xingzhenghang.tk/</loc>
-  <lastmod>2019-08-23T07:47:48+00:00</lastmod>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://www.xingzhenghang.tk/pro/</loc>
-  <lastmod>2019-08-23T07:47:49+00:00</lastmod>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.xingzhenghang.tk/sitemap.html</loc>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.xingzhenghang.tk/mcxz/</loc>
-  <lastmod>2019-08-23T07:47:49+00:00</lastmod>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.xingzhenghang.tk/MSDN/</loc>
-  <lastmod>2019-08-23T07:47:48+00:00</lastmod>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.xingzhenghang.tk/blog/</loc>
-  <lastmod>2019-08-23T07:47:48+00:00</lastmod>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.xingzhenghang.tk/3dweb/</loc>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.xingzhenghang.tk/MSDN/Office/</loc>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.xingzhenghang.tk/MSDN/Windows/</loc>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.xingzhenghang.tk/blog/190822/2.html</loc>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.xingzhenghang.tk/blog/190822/1.html</loc>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.xingzhenghang.tk/blog/tab/installmsprodust/</loc>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.xingzhenghang.tk/blog/tab/installmsprodust/otp.html</loc>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.xingzhenghang.tk/mcxz/pc/</loc>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.xingzhenghang.tk/mcxz/pe/</loc>
-  <lastmod>2019-08-23T07:47:49+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.xingzhenghang.tk/mcxz/pc/</loc>
-  <lastmod>2019-08-23T07:47:49+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.xingzhenghang.tk/MSDN/Office/</loc>
-  <lastmod>2019-08-23T07:47:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.xingzhenghang.tk/MSDN/Windows/</loc>
-  <lastmod>2019-08-23T07:47:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.xingzhenghang.tk/blog/tab/installmsprodust/</loc>
-  <lastmod>2019-08-23T07:47:48+00:00</lastmod>
-  <priority>0.51</priority>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.xingzhenghang.tk/software/systemtool/downloadtool/thunder.html</loc>
-  <lastmod>2019-08-23T07:47:49+00:00</lastmod>
-  <priority>0.51</priority>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.xingzhenghang.tk/blog/190822/2.html</loc>
-  <lastmod>2019-08-23T07:47:48+00:00</lastmod>
+  <loc>https://www.xingzhenghang.tk/blog/190828/1.html</loc>
+  <lastmod>2019-08-30T23:37:35+00:00</lastmod>
   <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.xingzhenghang.tk/blog/190822/1.html</loc>
-  <lastmod>2019-08-23T07:47:48+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://www.xingzhenghang.tk/blog/tab/installmsprodust/otp.html</loc>
-  <lastmod>2019-08-23T07:47:48+00:00</lastmod>
-  <priority>0.41</priority>
 </url>
 
 
