@@ -41,3 +41,17 @@ evt.respondWith(
               });
         })
 );
+
+// CODELAB: Add list of files to cache here.// CODELAB: Add list of 
+const FILES_TO_CACHE = [
+  '//www.xingzhenghang.tk/ui/css/mdui.min.css',
+  '//www.xingzhenghang.tk/js/mdui.js',
+  './index.html',
+  './pe/index.html'
+  './pc/index.html'
+  '/',
+  '/index.html',
+  '/pe',
+  '/pc',
+  '//www.xingzhenghang.tk/images/card.png',
+];
