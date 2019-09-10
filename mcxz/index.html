@@ -9,16 +9,6 @@
 <meta name="format-detection" content="telephone=no"/>
 <meta name="viewport" content="width=device-width"/>
 
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./pwa.js')
-        .then((reg) => {
-          console.log('Service worker registered.', reg);
-        });
-  });
-}
-</script>
 <link rel="manifest" href="./manifest.json">
 <link rel="icon" type="image/png" sizes="32x32" href="//www.xingzhenghang.tk/images/minecraft_32px_1126406_easyicon.net.png">
 <link rel="icon" type="image/png" sizes="16x16" href="//www.xingzhenghang.tk/images/minecraft_16px_1126406_easyicon.net.png">
@@ -35,6 +25,18 @@ if ('serviceWorker' in navigator) {
 </head>
 
 <body>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./pwa.js')
+        .then((reg) => {
+          console.log('Service worker registered.', reg);
+        });
+  });
+}
+</script>
+
 <div>
 <div class="mdui-container">
 <body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
