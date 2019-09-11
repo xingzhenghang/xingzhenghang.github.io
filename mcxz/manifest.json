@@ -1,5 +1,5 @@
 {
-  "short_name": "MC 下载 APP",
+  "short_name": "MC 下载",
   "name": "MC 下载 APP",
   "icons": [
     {
@@ -18,9 +18,8 @@
       "sizes": "16x16"
     }
   ],
-  "start_url": "/",
+  "start_url": "/mcxz",
   "display": "standalone",
   "background_color": "#3F51B5",
-  "orientation": "landscape",
   "theme_color": "#3F51B5"
 }
