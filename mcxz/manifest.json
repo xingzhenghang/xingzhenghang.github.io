@@ -1,21 +1,26 @@
 {
-  "name": "MC 下载",
-  "short_name": "MC 下载",
-  "icons": [{
-    "src": "//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png",
-      "sizes": "128x128",
-      "type": "image/png"
-    }, {
-      "src": "//www.xingzhenghang.tk/images/minecraft_32px_1126406_easyicon.net.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    }, {
-      "src": "//www.xingzhenghang.tk/images/minecraft_16px_1126406_easyicon.net.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    }],
-  "start_url": "/index.html",
-  "display": "standalone",
+  "short_name": "MC 下载 APP",
+  "name": "MC 下载 APP",
+  "icons": [
+    {
+      "src": "//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "//www.xingzhenghang.tk/images/minecraft_32px_1126406_easyicon.net.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "//www.xingzhenghang.tk/images/minecraft_16px_1126406_easyicon.net.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
   "background_color": "#3F51B5",
+  "orientation": "landscape",
   "theme_color": "#3F51B5"
 }
