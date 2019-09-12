@@ -1,6 +1,12 @@
 {
   "short_name": "MC 下载",
   "name": "Minecraft 下载 APP",
+  "start_url": "/mcxz",
+  "display": "standalone",
+  "background_color": "#3F51B5",
+  "theme_color": "#3F51B5",
+  "scope": "www.xingzhenghang.tk",
+  "prefer_related_applications": "true",
   "icons": [
     {
       "src": "//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png",
@@ -18,10 +24,4 @@
       "sizes": "16x16"
     }
   ],
-  "start_url": "/mcxz",
-  "display": "standalone",
-  "background_color": "#3F51B5",
-  "theme_color": "#3F51B5"
-  "scope": "www.xingzhenghang.tk"
-  "prefer_related_applications": "true"
 }
