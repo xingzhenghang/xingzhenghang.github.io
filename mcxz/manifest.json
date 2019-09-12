@@ -22,6 +22,6 @@
   "display": "standalone",
   "background_color": "#3F51B5",
   "theme_color": "#3F51B5"
-  "prefer_related_applications": "true"
   "scope": "www.xingzhenghang.tk"
+  "prefer_related_applications": "true"
 }
