@@ -23,6 +23,28 @@
 <meta name="msapplication-TileImage" content="//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png">
 <meta name="msapplication-TileColor" content="#3F51B5">
 <meta name="theme-color" content="#3F51B5" />
+
+    <script>
+        if (navigator.serviceWorker) {
+            navigator.serviceWorker.register('./installpwa.js');
+            navigator.serviceWorker.register('./pwa.js');
+        }
+    </script>
+    <script>
+        var dfdPrompt = null;
+        window.addEventListener('beforeinstallprompt', function (e) {
+            // 存储事件
+            dfdPrompt = e;
+        });
+            // 通过按钮点击事件触发横幅显示
+            dfdPrompt.prompt();
+            // 监控用户的安装行为
+            dfdPrompt.userChoice.then(function (choiceResult) {
+                alert(choiceResult.outcome);
+            });
+        });
+    </script>
+
 </head>
 
 <body>
