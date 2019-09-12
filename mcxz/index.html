@@ -24,6 +24,12 @@
 <meta name="msapplication-TileColor" content="#3F51B5">
 <meta name="theme-color" content="#3F51B5" />
 
+<script>
+    if (navigator.serviceWorker) {
+        navigator.serviceWorker.register('./installpwa.js');
+        navigator.serviceWorker.register('./pwa.js');
+        }
+</script>
 </head>
 
 <body>
@@ -79,60 +85,6 @@
 </div>
 
 <a id="anchor-top"></a>
-
-<p>
-
-<script>
-    if (navigator.serviceWorker) {
-        navigator.serviceWorker.register('./installpwa.js');
-        navigator.serviceWorker.register('./pwa.js');
-        }
-</script>
-<div>
-<div class="mdui-card">
-<div class="mdui-container doc-container">
-  <div class="mdui-card-media">
-    <img src="//www.xingzhenghang.tk/images/card.jpg"/>
-    <div class="mdui-card-media-covered">
-      <div class="mdui-card-primary">
-        <div class="mdui-card-primary-title">PWA</div>
-        <div class="mdui-card-primary-subtitle">本站已支持 PWA 应用，点击安装尝试</div>
-        <div class="mdui-card-content"></div>
-      <div class="mdui-card-actions">
-       <div class="mdui-btn mdui-ripple mdui-ripple-white" id="pwa">点击安装</div>
-<script>
-    var dfdPrompt = null;
-    var mdui-btn mdui-ripple mdui-ripple-white = document.getElementById('pwa');
-    window.addEventListener('beforeinstallprompt', function (e) {
-        // 存储事件
-        dfdPrompt = e;
-        // 显示按钮
-        button.style.display = 'block';
-        // 阻止默认事件
-        e.preventDefault();
-        return false;
-    });
-    button.addEventListener('click', function (e) {
-        if (dfdPrompt == null) {
-            return;
-        }
-        // 通过按钮点击事件触发横幅显示
-        dfdPrompt.prompt();
-        // 监控用户的安装行为
-        dfdPrompt.userChoice.then(function (choiceResult) {
-        alert(choiceResult.outcome);
-        });
-        // 隐藏按钮
-        button.style.display = 'none';
-        dfdPrompt = null;
-    });
-</script>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-</div>
 
 <p>
 
