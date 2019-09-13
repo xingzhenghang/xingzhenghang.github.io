@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<title>VIP 视频解析</title>
+<link rel="stylesheet" href="https://www.xingzhenghang.tk/ui/css/mdui.min.css"/>
+<script async src="https://www.xingzhenghang.tk/js/mdui.js"></script>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width"/>
+</head>
+
+<body>
+<div>
+<div class="mdui-container">
+<body class="mdui-drawer-body mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+<header class="mdui-appbar mdui-appbar-fixed">
+<div class="mdui-toolbar mdui-color-theme">
+<span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
+<span class="mdui-typo-title">VIP 视频解析</span>
+</div>
+</div>
+
+<br>
+
+<div class="mdui-textfield mdui-textfield-floating-label">
+  <label class="mdui-textfield-label">在这里输入会员视频地址</label>
+  <input class="mdui-textfield-input" type="url" name="url" value="" placeholder="在这里输入会员视频地址"/>
+</div>
+
+<a href="#fakelink" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-indigo" name="submit" onclick="test_post()">播放</a>
+
+<script type="text/javascript" src="js/swfobjects.js"></script>
+<script type="text/javascript" src="js/ckplayer.js" charset="utf-8"></script>
+<script type="text/javascript">
+players();
+$("#doplayers").bind("click", function() {
+    players()
+});
+
+function players() {
+	var a = $('#url').val();
+    if ($('#url').val() == "") {
+        alert('请输入视频网站网址！');
+        $('#url').focus();
+        return (false)
+    }
+	document.getElementById("vplay").src="http://api.smq1.com/?url=" + a;
+
+}
+
+function players2() {
+    var a = $('#url').val();
+    if ($('#url').val() == "") {
+        alert('请输入视频网站网址！');
+        $('#url').focus();
+        return (false)
+    }
+    var b = {
+      f: 'http://api.smq1.com/?url=' + a,
+        c: 0,
+        s: 2,
+        p: 1,
+        b: 1,
+    };
+    var c = {
+        bgcolor: '#FFF',
+        allowFullScreen: true,
+        allowScriptAccess: 'always',
+        wmode: 'transparent'
+    };
+  var d = ['http://api.smq1.com/?url=' + a + '&mobile'];
+    var e = ['iPad', 'iPhone', 'ios', 'android+false', 'msie10+false'];
+    CKobject.embed('player/player.swf', 'ckplays', 'ckplayer_mains', '100%', '500', false, b, d, c)
+}
+
+function addhtml52() {
+    if (CKobject.isHTML5()) {
+        support = ['all'];
+        CKobject._K_('moveid').innerHTML = '';
+        CKobject.embedHTML5('moveid', 'ckplayer_a1', '100%', 530, video, flashvars, support)
+    } else {
+        addflash()
+    }
+}
+</script>
+</body>
+</html>
