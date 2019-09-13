@@ -11,6 +11,13 @@
 
 <!-- CODELAB: Add the install script here -->
 <script src="/installpwa.js"></script>
+<script src="/sw.js"></script>
+<script>
+    if (navigator.serviceWorker) {
+        navigator.serviceWorker.register('./installpwa.js');
+        navigator.serviceWorker.register('./sw.js');
+        }
+</script>
 <link rel="manifest" href="./manifest.json">
 
 <link rel="icon" type="image/png" sizes="32x32" href="//www.xingzhenghang.tk/images/minecraft_32px_1126406_easyicon.net.png">
@@ -24,12 +31,6 @@
 <meta name="msapplication-TileColor" content="#3F51B5">
 <meta name="theme-color" content="#3F51B5" />
 
-<script>
-    if (navigator.serviceWorker) {
-        navigator.serviceWorker.register('./installpwa.js');
-        navigator.serviceWorker.register('./pwa.js');
-        }
-</script>
 </head>
 
 <body>
