@@ -34,7 +34,23 @@
 </head>
 
 <body>
-
+<script>
+  // 判断浏览器是否支持 Service Worker
+  if ('serviceWorker' in navigator) {
+    // 在 load 事件触发后注册 Service Worker，确保 Service Worker 的注册不会影响首屏速度
+    window.addEventListener('load', function () {
+      // 注册 Service Worker
+      navigator.serviceWorker.register('/sw.js').then(function (registration) {
+        // 注册成功
+        console.log('ServiceWorker registration successful with scope: ', registration.scope)
+      }).catch(function (err) {
+        // 注册失败 :(
+        console.warn('ServiceWorker registration failed: ', err)
+      })
+    })
+  }
+</script>
+<script src="/sw.js"></script>
 <div>
 <div class="mdui-container">
 <body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
