@@ -1,7 +1,6 @@
 {
   "name": "Minecraft 下载 APP",
   "short_name": "MC 下载",
-  "start_url": "",
   "display": "standalone",
   "background_color": "#3F51B5",
   "theme_color": "#3F51B5",
