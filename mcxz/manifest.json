@@ -1,6 +1,7 @@
 {
   "name": "Minecraft 下载 APP",
   "short_name": "MC 下载",
+  "description": "一个可以下载 Minecraft 最新版的 APP",
   "display": "standalone",
   "background_color": "#3F51B5",
   "theme_color": "#3F51B5",
