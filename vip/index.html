@@ -22,18 +22,18 @@
 
 <br>
 
-<from name="f_g1" onsubmit="return(s_1())" class="navbar-form navbar-left" role="search">
+<from name="bar" onsubmit="return(button)" role="search">
    <div class="form-group">
       <div class="mdui-textfield mdui-textfield-floating-label">
         <label class="mdui-textfield-label"></label>
-        <input onblur="if (value ==''){value=''}" onfocus="this.select()" class="mdui-textfield-input" type="url" id="url" name="url" value="" placeholder="在这里输入会员视频地址"/>
+        <input onfocus="this.select()" class="mdui-textfield-input" type="url" id="url" name="url" placeholder="在这里输入会员视频地址"/>
       </div>
    </div>
-   <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-color-indigo" onclick="s_1()">播放</button>
+   <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-indigo" onclick="button">播放</button>
 </form>
 <script type="text/javascript">
-function s_1()
-{window.open("http://api.smq1.com/?url="+encodeURI(f_g1.url.value));return false;};
+function button
+{window.open("https://api.smq1.com/?url="+encodeURI(bar.url.value));return false;};
 </script>
 </body>
 </html>
