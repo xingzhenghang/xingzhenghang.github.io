@@ -27,19 +27,18 @@
   <input class="mdui-textfield-input" type="url" id="url" name="url" value="" placeholder="在这里输入会员视频地址"/>
 </div>
 
-<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-color-theme-indigo">播放</button>
+<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-color-indigo">播放</button>
 
 <script type="text/javascript" language="javascript">
 $(document).ready(function () {
     init();
-    $(document).on("click", ".mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-color-theme-indigo", function () {
+    $(document).on("click", ".mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-color-indigo", function () {
         var index = $(this).index();
         if ($('#url').val().length != 0) {
             var urlOpen = http://api.smq1.com/?url= + $('#url').val();
             window.open(urlOpen);
         }
     });
-
+    });
 });
-
 </script>
