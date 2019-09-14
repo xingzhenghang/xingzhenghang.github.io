@@ -24,68 +24,22 @@
 
 <div class="mdui-textfield mdui-textfield-floating-label">
   <label class="mdui-textfield-label">在这里输入会员视频地址</label>
-  <input class="mdui-textfield-input" type="url" name="url" value="" placeholder="在这里输入会员视频地址"/>
+  <input class="mdui-textfield-input" type="url" id="url" name="url" value="" placeholder="在这里输入会员视频地址"/>
 </div>
 
-<a href="#fakelink" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-indigo" name="submit" onclick="test_post()">播放</a>
+<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-color-theme-indigo">播放</button>
 
-<div id="ckvip" style="position:relative;z-index:1000"/>
-   <iframe border="0" id="vplay" name="vplay" src="" style="width: 1010px; height: 570px" allowfullscreen="" allowtransparency="" frameborder="0"></iframe>
-</div>
+<script type="text/javascript" language="javascript">
+$(document).ready(function () {
+    init();
+    $(document).on("click", ".mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-color-theme-indigo", function () {
+        var index = $(this).index();
+        if ($('#keyword').val().length != 0) {
+            var urlOpen = http://api.smq1.com/?url= + $('#url').val();
+            window.open(urlOpen);
+        }
+    });
 
-<script type="text/javascript" src="js/swfobjects.js"></script>
-<script type="text/javascript" src="js/ckplayer.js" charset="utf-8"></script>
-<script type="text/javascript">
-players();
-$("#doplayers").bind("click", function() {
-    players()
 });
 
-function players() {
-	var a = $('#url').val();
-    if ($('#url').val() == "") {
-        alert('请输入视频网站网址！');
-        $('#url').focus();
-        return (false)
-    }
-	document.getElementById("vplay").src="http://api.smq1.com/?url=" + a;
-
-}
-
-function players2() {
-    var a = $('#url').val();
-    if ($('#url').val() == "") {
-        alert('请输入视频网站网址！');
-        $('#url').focus();
-        return (false)
-    }
-    var b = {
-      f: 'http://api.smq1.com/?url=' + a,
-        c: 0,
-        s: 2,
-        p: 1,
-        b: 1,
-    };
-    var c = {
-        bgcolor: '#FFF',
-        allowFullScreen: true,
-        allowScriptAccess: 'always',
-        wmode: 'transparent'
-    };
-  var d = ['http://api.smq1.com/?url=' + a + '&mobile'];
-    var e = ['iPad', 'iPhone', 'ios', 'android+false', 'msie10+false'];
-    CKobject.embed('player/player.swf', 'ckplays', 'ckplayer_mains', '100%', '500', false, b, d, c)
-}
-
-function addhtml52() {
-    if (CKobject.isHTML5()) {
-        support = ['all'];
-        CKobject._K_('moveid').innerHTML = '';
-        CKobject.embedHTML5('moveid', 'ckplayer_a1', '100%', 530, video, flashvars, support)
-    } else {
-        addflash()
-    }
-}
 </script>
-</body>
-</html>
