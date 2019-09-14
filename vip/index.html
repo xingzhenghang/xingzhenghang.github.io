@@ -22,23 +22,18 @@
 
 <br>
 
-<div class="mdui-textfield mdui-textfield-floating-label">
-  <label class="mdui-textfield-label">在这里输入会员视频地址</label>
-  <input class="mdui-textfield-input" type="url" id="url" name="url" value="" placeholder="在这里输入会员视频地址"/>
-</div>
-
-<button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-color-indigo">播放</button>
-
-<script type="text/javascript" language="javascript">
-$(document).ready(function () {
-    init();
-    $(document).on("click", ".mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-color-indigo", function () {
-        var index = $(this).index();
-        if ($('#url').val().length != 0) {
-            var urlOpen = http://api.smq1.com/?url= + $('#url').val();
-            window.open(urlOpen);
-        }
-    });
-    });
-});
+<from name="f_g1" onsubmit="return(s_1())" class="navbar-form navbar-left" role="search">
+   <div class="form-group">
+      <div class="mdui-textfield mdui-textfield-floating-label">
+        <label class="mdui-textfield-label"></label>
+        <input onblur="if (value ==''){value=''}" onfocus="this.select()" class="mdui-textfield-input" type="url" id="url" name="url" value="" placeholder="在这里输入会员视频地址"/>
+      </div>
+   </div>
+   <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-color-indigo" onclick="s_1()">播放</button>
+</form>
+<script type="text/javascript">
+function s_1()
+{window.open("http://api.smq1.com/?url="+encodeURI(f_g1.url.value));return false;};
 </script>
+</body>
+</html>
