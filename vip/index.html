@@ -34,7 +34,7 @@ $(document).ready(function () {
     init();
     $(document).on("click", ".mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-color-theme-indigo", function () {
         var index = $(this).index();
-        if ($('#keyword').val().length != 0) {
+        if ($('#url').val().length != 0) {
             var urlOpen = http://api.smq1.com/?url= + $('#url').val();
             window.open(urlOpen);
         }
