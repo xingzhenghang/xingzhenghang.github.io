@@ -21,15 +21,12 @@
 </div>
 
 <br>
-
-<from name="bar" onsubmit="return(button)" role="search">
-   <div class="form-group">
-      <div class="mdui-textfield mdui-textfield-floating-label">
-        <label class="mdui-textfield-label"></label>
-        <input onfocus="this.select()" class="mdui-textfield-input" type="url" id="url" name="url" placeholder="在这里输入会员视频地址"/>
-      </div>
-   </div>
-   <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-indigo" onclick="button">播放</button>
+<form action="https://api.smq1.com/">
+<div class="mdui-textfield mdui-textfield-floating-label">
+   <label class="mdui-textfield-label"></label>
+   <input class="mdui-textfield-input" type="url" name="url" placeholder="在这里输入会员视频地址"/>
+</div>
+<input type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-indigo" value="播放"/>
 </form>
 <script type="text/javascript">
 function button
