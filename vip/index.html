@@ -3,47 +3,55 @@
 <head>
 <title>VIP 视频解析</title>
 <link rel="stylesheet" href="https://www.xingzhenghang.tk/ui/css/mdui.min.css"/>
-<script async src="https://www.xingzhenghang.tk/js/mdui.js"></script>
-<meta charset="utf-8">
+<script async src="https://www.xingzhenghang.tk/js/mdui.js"/>
+<meta charset="utf-8"/>
 <meta name="format-detection" content="telephone=no"/>
 <meta name="viewport" content="width=device-width"/>
 </head>
 
-<body>
+
+<body class="mdui-drawer-body mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
 <div>
 <div class="mdui-container">
-<body class="mdui-drawer-body mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
 <header class="mdui-appbar mdui-appbar-fixed">
 <div class="mdui-toolbar mdui-color-theme">
-<span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
-<span class="mdui-typo-title">VIP 视频解析</span>
+<span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}">
+   <i class="mdui-icon material-icons">menu</i>
+</span>
+<span class="mdui-typo-title">
+VIP 视频解析
+</span>
 </div>
+</header>
 </div>
 
-<div class="mdui-container doc-container"/>
+<div class="mdui-container doc-container">
 
 <br>
+
 <div class="mdui-row">
 <form action="https://api.smq1.com/">
 <div class="mdui-textfield mdui-textfield-floating-label">
    <i class="mdui-icon material-icons">link</i>
    <label class="mdui-textfield-label">在这里输入会员视频地址</label>
-   <input class="mdui-col-xs-7 mdui-textfield-input" type="url" name="url" maxlength="200" required/>
+   <input class="mdui-col-xs-6 mdui-textfield-input" type="url" name="url" required maxlength="200"></input>
    <div class="mdui-textfield-error">网站地址格式错误<br>请检查是否有 HTTP/HTTPS 协议</div>
 </div>
-<input type="submit" class="mdui-col-xs-3 mdui-float-right mdui-btn mdui-btn-raised mdui-ripple mdui-color-indigo" value="播放"/>
+<input type="submit" class="mdui-col-xs-3 mdui-float-right mdui-btn mdui-btn-raised mdui-ripple mdui-color-indigo" value="播放"></input>
 </form>
+</div>
 
 <br>
 
+<div class="mdui-row">
 <form action="https://api.smq1.com/">
 <div class="mdui-textfield mdui-textfield-floating-label">
    <i class="mdui-icon material-icons">pageview</i>
    <label class="mdui-textfield-label">在这里搜索电影</label>
-   <input class="mdui-col-xs-7 mdui-textfield-input" type="text" name="wd" maxlength="200" required/>
+   <input class="mdui-col-xs-6 mdui-textfield-input" type="text" name="wd" required maxlength="200"></input>
    <div class="mdui-textfield-error">搜索文本错误</div>
 </div>
-<input type="submit" class="mdui-col-xs-3 mdui-float-right mdui-btn mdui-btn-raised mdui-ripple mdui-color-indigo" value="搜索"/>
+<input type="submit" class="mdui-col-xs-3 mdui-float-right mdui-btn mdui-btn-raised mdui-ripple mdui-color-indigo" value="搜索"></input>
 </form>
 </div>
 
