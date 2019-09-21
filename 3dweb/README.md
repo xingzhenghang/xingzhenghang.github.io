@@ -1,10 +1,10 @@
-# WebGL Fluid Simulation
+# WebGL 流体模拟
 
-[Play here](https://paveldogreat.github.io/WebGL-Fluid-Simulation/)
+[ 在这里玩 ](https://paveldogreat.github.io/WebGL-Fluid-Simulation/)
 
 <img src="/screenshot.jpg?raw=true" width="880">
 
-## References
+## 参考资料
 
 http://developer.download.nvidia.com/books/HTML/gpugems/gpugems_ch38.html
 
@@ -12,6 +12,8 @@ https://github.com/mharrys/fluids-2d
 
 https://github.com/haxiomic/GPU-Fluid-Experiments
 
-## License
+https://github.com/PavelDoGreat/WebGL-Fluid-Simulation/
 
-The code is available under the [MIT license](https://github.com/PavelDoGreat/WebGL-Fluid-Simulation/blob/master/LICENSE)
+## 许可
+
+代码在 [ MIT 许可证] 下可用(https://github.com/PavelDoGreat/WebGL-Fluid-Simulation/blob/master/LICENSE)
