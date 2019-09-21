@@ -4,7 +4,7 @@ const __DEVELOPMENT__ = false;
 const __DEBUG__ = false;
 const offlineResources = [
   '//www.xingzhenghang.tk/ui/css/mdui.min.css',
-  '//www.xingzhenghang.tk/js/mdui.js',  './index.html',
+  '//www.xingzhenghang.tk/js/mdui.js',
   './pe/index.html'
   './pc/index.html'
   '/',
