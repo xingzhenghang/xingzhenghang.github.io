@@ -2,7 +2,7 @@
   "name"              : "Minecraft 下载 APP",
   "short_name"        : "MC 下载",
   "description"       : "一个可以下载 Minecraft 最新版的 APP",
-  "start_url"         : "/",
+  "start_url"         : "/mcxz/",
   "display"           : "standalone",
   "orientation"       : "any",
   "background_color"  : "#3F51B5",
