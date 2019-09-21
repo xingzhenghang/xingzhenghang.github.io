@@ -1,8 +1,8 @@
 # WebGL 流体模拟
 
-[ 在这里玩 ](https://paveldogreat.github.io/WebGL-Fluid-Simulation/)
+[ 在这里玩 ](https://www.xingzhenghang.tk/3dweb/)
 
-<img src="/screenshot.jpg?raw=true" width="880">
+<img src="https://www.xingzhenghang.tk/3dweb/screenshot.jpg" width="880">
 
 ## 参考资料
 
