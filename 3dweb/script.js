@@ -179,39 +179,39 @@ function supportRenderTextureFormat (gl, internalFormat, format, type) {
 
 function startGUI () {
     var gui = new dat.GUI({ width: 300 });
-    gui.add(config, 'DYE_RESOLUTION', { 'high': 1024, 'medium': 512, 'low': 256, 'very low': 128 }).name('quality').onFinishChange(initFramebuffers);
-    gui.add(config, 'SIM_RESOLUTION', { '32': 32, '64': 64, '128': 128, '256': 256 }).name('sim resolution').onFinishChange(initFramebuffers);
-    gui.add(config, 'DENSITY_DISSIPATION', 0, 4.0).name('density diffusion');
-    gui.add(config, 'VELOCITY_DISSIPATION', 0, 4.0).name('velocity diffusion');
-    gui.add(config, 'PRESSURE', 0.0, 1.0).name('pressure');
-    gui.add(config, 'CURL', 0, 50).name('vorticity').step(1);
-    gui.add(config, 'SPLAT_RADIUS', 0.01, 1.0).name('splat radius');
-    gui.add(config, 'SHADING').name('shading').onFinishChange(updateKeywords);
-    gui.add(config, 'COLORFUL').name('colorful');
-    gui.add(config, 'PAUSED').name('paused').listen();
+    gui.add(config, 'DYE_RESOLUTION', { '高': 1024, '中': 512, '低': 256, '非常低': 128 }).name('质量').onFinishChange(initFramebuffers);
+    gui.add(config, 'SIM_RESOLUTION', { '32': 32, '64': 64, '128': 128, '256': 256 }).name('模拟分辨率').onFinishChange(initFramebuffers);
+    gui.add(config, 'DENSITY_DISSIPATION', 0, 4.0).name('密度扩散');
+    gui.add(config, 'VELOCITY_DISSIPATION', 0, 4.0).name('速度扩散');
+    gui.add(config, 'PRESSURE', 0.0, 1.0).name('压力');
+    gui.add(config, 'CURL', 0, 50).name('漩涡').step(1);
+    gui.add(config, 'SPLAT_RADIUS', 0.01, 1.0).name('飞溅半径');
+    gui.add(config, 'SHADING').name('阴影').onFinishChange(updateKeywords);
+    gui.add(config, 'COLORFUL').name('华美');
+    gui.add(config, 'PAUSED').name('暂停').listen();
 
     gui.add({ fun: () => {
         splatStack.push(parseInt(Math.random() * 20) + 5);
-    } }, 'fun').name('Random splats');
+    } }, 'fun').name('随机溅出');
 
-    let bloomFolder = gui.addFolder('Bloom');
-    bloomFolder.add(config, 'BLOOM').name('enabled').onFinishChange(updateKeywords);
-    bloomFolder.add(config, 'BLOOM_INTENSITY', 0.1, 2.0).name('intensity');
-    bloomFolder.add(config, 'BLOOM_THRESHOLD', 0.0, 1.0).name('threshold');
+    let bloomFolder = gui.addFolder('绽放特效');
+    bloomFolder.add(config, 'BLOOM').name('启用').onFinishChange(updateKeywords);
+    bloomFolder.add(config, 'BLOOM_INTENSITY', 0.1, 2.0).name('强度');
+    bloomFolder.add(config, 'BLOOM_THRESHOLD', 0.0, 1.0).name('阈值');
 
-    let sunraysFolder = gui.addFolder('Sunrays');
-    sunraysFolder.add(config, 'SUNRAYS').name('enabled').onFinishChange(updateKeywords);
-    sunraysFolder.add(config, 'SUNRAYS_WEIGHT', 0.3, 1.0).name('weight');
+    let sunraysFolder = gui.addFolder('太阳光特效');
+    sunraysFolder.add(config, 'SUNRAYS').name('启用').onFinishChange(updateKeywords);
+    sunraysFolder.add(config, 'SUNRAYS_WEIGHT', 0.3, 1.0).name('强度');
 
-    let captureFolder = gui.addFolder('Capture');
-    captureFolder.addColor(config, 'BACK_COLOR').name('background color');
-    captureFolder.add(config, 'TRANSPARENT').name('transparent');
-    captureFolder.add({ fun: captureScreenshot }, 'fun').name('take screenshot');
+    let captureFolder = gui.addFolder('捕获');
+    captureFolder.addColor(config, 'BACK_COLOR').name('背景颜色');
+    captureFolder.add(config, 'TRANSPARENT').name('透明');
+    captureFolder.add({ fun: captureScreenshot }, 'fun').name('截图');
 
     let github = gui.add({ fun : () => {
         window.open('https://github.com/PavelDoGreat/WebGL-Fluid-Simulation');
         ga('send', 'event', 'link button', 'github');
-    } }, 'fun').name('Github');
+    } }, 'fun').name('Github 源代码');
     github.__li.className = 'cr function bigFont';
     github.__li.style.borderLeft = '3px solid #8C8C8C';
     let githubIcon = document.createElement('span');
@@ -221,7 +221,7 @@ function startGUI () {
     let twitter = gui.add({ fun : () => {
         ga('send', 'event', 'link button', 'twitter');
         window.open('https://twitter.com/PavelDoGreat');
-    } }, 'fun').name('Twitter');
+    } }, 'fun').name('推特');
     twitter.__li.className = 'cr function bigFont';
     twitter.__li.style.borderLeft = '3px solid #8C8C8C';
     let twitterIcon = document.createElement('span');
@@ -231,7 +231,7 @@ function startGUI () {
     let discord = gui.add({ fun : () => {
         ga('send', 'event', 'link button', 'discord');
         window.open('https://discordapp.com/invite/CeqZDDE');
-    } }, 'fun').name('Discord');
+    } }, 'fun').name('Discord 电子游戏社区');
     discord.__li.className = 'cr function bigFont';
     discord.__li.style.borderLeft = '3px solid #8C8C8C';
     let discordIcon = document.createElement('span');
@@ -241,7 +241,7 @@ function startGUI () {
     let app = gui.add({ fun : () => {
         ga('send', 'event', 'link button', 'app');
         window.open('http://onelink.to/5b58bn');
-    } }, 'fun').name('Check out mobile app');
+    } }, 'fun').name('获得移动应用');
     app.__li.className = 'cr function appBigFont';
     app.__li.style.borderLeft = '3px solid #00FF7F';
     let appIcon = document.createElement('span');
