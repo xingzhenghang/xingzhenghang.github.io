@@ -1,2 +1,5 @@
-Sitemap:
-http://www.xingzhenghang.tk/sitemap.xml
+User-agent: *
+Allow: /
+
+Sitemap: 
+https://www.xingzhenghang.tk/sitemap.xml
