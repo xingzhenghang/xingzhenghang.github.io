@@ -88,35 +88,43 @@ c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C34.3,8.7,27,1.4,18,1.4z">
 
 <footer class="mdui-color-indigo" style=" width: 100%;height: 170px;bottom:0px;left:0px;">
 <div class="warn" style="text-align:center;">
-<p>
-本站已稳定运行：<span id="run_time"></span><br>
-<!--网站计时-->
-<script>
-function runTime() {
-    var d = new Date(), str = '';
-    BirthDay = new Date("2019-07-01");
-    today = new Date();
-    timeold = (today.getTime() - BirthDay.getTime());
-    sectimeold = timeold / 1000
-    secondsold = Math.floor(sectimeold);
-    msPerDay = 24 * 60 * 60 * 1000
-    msPerYear = 365 * 24 * 60 * 60 * 1000
-    e_daysold = timeold / msPerDay
-    e_yearsold = timeold / msPerYear
-    yearsold = Math.floor(e_yearsold);
-    daysold = Math.floor(e_daysold)-yearsold*365;
-    str = yearsold + "年";
-    str += daysold + "天";
-    str += d.getHours() + '时';
-    str += d.getMinutes() + '分';
-    str += d.getSeconds() + '秒';
-    return str;
-}
-
-setInterval(function () {
-    $('#run_time').html(runTime())
-}, 1000);
+<span id="sitetime"></span>
+<script language=javascript>
+    function siteTime(){
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth()+1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2019,07,01,00,00,00); //北京时间2016-12-1 00:00:00
+        var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+        var diff = t2-t1;
+        var diffYears = Math.floor(diff/years);
+        var diffDays = Math.floor((diff/days)-diffYears*365);
+        var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+        var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+        var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+        document.getElementById("sitetime").innerHTML=" 已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+    }
+    siteTime();
 </script>
+<p>
 本站使用QUIC传输层网络协议为您呈现精彩内容。<br>
 注：本站不出售、本站不出售友链、不出租二级目录、不接下载器和捆绑类的广告，以上需求无需联系谢谢。
 </p>
