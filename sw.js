@@ -1,15 +1,15 @@
 'use strict';
-const version = 'v20191005';
+const version = 'v20191021';
 const __DEVELOPMENT__ = false;
 const __DEBUG__ = false;
 const offlineResources = [
   '//xingzhenghang.tk',
   '//www.xingzhenghang.tk',
-  './mcxz'
-  './pro'
-  './index.html',
-  './vip',
-  './3dweb',
+  '//www.xingzhenghang.tk/pro'
+  '//www.xingzhenghang.tk/vip'
+  '//www.xingzhenghang.tk/mcxz',
+  '//www.xingzhenghang.tk/3dweb',
+  '//www.xingzhenghang.tk/MSDN',
 ];
 
 function onInstall(event) {
