@@ -1,47 +1,23 @@
 {
-  "name"              : "小 X PWA",
+  "name"              : "小 X 的网站",
   "short_name"        : "小 X",
-  "description"       : "一个可以下载 Minecraft 最新版的 APP",
-  "start_url"         : "/mcxz/",
+  "description"       : "小 X 的网站 WebAPP",
+  "start_url"         : "/",
   "display"           : "standalone",
   "orientation"       : "any",
   "background_color"  : "#3F51B5",
   "theme_color"       : "#3F51B5",
+  "scope"             : "/",
   "icons": [
     {
-      "src": "//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png",
-      "sizes": "152x152",
-      "type": "image/png"
-    },
-    {
-      "src": "//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
-      "src": "//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png",
+      "src": "https://www.xingzhenghang.tk/144px.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "//www.xingzhenghang.tk/images/minecraft_128px_1126406_easyicon.net.png",
+      "src": "https://www.xingzhenghang.tk/96.px.png",
       "type": "image/png",
-      "sizes": "128x128"
-    },
-    {
-      "src": "//www.xingzhenghang.tk/images/minecraft_32px_1126406_easyicon.net.png",
-      "type": "image/png",
-      "sizes": "32x32"
-    },
-    {
-      "src": "//www.xingzhenghang.tk/images/minecraft_16px_1126406_easyicon.net.png",
-      "type": "image/png",
-      "sizes": "16x16"
+      "sizes": "96x96"
     }
   ]
 }
