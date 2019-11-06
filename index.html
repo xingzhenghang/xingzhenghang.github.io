@@ -34,6 +34,32 @@ if ('serviceWorker' in navigator) {
     });
 }
 </script>
+<script ="text/javascript">
+function addLink() {
+    var body_element = document.body;
+    var selection;
+    selection = window.getSelection();
+    if (window.clipboardData) { // Internet Explorer
+        var pagelink ="\r\n\r\n 原文出自[ 小 X ] 转载请保留原文链接: "+document.location.href+"";
+        var copytext = selection + pagelink;
+        window.clipboardData.setData ("Text", copytext);
+        return false;
+    } else {
+        var pagelink = " 原文出自[ 小 X ] 转载请保留原文链接: "+document.location.href+"";
+        var copytext = selection + pagelink;
+        var newdiv = document.createElement('div');
+        newdiv.style.position='absolute';
+        newdiv.style.left='-99999px';
+        body_element.appendChild(newdiv);
+        newdiv.innerHTML = copytext;
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function() {
+        body_element.removeChild(newdiv);
+        },0);
+    }
+}
+document.oncopy = addLink;
+</script>
 </head>
 
 <body>
