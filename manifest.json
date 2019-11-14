@@ -1,23 +1,23 @@
 {
-  "name"              : "小 X 的网站",
-  "short_name"        : "小 X",
-  "description"       : "小 X 的网站 WebAPP",
-  "start_url"         : "/",
-  "display"           : "standalone",
-  "orientation"       : "any",
-  "background_color"  : "#3F51B5",
-  "theme_color"       : "#3F51B5",
-  "scope"             : "/",
+  "name": "小 X 的网站",
+  "short_name": "小 X",
+  "description": "小 X 的网站 WebAPP",
+  "theme_color": "#3F51B5",
+  "background_color": "#3F51B5",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
-      "src": "https://www.xingzhenghang.tk/144px.png",
+      "src": "/144px.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "https://www.xingzhenghang.tk/96px.png",
+      "src": "/96px.png",
       "type": "image/png",
       "sizes": "96x96"
     }
-  ]
+  ],
+  "splash_pages": null
 }
