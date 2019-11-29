@@ -1,2 +1,0 @@
-function geoip_country_code() { return "CN"; }
-function geoip_region() { return "01"; }
