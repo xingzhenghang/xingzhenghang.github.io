@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+<title>欢迎访问！</title>
+<link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
+<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<link rel="stylesheet" href="https://www.xingzhenghang.tk/ui/css/mdui.min.css"/>
+<script async src="https://www.xingzhenghang.tk/js/mdui.min.js"></script>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width"/>
+<meta name="theme-color" content="#3F51B5">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?10b3469c417e40383a17d8d05828d4de";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+function addLink() {
+    var body_element = document.body;
+    var selection;
+    selection = window.getSelection();
+    if (window.clipboardData) { // Internet Explorer
+        var pagelink ="\r\n\r\n 原文出自[ 小 X ] 转载请保留原文链接: "+document.location.href+"";
+        var copytext = selection + pagelink;
+        window.clipboardData.setData ("Text", copytext);
+        return false;
+    } else {
+        var pagelink = " 原文出自[ 小 X ] 转载请保留原文链接: "+document.location.href+"";
+        var copytext = selection + pagelink;
+        var newdiv = document.createElement('div');
+        newdiv.style.position='absolute';
+        newdiv.style.left='-99999px';
+        body_element.appendChild(newdiv);
+        newdiv.innerHTML = copytext;
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function() {
+        body_element.removeChild(newdiv);
+        },0);
+    }
+}
+document.oncopy = addLink;
+</script>
+</head>
+<body>
+<div>
+
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col10main">
+                
+    <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+            
+            
+
+            <div class="alert alert-success alert-dismissible" role="alert">
+                条形码在线生成工具：条形码常被用于一般商品扫描使用
+            </div>
+            
+            <div id="collapseOne" class="in collapse bs-docs-example">
+                <div class="panel">
+                    <div class="panel-body">
+                        <form id="form1" class="form-horizontal" action="/barcode/" method="post">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                条形码内容：</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="url_txt" name="url_txt" type="text" placeholder="请输入条形码内容，例如：wwwxingzhenghang.tk"
+                                    autocomplete="off" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                            </label>
+                            <div class="col-sm-10">
+                                <button type="button" class="btn btn-success" id="btnresult">
+                                    生成条形码</button>
+                                <button type="button" class="btn btn-danger" onclick="empty()">
+                                    清空输入框</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                条形码：
+                            </label>
+                            <div class="col-sm-10">
+                                <img id="imgcode" style="max-width: 100%;" />
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="www.jsons.cn/Style/js/jquery-1.11.3.min.js?20190731" type="text/javascript"></script>
+    <script src="www.jsons.cn/Style/js/bootstrap3.5min.js" type="text/javascript"></script>
+    <script src="www.jsons.cn/Style/js/FileSave.js" type="text/javascript"></script>
+    <script src="www.jsons.cn/Style/js/clipboard.min.js" type="text/javascript"></script>
+    <script src="www.jsons.cn/Style/js/mainjs.js?201907142041" type="text/javascript"></script>
+    
+    <script src="www.jsons.cn/Style/js/pjs/JsBarcode.all.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            var content = $("#url_txt").val();
+            if (content == "") {
+                content = "www.jsons.cn";
+                $("#imgcode").JsBarcode(content);
+            }
+        });
+        function gen_code() {
+            var content = $("#url_txt").val();
+            if (content == "") {
+                JsonsMessageBox($("#url_txt"), "请输入条形码内容");
+            }
+            else {
+                $("#imgcode").JsBarcode(content);
+            }
+        }
+        $("#btnresult").click(function () {
+            gen_code();
+        })
+        function empty() {
+            $("#url_txt").val("");
+            $('#imgcode').attr("src", "");
+        }
+    </script>
+</body>
+</html>
