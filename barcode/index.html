@@ -46,25 +46,18 @@ function addLink() {
 document.oncopy = addLink;
 </script>
 </head>
-<body>
-<div>
 
-    
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col10main">
-                
-    <div class="accordion" id="accordion2">
-        <div class="accordion-group">
-            
-            
+<body>
+<div class="mdui-typo container">
+
+
 <div class="mdui-appbar mdui-appbar-scroll-hide">
 <div class="mdui-toolbar mdui-color-indigo">
   <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
   <span class="mdui-typo-title">条形码/二维码生成</span>
   <div class="mdui-toolbar-spacer"></div>
 </div>
+
 <div class="mdui-tab mdui-color-indigo mdui-tab-full-width" mdui-tab>
   <a href="#" class="mdui-ripple mdui-ripple-white">
     <svg t="1578405856257" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1105" width="24" height="24"><path d="M160 544c-17.664 0-32 14.304-32 32l0 320c0 17.696 14.336 32 32 32s32-14.304 32-32L192 576C192 558.304 177.664 544 160 544z" p-id="1106" fill="#ffffff"></path><path d="M608 544c-17.696 0-32 14.304-32 32l0 320c0 17.696 14.304 32 32 32s32-14.304 32-32L640 576C640 558.304 625.696 544 608 544z" p-id="1107" fill="#ffffff"></path><path d="M864 544c-17.696 0-32 14.304-32 32l0 320c0 17.696 14.304 32 32 32s32-14.304 32-32L896 576C896 558.304 881.696 544 864 544z" p-id="1108" fill="#ffffff"></path><path d="M288 544c-17.664 0-32 14.304-32 32l0 224c0 17.696 14.336 32 32 32s32-14.304 32-32l0-224C320 558.304 305.664 544 288 544z" p-id="1109" fill="#ffffff"></path><path d="M416 544c-17.664 0-32 14.304-32 32l0 224c0 17.696 14.336 32 32 32s32-14.304 32-32l0-224C448 558.304 433.664 544 416 544z" p-id="1110" fill="#ffffff"></path><path d="M736 544c-17.696 0-32 14.304-32 32l0 224c0 17.696 14.304 32 32 32s32-14.304 32-32l0-224C768 558.304 753.696 544 736 544z" p-id="1111" fill="#ffffff"></path><path d="M160 352c17.664 0 32-14.336 32-32L192 128c0-17.664-14.336-32-32-32S128 110.336 128 128l0 192C128 337.664 142.336 352 160 352z" p-id="1112" fill="#ffffff"></path><path d="M288 352c17.664 0 32-14.336 32-32L320 128c0-17.664-14.336-32-32-32S256 110.336 256 128l0 192C256 337.664 270.336 352 288 352z" p-id="1113" fill="#ffffff"></path><path d="M416 352c17.664 0 32-14.336 32-32L448 128c0-17.664-14.336-32-32-32s-32 14.336-32 32l0 192C384 337.664 398.336 352 416 352z" p-id="1114" fill="#ffffff"></path><path d="M608 352c17.696 0 32-14.336 32-32L640 128c0-17.664-14.304-32-32-32s-32 14.336-32 32l0 192C576 337.664 590.304 352 608 352z" p-id="1115" fill="#ffffff"></path><path d="M736 352c17.696 0 32-14.336 32-32L768 128c0-17.664-14.304-32-32-32s-32 14.336-32 32l0 192C704 337.664 718.304 352 736 352z" p-id="1116" fill="#ffffff"></path><path d="M864 352c17.696 0 32-14.336 32-32L896 128c0-17.664-14.304-32-32-32s-32 14.336-32 32l0 192C832 337.664 846.304 352 864 352z" p-id="1117" fill="#ffffff"></path><path d="M928 416 96 416c-17.664 0-32 14.336-32 32s14.336 32 32 32l832 0c17.696 0 32-14.336 32-32S945.696 416 928 416z" p-id="1118" fill="#ffffff"></path></svg>
@@ -76,15 +69,15 @@ document.oncopy = addLink;
   </a>
 </div>
 </div>
+
 <br>
-<div class="mdui-container doc-container">
+<div class="mdui-containter doc-container">
           <div id="collapseOne" class="in collapse bs-docs-example">
                 <div class="panel">
                     <div class="panel-body">
                         <form id="form1" class="form-horizontal" action="/barcode/" method="post">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">
-                                条形码内容：</label>
+                            <h1>条形码内容：</h1>
                           <div class="mdui-textfield mdui-textfield-floating-label">
                             <label class="mdui-textfield-label">请输入条形码内容，例如：www.xingzhenghang.tk</label>
                             <textarea class="mdui-textfield-input form-control" id="url_txt" name="url_txt" type="text" autocomplete="off"></textarea>
@@ -100,8 +93,10 @@ document.oncopy = addLink;
                               </div>
                             </div>
                         </div>
+                        <hr/>
+                        <br>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">条形码：（长按/右击保存）</label>
+                            <h1>生成的条形码：<small>（长按/右击保存）</small></label>
                             <div class="col-sm-10">
                                 <img id="imgcode" style="max-width: 100%;" />
                             </div>
