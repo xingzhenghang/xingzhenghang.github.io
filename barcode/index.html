@@ -59,7 +59,7 @@ document.oncopy = addLink;
         <div class="accordion-group">
             
             
-<div class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide">
+<div class="mdui-appbar mdui-appbar-scroll-hide">
 <div class="mdui-toolbar mdui-color-indigo">
   <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
   <span class="mdui-typo-title">条形码/二维码生成</span>
@@ -84,8 +84,9 @@ document.oncopy = addLink;
                             <label class="col-sm-2 control-label">
                                 条形码内容：</label>
                           <div class="mdui-textfield mdui-textfield-floating-label">
-                            <label class="mdui-textfield-label" id="url_txt" name="url_txt" type="text" autocomplete="off">请输入条形码内容，例如：www.xingzhenghang.tk</label>
-                            <textarea class="mdui-textfield-input form-control"></textarea>
+                            <label class="mdui-textfield-label">请输入条形码内容，例如：www.xingzhenghang.tk</label>
+                            <textarea class="mdui-textfield-input form-control" id="url_txt" name="url_txt" type="text" autocomplete="off" required></textarea>
+                            <div class="mdui-textfield-error">条形码内容不能为空</div>
                           </div>
                         </div>
                         <div class="form-group">
@@ -114,19 +115,10 @@ document.oncopy = addLink;
         $(function () {
             var content = $("#url_txt").val();
             if (content == "") {
-                content = "www.jsons.cn";
+                content = "www.xingzhenghang.tk";
                 $("#imgcode").JsBarcode(content);
             }
         });
-        function gen_code() {
-            var content = $("#url_txt").val();
-            if (content == "") {
-                JsonsMessageBox($("#url_txt"), "请输入条形码内容");
-            }
-            else {
-                $("#imgcode").JsBarcode(content);
-            }
-        }
         $("#btnresult").click(function () {
             gen_code();
         })
