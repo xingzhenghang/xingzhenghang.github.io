@@ -121,6 +121,15 @@ document.oncopy = addLink;
         $("#btnresult").click(function () {
             gen_code();
         })
+        function gen_code() {
+            var content = $("#url_txt").val();
+            if (content == "") {
+                JsonsMessageBox($("#url_txt"), "请输入条形码内容");
+            }
+            else {
+                $("#imgcode").JsBarcode(content);
+            }
+        }
         function empty() {
             $("#url_txt").val("");
             $('#imgcode').attr("src", "");
