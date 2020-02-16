@@ -15,7 +15,7 @@ self.addEventListener('install', function(event) {
         './vip/',
         './blog/',
         './sitemap.html',
-        './MSDN/',
+        './MSDN/'
       ]);
     })
   );
@@ -58,3 +58,4 @@ self.addEventListener('fetch', function (event) {
       })
   )
 })
+
