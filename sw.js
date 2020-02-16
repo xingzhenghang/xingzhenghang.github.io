@@ -1,130 +1,59 @@
-'use strict';
-const version = 'v20191021';
-const __DEVELOPMENT__ = false;
-const __DEBUG__ = false;
-const offlineResources = [
-  '//xingzhenghang.tk',
-  '//www.xingzhenghang.tk',
-  '//www.xingzhenghang.tk/pro'
-  '//www.xingzhenghang.tk/vip'
-  '//www.xingzhenghang.tk/mcxz',
-  '//www.xingzhenghang.tk/3dweb',
-  '//www.xingzhenghang.tk/MSDN',
-];
-
-function onInstall(event) {
-    log('install event in progress.');
-    event.waitUntil(updateStaticCache());
-    self.skipWaiting()
-}
-
-function updateStaticCache() {
-    return caches.open(cacheKey('/')).then((cache) => {
-        return cache.addAll(offlineResources)
-    }).then(() => {
-        log('installation complete!')
+var VERSION = 'v200216';
+// 开始缓存
+self.addEventListener('install', function(event) {
+  this.skipWaiting();  
+// 避免更新后的 service-worker 处于等待状态
+  event.waitUntil(
+    caches.open(VERSION).then(function(cache) {
+      return cache.addAll([
+        './',
+        './mcxz',
+        './mcxz/pe',
+        './mcxz/pc',
+        './3dweb',
+        './barcode',
+        './vip',
+        './blog',
+      ]);
     })
-}
+  );
+});
 
-function onFetch(event) {
-    const request = event.request;
-    if (shouldAlwaysFetch(request)) {
-        event.respondWith(networkedOrOffline(request));
-        return
-    }
-    if (shouldFetchAndCache(request)) {
-        event.respondWith(networkedOrCached(request));
-        return
-    }
-    event.respondWith(cachedOrNetworked(request))
-}
-
-function networkedOrCached(request) {
-    return networkedAndCache(request).catch(() => {
-        return cachedOrOffline(request)
-    })
-}
-
-function networkedAndCache(request) {
-    return fetch(request).then((response) => {
-        var copy = response.clone();
-        caches.open(cacheKey('resources')).then((cache) => {
-            cache.put(request, copy)
-        });
-        log("(network: cache write)", request.method, request.url);
-        return response
-    })
-}
-
-function cachedOrNetworked(request) {
-    return caches.match(request).then((response) => {
-        log(response ? '(cached)' : '(network: cache miss)', request.method, request.url);
-        return response || networkedAndCache(request).catch(() => {
-            return offlineResponse(request)
+// 更新缓存
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          // 如果当前版本和缓存版本不一致
+          if (cacheName !== VERSION) {
+            return caches.delete(cacheName);
+          }
         })
+      );
     })
-}
+  );
+});
 
-function networkedOrOffline(request) {
-    return fetch(request).then((response) => {
-        log('(network)', request.method, request.url);
-        return response
-    }).catch(() => {
-        return offlineResponse(request)
-    })
-}
+// 捕获请求并返回缓存数据
+self.addEventListener('fetch', function (event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function (resp) {
+        if (resp) {
+          console.log(new Date(), 'fetch ', event.request.url, '有缓存，从缓存中取')
+          return resp
+        } else {
+          console.log(new Date(), 'fetch ', event.request.url, '没有缓存，网络获取')
+          return fetch(event.request)
+            .then(function (response) {
+              return caches.open(VERSION).then(function (cache) {
+                cache.put(event.request, response.clone())
+                return response
+              })
+            })
+        }
+      })
+  )
+})
 
-function cachedOrOffline(request) {
-    return caches.match(request).then((response) => {
-        return response || offlineResponse(request)
-    })
-}
-
-function offlineResponse(request) {
-    log('(offline)', request.method, request.url);
-        return caches.match('/')
-    }
-}
-
-function onActivate(event) {
-    log('activate event in progress.');
-    event.waitUntil(removeOldCache())
-}
-
-function removeOldCache() {
-    return caches.keys().then((keys) => {
-        return Promise.all(keys.filter((key) => {
-            return !key.startsWith(version)
-        }).map((key) => {
-            return caches.delete(key)
-        }))
-    }).then(() => {
-        log('removeOldCache completed.')
-    })
-}
-
-function cacheKey() {
-    return [version, ...arguments].join(':')
-}
-
-function log() {
-    if (developmentMode()) {
-        console.log("SW:", ...arguments)
-    }
-}
-
-function shouldAlwaysFetch(request) {
-    return __DEVELOPMENT__ || request.method !== 'GET' || ignoreFetch.some(regex => request.url.match(regex))
-}
-
-function shouldFetchAndCache(request) {
-    return ~request.headers.get('Accept').indexOf('text/html')
-}
-
-function developmentMode() {
-    return __DEVELOPMENT__ || __DEBUG__
-}
-log("Hello from ServiceWorker land!", version);
-self.addEventListener('install', onInstall);
-self.addEventListener('fetch', onFetch);
-self.addEventListener("activate", onActivate);
