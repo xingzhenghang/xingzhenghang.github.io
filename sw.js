@@ -1,4 +1,4 @@
-var VERSION = 'v200216-new';
+var VERSION = 'v200217';
 // 开始缓存
 self.addEventListener('install', function(event) {
   this.skipWaiting();  
@@ -7,14 +7,25 @@ self.addEventListener('install', function(event) {
     caches.open(VERSION).then(function(cache) {
       return cache.addAll([
         './',
+        './pro/',
         './mcxz/',
         './mcxz/pe/',
+        './mcxz/pe/old/',
         './mcxz/pc/',
         './3dweb/',
         './barcode/',
         './vip/',
         './blog/',
+        './blog/190822/1.html',
+        './blog/190822/2.html',
+        './blog/190828/1.html',
+        './blog/200203/',
+        './blog/tab/installmsproduct/',
+        './blog/tab/installmsproduct/otp.html',
         './sitemap.html',
+        './software/systemtool/downloadtool/thunder.html',
+        './MSDN/Office/',
+        './MSDN/Windows/',
         './MSDN/'
       ]);
     })
