@@ -6,27 +6,17 @@ self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(VERSION).then(function(cache) {
       return cache.addAll([
-        './',
-        './pro/',
-        './mcxz/',
-        './mcxz/pe/',
-        './mcxz/pe/old/',
-        './mcxz/pc/',
-        './3dweb/',
-        './barcode/',
-        './vip/',
-        './blog/',
-        './blog/190822/1.html',
-        './blog/190822/2.html',
-        './blog/190828/1.html',
-        './blog/200203/',
-        './blog/tab/installmsproduct/',
-        './blog/tab/installmsproduct/otp.html',
-        './sitemap.html',
-        './software/systemtool/downloadtool/thunder.html',
-        './MSDN/Office/',
-        './MSDN/Windows/',
-        './MSDN/'
+        'https://www.xingzhenghang.tk/',
+        'https://www.xingzhenghang.tk/pro/',
+        'https://www.xingzhenghang.tk/mcxz/',
+        'https://www.xingzhenghang.tk/mcxz/pe/',
+        'https://www.xingzhenghang.tk/mcxz/pc/',
+        'https://www.xingzhenghang.tk/3dweb/',
+        'https://www.xingzhenghang.tk/barcode/',
+        'https://www.xingzhenghang.tk/vip/',
+        'https://www.xingzhenghang.tk/blog/',
+        'https://www.xingzhenghang.tk/sitemap.html',
+        'https://www.xingzhenghang.tk/MSDN/'
       ]);
     })
   );
