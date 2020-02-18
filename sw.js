@@ -1,7 +1,9 @@
-var VERSION = 'v200217';
+var VERSION = '20200218';
+
 // 开始缓存
 self.addEventListener('install', function(event) {
-  this.skipWaiting();  
+  this.skipWaiting();
+
 // 避免更新后的 service-worker 处于等待状态
   event.waitUntil(
     caches.open(VERSION).then(function(cache) {
@@ -59,4 +61,3 @@ self.addEventListener('fetch', function (event) {
       })
   )
 })
-
