@@ -1,7 +1,6 @@
 {
-  "name": "小 X 的网站",
+  "name": "小 X",
   "short_name": "小 X",
-  "description": "小 X 的网站 WebAPP",
   "theme_color": "#3F51B5",
   "background_color": "#3F51B5",
   "display": "standalone",
