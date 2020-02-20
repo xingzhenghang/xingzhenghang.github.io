@@ -55,7 +55,7 @@ class ServerConnection {
         // hack to detect if deployment or development environment
         const protocol = location.protocol.startsWith('https') ? 'wss' : 'ws';
         const webrtc = window.isRtcSupported ? '/webrtc' : '/fallback';
-        const url = protocol + '://' + snapdrop.net + '/server' + webrtc;
+        const url = protocol + '://snapdrop.net/server' + webrtc;
         return url;
     }
 
@@ -67,7 +67,7 @@ class ServerConnection {
 
     _onDisconnect() {
         console.log('WS: server disconnected');
-        Events.fire('notify-user', 'Connection lost. Retry in 5 seconds...');
+        Events.fire('notify-user', '连接断开。  5秒后重试...');
         clearTimeout(this._reconnectTimer);
         this._reconnectTimer = setTimeout(_ => this._connect(), 5000);
     }
@@ -507,7 +507,7 @@ class Events {
 
 RTCPeer.config = {
     'iceServers': [{
-        urls: 'stun:stun.l.google.com:19302'
+        urls: 'stun:stun.l.google.cn:19302'
     }, {
         urls: 'turn:192.158.29.39:3478?transport=tcp',
         credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
