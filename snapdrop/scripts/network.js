@@ -67,7 +67,7 @@ class ServerConnection {
 
     _onDisconnect() {
         console.log('WS: server disconnected');
-        Events.fire('notify-user', '连接断开。  5秒后重试...');
+        Events.fire('notify-user', 'Connection lost. Retry in 5 seconds...');
         clearTimeout(this._reconnectTimer);
         this._reconnectTimer = setTimeout(_ => this._connect(), 5000);
     }
@@ -507,7 +507,7 @@ class Events {
 
 RTCPeer.config = {
     'iceServers': [{
-        urls: 'stun:stun.xten.com'
+        urls: 'stun:stun.l.google.com:19302'
     }, {
         urls: 'turn:192.158.29.39:3478?transport=tcp',
         credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
