@@ -1,0 +1,757 @@
+ <html>
+ <head>
+ 	<title>飞机大战</title>
+  	<meta charset="utf-8"/>
+  	<style>
+		div#container{
+			background:#323232;
+			margin:0 auto;
+			text-align:center;
+			vertical-align:middle
+		}
+		html,body{
+		width: 100%;
+		height: 100%;
+		}
+		canvas{
+		display: block;
+		width: 100%;
+		height: 100%;
+		}
+ 	</style>
+ </head>
+ <body>
+ 	<div id="container">
+		<canvas id="canvas" width="1080px" height="650px"></canvas>
+	</div>
+	<script>
+	canvas.width = document.documentElement.clientWidth;
+	canvas.height = document.documentElement.clientHeight;
+	</script>
+	<script>
+		var timePoint=0;
+		var life=3;
+		var score=0;
+		var weaponSort;
+		var weaponNumber;
+		var state;
+		const START=0;
+		const STARTING=1;
+		const RUNNING=2;
+		const PAUSE=3;
+		const GAMEOVER=4;
+		var bombNumber=0;
+		state=START;
+		var weapons=[{
+			sort:"普通子弹",
+			number:"无限制"
+		},{
+			sort:"散弹",
+			number:1000
+		},{
+			sort:"反弹子弹",
+			number:1000
+		}];
+		weaponSort=weapons[0].sort;
+		weaponNumber=weapons[0].number;
+		var canvas=document.getElementById("canvas");
+		var context=canvas.getContext("2d");
+		var WIDTH=canvas.width;
+		var HEIGHT=canvas.height;
+		var bg=new Image();
+		bg.src="images/background.png";
+		var BG={
+			img:bg,
+			width:480,
+			height:852
+		}
+		function Bg(config){
+			this.img=config.img;
+			this.width=config.width;
+			this.height=config.height;
+			this.x1=0;
+			this.y1=0;
+			this.x11=0;
+			this.y11=-this.height;
+
+			this.x2=this.width;
+			this.y2=0;
+			this.x22=this.width;
+			this.y22=-this.height;
+
+			this.x3=this.width*2;
+			this.y3=0;
+			this.x33=this.width*2;
+			this.y33=-this.height;
+
+			this.x4=this.width*3;
+			this.y4=0;
+			this.x44=this.width*3;
+			this.y44=-this.height;
+			this.paint=function(ctx){
+				ctx.drawImage(this.img,this.x1,this.y1);
+				ctx.drawImage(this.img,this.x11,this.y11);
+				ctx.drawImage(this.img,this.x2,this.y2);
+				ctx.drawImage(this.img,this.x22,this.y22);
+				ctx.drawImage(this.img,this.x3,this.y3);
+				ctx.drawImage(this.img,this.x33,this.y33);
+				ctx.drawImage(this.img,this.x4,this.y4);
+				ctx.drawImage(this.img,this.x44,this.y44);
+			}
+			this.move=function(){
+				this.y1++;
+				this.y11++;
+				this.y2++;
+				this.y22++;
+				this.y3++;
+				this.y33++;
+				this.y4++;
+				this.y44++;
+				if(this.y1==this.height){
+					this.y1=-this.height;
+				}
+				if(this.y11==this.height){
+					this.y11=-this.height;
+				}
+				if(this.y2==this.height){
+					this.y2=-this.height;
+				}
+				if(this.y22==this.height){
+					this.y22=-this.height;
+				}
+				if(this.y3==this.height){
+					this.y3=-this.height;
+				}
+				if(this.y33==this.height){
+					this.y33=-this.height;
+				}
+				if(this.y4==this.height){
+					this.y4=-this.height;
+				}
+				if(this.y44==this.height){
+					this.y44=-this.height;
+				}
+			}
+		}
+		var log=new Image();
+		log.src="images/start.png";
+		var loadings=[];
+		loadings[0]=new Image();
+		loadings[0].src="images/game_loading1.png";
+		loadings[1]=new Image();
+		loadings[1].src="images/game_loading2.png";
+		loadings[2]=new Image();
+		loadings[2].src="images/game_loading3.png";
+		loadings[3]=new Image();
+		loadings[3].src="images/game_loading4.png";
+		var LOADING={
+			imgs:loadings,
+			width:186,
+			height:38,
+			count:loadings.length
+		}
+		function Loading(config){
+			this.imgs=config.imgs;
+			this.count=config.count;
+			this.width=config.width;
+			this.height=config.height;
+			this.x=10;
+			this.y=HEIGHT-this.height;
+			this.index=0;
+			this.speed=0;
+			this.paint=function(ctx){
+				ctx.drawImage(this.imgs[this.index],this.x,this.y);
+			}
+			this.move=function(){
+				this.speed++;
+				if(this.speed % 10 ==0){
+					this.index++;
+				}
+				if(this.index==this.count){
+					state=RUNNING;
+				}
+			}
+		}
+		var heros=[];
+		heros[0]=new Image();
+		heros[0].src="images/hero1.png";
+		heros[1]=new Image();
+		heros[1].src="images/hero2.png";
+		heros[2]=new Image();
+		heros[2].src="images/hero_blowup_n1.png";
+		heros[3]=new Image();
+		heros[3].src="images/hero_blowup_n2.png";
+		heros[4]=new Image();
+		heros[4].src="images/hero_blowup_n3.png";
+		heros[5]=new Image();
+		heros[5].src="images/hero_blowup_n4.png";
+		var HERO={
+			imgs:heros,
+			width:99,
+			height:124,
+			count:heros.length
+		}
+		function Hero(config){
+			this.imgs=config.imgs;
+			this.width=config.width;
+			this.height=config.height;
+			this.count=config.count;
+			this.index=0;
+			this.x=WIDTH/2-this.width/2;
+			this.y=HEIGHT-this.height-10;
+			this.canDown=false;
+			this.paint=function(ctx){
+				ctx.drawImage(this.imgs[this.index],this.x,this.y);
+			}
+			this.move=function(){
+				if(this.canDown){
+					this.index++;
+					if(this.index==this.count){
+						this.index=this.count-1;
+						state=GAMEOVER;
+					}
+				}else{
+					this.index=(++this.index) % 2;
+				}
+			}
+			this.shoot=function(){
+				switch(weaponSort){
+					case "普通子弹":bullets.push(new Bullet(BULLET1));break;
+					case "散弹":
+						bullets.push(new Bullet(BULLET1));
+						bullets.push(new Bullet(BULLET2));
+						bullets.push(new Bullet(BULLET3));
+						weaponNumber--;
+						if(weaponNumber==0){
+							weaponSort=weapons[0].sort;
+							weaponNumber=weapons[0].number;
+						}
+						break;
+					case "反弹子弹":
+						bullets.push(new Bullet(BULLET1));
+						bullets.push(new Bullet(BULLET4));
+						bullets.push(new Bullet(BULLET5));
+						weaponNumber--;
+						if(weaponNumber==0){
+							weaponSort=weapons[0].sort;
+							weaponNumber=weapons[0].number;
+						}
+						break;
+				}
+				
+			}
+			this.down=function(){
+				life--;
+				if(life==0){
+					this.canDown=true;
+					this.index=2;
+				}	
+			}
+		}
+		canvas.onmousemove=function(e){
+			if(state==RUNNING){
+				var x=e.offsetX,y=e.offsetY;
+				hero.x=x-hero.width/2;
+				hero.y=y-hero.height/2;
+			}
+		}
+		var enemy1s=[];
+		enemy1s[0]=new Image();
+		enemy1s[0].src="images/enemy1.png";
+		enemy1s[1]=new Image();
+		enemy1s[1].src="images/enemy1_down1.png";
+		enemy1s[2]=new Image();
+		enemy1s[2].src="images/enemy1_down2.png";
+		enemy1s[3]=new Image();
+		enemy1s[3].src="images/enemy1_down3.png";
+		enemy1s[4]=new Image();
+		enemy1s[4].src="images/enemy1_down4.png";
+		var ENEMY1={
+			imgs:enemy1s,
+			width:57,
+			height:51,
+			count:enemy1s.length,
+			type:1,
+			life:1,
+			score:1
+		}
+		var enemy2s=[];
+		enemy2s[0]=new Image();
+		enemy2s[0].src="images/enemy2.png";
+		enemy2s[1]=new Image();
+		enemy2s[1].src="images/enemy2_down1.png";
+		enemy2s[2]=new Image();
+		enemy2s[2].src="images/enemy2_down2.png";
+		enemy2s[3]=new Image();
+		enemy2s[3].src="images/enemy2_down3.png";
+		enemy2s[4]=new Image();
+		enemy2s[4].src="images/enemy2_down4.png";
+		var ENEMY2={
+			imgs:enemy2s,
+			width:69,
+			height:95,
+			count:enemy2s.length,
+			type:2,
+			life:10,
+			score:10
+		}
+		var enemy3s=[];
+		enemy3s[0]=new Image();
+		enemy3s[0].src="images/enemy3_n1.png";
+		enemy3s[1]=new Image();
+		enemy3s[1].src="images/enemy3_n2.png";
+		enemy3s[2]=new Image();
+		enemy3s[2].src="images/enemy3_down1.png";
+		enemy3s[3]=new Image();
+		enemy3s[3].src="images/enemy3_down2.png";
+		enemy3s[4]=new Image();
+		enemy3s[4].src="images/enemy3_down3.png";
+		enemy3s[5]=new Image();
+		enemy3s[5].src="images/enemy3_down4.png";
+		enemy3s[6]=new Image();
+		enemy3s[6].src="images/enemy3_down5.png";
+		enemy3s[7]=new Image();
+		enemy3s[7].src="images/enemy3_down6.png";
+		var ENEMY3={
+			imgs:enemy3s,
+			width:169,
+			height:258,
+			count:enemy3s.length,
+			type:3,
+			life:100,
+			score:20
+		}
+		function Enemy(config){
+			this.imgs=config.imgs;
+			this.width=config.width;
+			this.height=config.height;
+			this.count=config.count;
+			this.x=Math.random()*(WIDTH-this.width);
+			this.y=-this.height;
+			this.index=0;
+			this.type=config.type;
+			this.speed=0;
+			this.canDown=false;
+			this.canDel=false;
+			this.life=config.life;
+			this.score=config.score;
+			this.paint=function(ctx){
+				if(this.index<this.count){
+					ctx.drawImage(this.imgs[this.index],this.x,this.y);
+				}
+				
+			}
+			this.move=function(){
+				if(this.canDown){
+					this.index++;
+					if(this.index==this.count){
+						this.canDel=true;
+					}
+				}else{
+					if(this.type==3){
+						this.index=(++this.index) % 2;
+					}
+					this.speed++;
+					if(this.speed % 3 == 0){
+						switch (this.type){
+							case 1:this.y+=10;break;
+							case 2:this.y+=5;break;
+							case 3:this.y+=3;break;
+						}
+					}
+				}
+					
+			}
+			this.down=function(){
+				this.life--;
+				if(this.life==0){
+					this.canDown=true;
+					score+=this.score;
+					if(this.type==3){
+						this.index=2;
+					}else{
+						this.index=1;
+					}
+				}	
+			}
+			this.touch=function(roles){
+				return roles.x+roles.width>this.x &&
+						this.x+this.width>roles.x &&
+						this.y+this.height>roles.y &&
+						roles.y+roles.height>this.y;
+			}
+		}
+		var enemies=[];
+		function createEnemy(){
+			var num=Math.random()*1000;
+			if(num<50){
+				enemies.push(new Enemy(ENEMY1));
+			}else if(num<60){
+				enemies.push(new Enemy(ENEMY2));
+			}else if(num<62){
+				enemies.push(new Enemy(ENEMY3));
+			}
+		}
+		function patinEnemies(){
+			for(var i=0;i<enemies.length;i++){
+				enemies[i].paint(context);
+			}
+		}
+		function moveEnemies(){
+			for(var i=0;i<enemies.length;i++){
+				enemies[i].move();
+			}
+		}
+		function delEnemies(){
+			for(var i=0;i<enemies.length;i++){
+				var enemy=enemies[i];
+				if(enemy.y>=HEIGHT || enemy.canDel){
+					enemies.splice(i,1);
+				}
+			}
+		}
+		var bullet = new Image();
+		bullet.src="images/bullet1.png";
+		var BULLET1={
+			img:bullet,
+			width:9,
+			height:21,
+			type:1
+		}
+		var BULLET2={
+			img:bullet,
+			width:9,
+			height:21,
+			type:2
+		}
+		var BULLET3={
+			img:bullet,
+			width:9,
+			height:21,
+			type:3
+		}
+		var BULLET4={
+			img:bullet,
+			width:9,
+			height:21,
+			type:4
+		}
+		var BULLET5={
+			img:bullet,
+			width:9,
+			height:21,
+			type:5
+		}
+		function Bullet(config){
+			this.img=config.img;
+			this.width=config.width;
+			this.height=config.height;
+			this.x=hero.x+hero.width/2-this.width/2;
+			this.y=hero.y-10-this.height;
+			this.type=config.type;
+			this.touch=0;
+			this.canDel=false;
+			this.paint=function(ctx){
+				ctx.drawImage(this.img,this.x,this.y);
+			}
+			this.move=function(){
+				switch(this.type){
+					case 1:this.y-=21;break;
+					case 2:
+						this.y-=21;
+						this.x+=21;
+						break;
+					case 3:
+						this.y-=21;
+						this.x-=21;
+						break;
+					case 4:
+						this.y-=21;
+						if(this.x<=0 || this.x>=WIDTH){
+							this.touch++;
+						}
+						if(this.touch % 2 == 0){
+							this.x-=21;
+						}
+						else{
+							this.x+=21;
+						}
+						break;
+					case 5:
+						this.y-=21;
+						if(this.x<=0 || this.x>=WIDTH){
+							this.touch++;
+						}
+						if(this.touch % 2 == 0){
+							this.x+=21;
+						}
+						else{
+							this.x-=21;
+						}
+						break;
+				}
+			}
+		}
+		var bullets=[];
+		function paintBullets(){
+			for(var i=0;i<bullets.length;i++){
+				var bullet=bullets[i];
+				bullet.paint(context);
+			}
+		}
+		function moveBullets(){
+			for(var i=0;i<bullets.length;i++){
+				var bullet=bullets[i];
+				bullet.move();
+			}
+		}
+		function delBullets(){
+			for(var i=0;i<bullets.length;i++){
+				var bullet=bullets[i];
+				if(bullet.y<0 || bullet.canDel){
+					bullets.splice(i,1);
+				}
+			}
+		}
+		function isTouch(){
+			for(var i=0;i<enemies.length;i++){
+				var enemy=enemies[i];
+				if(enemy.touch(hero) && !enemy.canDown && !hero.canDown){
+					enemy.down();
+					hero.down();
+				}
+				for(var j=0;j<bullets.length;j++){
+					var bullet=bullets[j];
+					if(enemy.touch(bullet) && !enemy.canDown){
+						enemy.down();
+						bullet.canDel=true;
+					}
+				}
+			}
+		}
+		var presents=[];
+		presents[0]=new Image();
+		presents[0].src="images/present.png";
+		var PRESENT={
+			imgs:presents,
+			width:58,
+			height:88,
+			count:presents.length,
+			type:1
+		}
+		var presents1=[];
+		presents1[0]=new Image();
+		presents1[0].src="images/present1.png";
+		var PRESENT1={
+			imgs:presents1,
+			width:60,
+			height:107,
+			count:presents1.length,
+			type:2
+		}
+		function Present(config){
+			this.imgs=config.imgs;
+			this.width=config.width;
+			this.height=config.height;
+			this.x=Math.random()*(WIDTH-this.width);
+			this.y=-this.height;
+			this.show=false;
+			this.speed=0;
+			this.index=0;
+			this.count=config.count;
+			this.type=config.type;
+			this.paint=function(ctx){
+				if(this.show){
+					ctx.drawImage(this.imgs[this.index],this.x,this.y);	
+				}		
+			}
+			this.move=function(){
+				if(this.show){
+					this.speed++;
+					if(this.speed % 5 ==0){
+						this.y+=10;
+					}
+					
+				}
+			}
+			this.touch=function(){
+				return hero.x+hero.width>this.x &&
+						this.x+this.width>hero.x &&
+						this.y+this.height>hero.y &&
+						hero.y+hero.height>this.y;
+			}
+			this.hide=function(){
+				this.show=false;
+				this.y=-this.height;
+			}
+		}
+		function isPresent(){
+			if(present!=undefined){
+				if(present.touch() && present.show){
+					//销毁奖励品
+					present.hide();
+					if(present.type==1){
+						var num=parseInt(Math.random()*weapons.length);
+						weaponSort=weapons[num].sort;
+						weaponNumber=weapons[num].number;
+					}else{
+						bombNumber++;
+					}
+					
+				}
+			}		
+		}
+		function createPresent(){
+			if(timePoint % 1000 ==0){
+				var num=Math.random()*100;
+				if(num<50){
+					present=new Present(PRESENT);
+				}else{
+					present=new Present(PRESENT1);
+				}
+				present.show=true;
+			}
+		}
+		function paintPresent(){
+			if(present!=undefined){
+				present.paint(context);
+			}
+		}
+		function movePresent(){
+			if(present!=undefined){
+				present.move();
+			}
+		}
+		var pause=new Image();
+		pause.src="images/game_pause_nor.png";
+		var bullet;
+		var bg;	
+		var loading;
+		var hero;
+		var present;
+		canvas.addEventListener("mouseout",function(){
+			if(state==RUNNING){
+				state=PAUSE;
+			}
+		},false);
+		canvas.addEventListener("mouseover",function(){
+			if(state==PAUSE){
+				state=RUNNING;
+			}
+		},false);
+		canvas.addEventListener("click",function(){
+			if(state==START){
+				state=STARTING;
+			}
+			if(state==GAMEOVER){
+				location.reload();
+			}
+		},false);
+		document.body.addEventListener("keydown",function(e){
+			var bomb=e.which;
+			if(state==RUNNING && bomb==49 && bombNumber>=1){
+				bombNumber--;
+				for(var i=0;i<enemies.length;i++){
+					var enemy=enemies[i];
+					enemy.life=1;
+					enemy.down();
+				}
+			}
+		},false);
+		(function(){
+			bg=new Bg(BG);
+			loading=new Loading(LOADING);
+			hero=new Hero(HERO);
+			setInterval(function(){
+				timePoint++;
+				bg.paint(context);
+				bg.move();
+				switch(state){
+					case START:context.drawImage(log,WIDTH/2-230,0);break;
+					case STARTING:loading.paint(context);loading.move();break;
+					case RUNNING:
+						hero.paint(context);
+						hero.move();
+						createEnemy();
+						patinEnemies();
+						moveEnemies();
+						hero.shoot();
+						paintBullets();
+						moveBullets();
+						delBullets();
+						isTouch();
+						context.font="bold 24px 微软雅黑";
+						context.fillText("命:",WIDTH-80,20);
+						context.fillText(life,WIDTH-20,20);
+						context.fillText("成绩：",10,20);
+						context.fillText(score,90,20);
+						context.font="bold 14px 微软雅黑";
+						context.fillText(weaponSort+":",10,50);
+						var size=context.measureText(weaponSort);
+						context.fillText(weaponNumber,size.width+15,50);
+						context.fillText("原子弹:",10,80);
+						var size=context.measureText("原子弹:");
+						context.fillText(bombNumber,size.width+15,80);
+						createPresent();
+						paintPresent();
+						movePresent();
+						isPresent();
+						context.font="bold 24px 微软雅黑";
+						context.fillText("提示:",WIDTH/2-150,20);
+						var size=context.measureText("提示:");
+						context.fillText("原子弹按'1'键",WIDTH/2-150+size.width+15,20);
+						break;
+					case PAUSE:
+						context.font="bold 24px 微软雅黑";
+						context.fillText("命：",WIDTH-80,20);
+						context.fillText(life,WIDTH-20,20);
+						context.fillText("成绩：",10,20);
+						context.fillText(score,90,20);
+						context.drawImage(pause,WIDTH/2-20,HEIGHT/2);
+						hero.paint(context);
+						patinEnemies();
+						paintBullets();
+						context.font="bold 14px 微软雅黑";
+						context.fillText(weaponSort+":",10,50);
+						var size=context.measureText(weaponSort);
+						context.fillText(weaponNumber,size.width+15,50);
+						context.fillText("原子弹:",10,80);
+						var size=context.measureText("原子弹:");
+						context.fillText(bombNumber,size.width+15,80);
+						paintPresent();
+						context.font="bold 24px 微软雅黑";
+						context.fillText("提示:",WIDTH/2-150,20);
+						var size=context.measureText("提示:");
+						context.fillText("原子弹按'1'键",WIDTH/2-150+size.width+15,20);
+						break;
+					case GAMEOVER:
+						context.font="bold 24px 微软雅黑";
+						context.fillText("命:",WIDTH-80,20);
+						context.fillText(life,WIDTH-20,20);
+						context.fillText("成绩:",10,20);
+						context.fillText(score,90,20);
+						context.font="bold 48px 微软雅黑";
+						context.fillText("GAME OVER",WIDTH/2-150,HEIGHT/2);
+						hero.paint(context);
+						patinEnemies();
+						paintBullets();
+						context.font="bold 14px 微软雅黑";
+						context.fillText(weaponSort+":",10,50);
+						var size=context.measureText(weaponSort);
+						context.fillText(weaponNumber,size.width+15,50);
+						context.fillText("原子弹:",10,80);
+						var size=context.measureText("原子弹:");
+						context.fillText(bombNumber,size.width+15,80);
+						paintPresent();
+						context.font="bold 24px 微软雅黑";
+						context.fillText("提示:",WIDTH/2-150,20);
+						var size=context.measureText("提示:");
+						context.fillText("原子弹按'1'键",WIDTH/2-150+size.width+15,20);
+						break;
+				}
+				
+			},20);
+		}())
+	</script>
+ </body>
+ </html>
