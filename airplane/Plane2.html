@@ -1,0 +1,395 @@
+<!doctype html>
+<html >
+ <head>
+  <meta charset="UTF-8">
+  <title>打肥机</title>
+  <style type="text/css">
+  position:absolute;
+  position:relative;
+  </style>
+ </head>
+ <body>
+<div  style="margin:0 auto;width:480px;height:650px;background:#323232;text-align:center;vertical-align:middle; position:relative;">
+	<canvas height="650px" width="480px" id="canvas1"></canvas>
+	<canvas height="650px" width="480px" id="canvas2"></canvas>
+</div>  
+按1-4改变本机发射子弹状态 <br /> 
+q，w改变本机发射子弹排数 <br />
+a，s改变敌机发射子弹状态 <br />
+小键盘+-改变本机发射子弹频率 <br />
+鼠标左键重建本机 <br />
+z全部设置恢复默认 <br />
+ </body>
+</html>
+<script language="javascript">
+	var bg=document.getElementById("canvas1");
+	var game=document.getElementById("canvas2");
+	var planeBg=function(obj){//可以添加图片对象 图片高度和速度（像素/毫秒）可以取负数
+		var that=this;
+		this.style.position="relative";
+		this.style.zIndex=1;
+		var bgImage=new Image();//先定义默认设置
+		bgImage.src="images\/background.png";
+		var height=852;
+		var speed=0.1;
+		var y=0;
+		if (obj){//如果有传入参数则使用传入的参数
+			obj.bgImage&&(bgImage=obj.bgImage);
+			obj.height&&(height=obj.height);
+			obj.speed&&(speed=obj.speed);
+		}
+		function draw(){
+			that.getContext("2d").drawImage(bgImage,0,y)
+			that.getContext("2d").drawImage(bgImage,0,y-height)
+		}
+		function run(){
+			y+=speed;
+			if (y>=height){
+				y=0;
+			}
+		}
+		setInterval(function(){
+			draw();
+			run();
+			},1);
+	}
+	var planeGame=function (obj){
+		var that=this;
+		this.style.position="absolute";
+		this.style.zIndex=2;
+		this.style.left=0;
+		this.style.top=0;
+		var mouseX,mouseY;
+		var state=[1,2,3,4]//1是欢迎 2是加载游戏 3是正在游戏 4是游戏结束
+		var flash=0;//以对象的形式封装，调用函数处理，增加可维护性
+		var HERO={normal:["images\/hero1.png","images\/hero2.png"],broken:["images\/hero_blowup_n1.png","images\/hero_blowup_n2.png","images\/hero_blowup_n3.png","images\/hero_blowup_n4.png"],flashSpeedN:50,flashSpeedB:20,speed:0,height:124,width:99,reflash:function(){this.x=(that.width-this.width)/2;this.y=that.height-this.height-20;},isBroken:0.5,shoots:18,life:5}
+		var BULLET={normal:["images\/bullet1.png"],height:21,width:9,speed:1,gravity:1,state:null,states:function(n){
+																						this.y=this.y-this.speed;
+																							switch (n){
+																						case 0: 
+																							this.x=this.x+this.gravity;
+																							break;
+																						case 1:
+																							(this.x<=0||this.x>=that.width)&&(this.gravity=-this.gravity)
+																							this.x=this.x+this.gravity;
+																							break;
+																						case 2: //迷之诡异弹道
+																							this.x=this.x+this.gravity*Math.sin(this.y/30);
+																							break;
+																						case 3://做追踪效果? 是否先检查id有效？
+																								if (this.id){
+																									for(var i=0;i<objs["enemys"].length;i++){
+																										if ((this.id==objs["enemys"][i].id)&&(objs["enemys"][i].y>0)){
+																											if (this.y<objs["enemys"][i].y){
+																													break;
+																												}else if (this.x<=objs["enemys"][i].x+objs["enemys"][i].width/2){
+																													this.x+=this.gravity;
+																													return true;
+																												}
+																												else{
+																													this.x-=this.gravity;
+																													return true;}
+																												}
+																									}
+																								}
+																								this.id=flash;
+																								function randomNum(a){
+																									var n=objs["enemys"][Math.floor(Math.random()*objs["enemys"].length)];
+																									if (n.id){
+																										a.id=n.id;
+																									}else{
+																									n.id=a.id;}
+																								}
+																								(objs["enemys"][0])&&randomNum(this);
+																								break;
+																							}
+																						}
+					}
+		var ENEMYS=[];
+		ENEMYS[0]={normal:["images\/enemy1.png"],broken:["images\/enemy1_down1.png","images\/enemy1_down2.png","images\/enemy1_down3.png","images\/enemy1_down4.png"],flashSpeedN:0,flashSpeedB:20,speed:0.5,speeds:500,mode:0,height:51,width:57,life:1,Broken:function(a,b){
+			if ((this.y<=(b+5))&&((this.y-b)>=((a-this.x)*51/-28))&&((this.y-b)>=((a-this.x)*51/28-100))){
+					this.life--;
+					return true;
+			}
+		}}
+		ENEMYS[1]={normal:["images\/enemy2.png"],broken:["images\/enemy2_down1.png","images\/enemy2_down2.png","images\/enemy2_down3.png","images\/enemy2_down4.png"],flashSpeedN:0,flashSpeedB:20,speed:0.2,speeds:500,mode:0,height:95,width:69,life:5,Broken:function(a,b){
+			if ((this.y<=(b+5))&&((this.y-b)>=((a-this.x-37)*(a-this.x-37)/13-90))){
+					this.life--;
+					return true;
+				}
+			}
+		}
+		ENEMYS[2]={normal:["images\/enemy3_n1.png","images\/enemy3_n2.png"],broken:["images\/enemy3_down1.png","images\/enemy3_down2.png","images\/enemy3_down3.png","images\/enemy3_down4.png","images\/enemy3_down5.png","images\/enemy3_down6.png"],flashSpeedN:50,flashSpeedB:20,speed:0.1,speeds:500,mode:0,height:258,width:169,life:5,Broken:function(a,b){
+				if ((this.y<=(b+2))&&((this.y-b)>=((a-this.x-85)*(a-this.x-85)/22-250))){
+					this.life--;
+					return true;
+				}
+		}}
+		if (obj){
+				
+		}
+		document.onkeydown=function(event){
+			switch (event.keyCode){
+			case 49: //改变子弹发射方式
+				BULLET.state=0;
+				break;
+			case 50: 
+				BULLET.state=1;
+				break;
+			case 51: 
+				BULLET.state=2;
+				break;
+			case 52: 
+				BULLET.state=3;
+				break;
+			case 81://改变子弹发射排数
+				objs["hero"][0].mode=1;
+				break;
+			case 87:
+				objs["hero"][0].mode=0;
+			case 65://改变敌机攻击状态
+				for(var i=0;i<objs["enemys"].length;i++){
+					objs["enemys"][i].mode=1
+				}
+				for(var i=0;i<ENEMYS.length;i++){
+						ENEMYS[i].mode=1;
+				}
+				break;
+			case 83:
+				for(var i=0;i<objs["enemys"].length;i++){
+						objs["enemys"][i].mode=0
+					}
+				for(var i=0;i<ENEMYS.length;i++){
+						ENEMYS[i].mode=0;
+				}
+				break;
+			case 107:
+				objs["hero"][0].shoots--;
+				break;
+			case 109:
+				objs["hero"][0].shoots++;
+				break;
+			case 90://归零
+				objs["hero"][0].shoots=22;
+				for(var i=0;i<objs["enemys"].length;i++){
+						objs["enemys"][i].mode=0
+					}
+				BULLET.state=null;
+				objs["hero"][0].mode=0;
+				for(var i=0;i<ENEMYS.length;i++){
+						ENEMYS[i].mode=0;
+				}
+				break;
+			}
+		}
+		this.onclick=function(){//左键单击新建英雄飞机
+					objs["hero"][0]=new Hero(HERO);
+		}
+		this.onmousemove=function(event){
+			mouseX=event.offsetX;
+			mouseY=event.offsetY;
+		}
+		this.onmouseout=function(){}
+		function pic(obj){//单纯的画图 可以设置两种状态的不同画法 参数传不进来？
+			this.normal=pushImages(obj.normal)
+			this.broken=obj.broken?pushImages(obj.broken):null;
+			this.flashSpeedN=obj.flashSpeedN;
+			this.flashSpeedB=obj.flashSpeedB?obj.flashSpeedB:null;
+			this.height=obj.height;
+			this.width=obj.width;
+			this.id=null;
+			function pushImages(arr){
+				var arrs=[]
+				for(var n in arr){
+					arrs[arrs.length]=new Image();
+					arrs[arrs.length-1].src=arr[n];
+				}
+				return arrs;
+			}
+		}
+		function canFly(obj){//继承图片,能飞的东西的功能,
+			pic.call(this,obj);
+			this.speed=obj.speed;
+			this.life=obj.life;
+			this.img=0;
+			this.state=0;
+			this.deleteMe=0;
+			this.switchImg=function(){
+				switch (this.state){
+				case 0:
+					if (flash%this.flashSpeedN==0){
+						this.img=(this.img==(this.normal.length-1))?0:(this.img+1);
+					};
+					break;
+				case 1: 
+					if (flash%this.flashSpeedB==0){
+						(this.img==(this.broken.length-1))?(this.deleteMe=1,this.reflash&&this.reflash()):
+						this.img++;//如果运行到这一步，则让删除的值为1，方便检测
+					};
+					break;
+				}
+			}
+		}
+		canFly.prototype=new pic(obj);//能飞的功能
+	//	canFly.prototype.constructor=canFly;
+		function draw(img,x,y){
+			that.getContext("2d").drawImage(img,x,y)
+		}
+		function Welcome(){}
+		function Loading(){}
+		function Hero(obj){//链式继承 英雄单位
+			canFly.call(this,obj);
+			this.shoots=obj.shoots;
+			this.x=(that.width-obj.width)/2;//妈的为什么上来是NaN
+			this.y=that.height-obj.height-20;
+			this.mode=0;
+			this.isBroken=obj.isBroken;
+			this.Draw=function(){
+				this.switchImg();
+				this.state==0?draw(this.normal[this.img],this.x,this.y):draw(this.broken[this.img],this.x,this.y)};
+			this.Fly=function(){
+				this.x=mouseX-this.width/2;
+				this.y=mouseY-this.height/2;
+			}
+			this.shoot=function(){
+				if (flash%this.shoots==0&&this.state==0){
+					switch (this.mode){
+					case 0: 
+						objs["bullets"].push(new Bullet(this,BULLET));
+						break;
+					case 1: 
+						objs["bullets"].push(new Bullet(this,BULLET));
+						objs["bullets"][objs["bullets"].length-1].gravity=-1;
+						objs["bullets"].push(new Bullet(this,BULLET));
+						break;
+					}
+				}
+			}
+			this.Broken=function(arr){
+				for(var i=0;i<arr.length;i++){
+					if ((arr[i].x<=(this.x+this.width*this.isBroken/2+50))&&((this.x+this.width*this.isBroken/2-15)<=(arr[i].x+arr[i].width))&&(arr[i].y<=(this.y+this.height*this.isBroken/2+40))&&((this.y+this.height*this.isBroken/2+10)<=(arr[i].y+arr[i].height))){//盒子形状判定我也不知道为什么这么写对，反正能用 
+						arr[i].state=1;
+						this.state=1;
+					}
+				}
+			}
+		}
+		Hero.prototype=new canFly(obj);//主飞机的继承 需要继承方法么？
+		//Hero.prototype.constructor=Hero;
+		function Bullet(who,obj){//子弹,所有飞行方法都写在子弹的原始对象中
+			pic.call(this,obj);
+			this.states=obj.states;
+			this.speed=obj.speed;
+			this.gravity=obj.gravity;
+			this.state=obj.state;
+			this.x=who.x+who.width/2-5;
+			this.y=who.y-this.height;
+			this.Draw=function(){
+				draw(this.normal[0],this.x,this.y);
+			}
+			this.Fly=function(){
+				this.states(this.state);			
+			}
+			this.Kill=function(arr){
+				for(var i=0;i<arr.length;i++){
+					if (arr[i].state==0){
+						if (arr[i].Broken(this.x+this.width/2,this.y)){
+								return true;
+						}
+					}
+				}
+			return false;
+			}
+		}
+		Bullet.prototype=new pic(obj);//子弹继承图片文件即可
+		function Enemy(obj){//敌机
+			canFly.call(this,obj);
+			this.x=Math.floor(Math.random()*(that.width-this.width));
+			this.y=-this.height;
+			this.mode=obj.mode;
+			this.speeds=obj.speeds;
+			this.Broken=obj.Broken;
+			this.Shoot=function(){
+				if (this.mode&&flash%this.speeds==0&&this.state==0){//每个子弹都需要改一点属性
+					objs["enemybullets"][objs["enemybullets"].length]=new Bullet(this,BULLET);
+					objs["enemybullets"][objs["enemybullets"].length-1].speed=-1;
+					objs["enemybullets"][objs["enemybullets"].length-1].state=null;//防止我方子弹状态污染敌机
+					objs["enemybullets"][objs["enemybullets"].length-1].y=this.y+this.height;
+				}
+			}
+			this.Fly=function(){
+				this.y+=this.speed;
+				((this.y)>=that.height)&&(this.deleteMe=1);
+				(this.life<=0)&&(this.state=1);
+			}
+			this.Draw=function(){
+				this.switchImg();
+				this.state==0?draw(this.normal[this.img],this.x,this.y):draw(this.broken[this.img],this.x,this.y);
+			}
+		}
+		Enemy.prototype=new canFly(obj);
+		var objs=[];//把所有对象封入一个数组
+		objs["hero"]=[];
+		objs["bullets"]=[];
+		objs["enemys"]=[];
+		objs["enemybullets"]=[];
+		objs["hero"][0]=new Hero(HERO);
+		function createEnemy(){
+			var a=Math.floor(Math.random()*100);
+			objs["enemys"][objs["enemys"].length]=new Enemy(ENEMYS[a%ENEMYS.length]);
+		}
+		var play=setInterval(function(){
+			that.getContext("2d").clearRect(0,0,that.width,that.height)//为毛线图片不能自动清除?
+			objs["hero"][0].Draw();//画我方飞机  
+			objs["hero"][0].Fly();
+			objs["hero"][0].shoot();
+			objs["hero"][0].Broken(objs["enemys"]);
+			objs["hero"][0].Broken(objs["enemybullets"]);
+			//objs["hero"][0].state=1
+			for(var i=0;i<objs["bullets"].length;i++){//子弹多下点功夫
+				objs["bullets"][i].Draw();
+				objs["bullets"][i].Fly();
+				if (objs["enemys"].length>0){
+					if (objs["bullets"][i].Kill(objs["enemys"])){//移除击中的子弹并将被击中的敌机状态转换为已击中 套路有点深
+						objs["bullets"].splice(i,1);
+						continue;//截断
+					}
+					(objs["bullets"][i].y+objs["bullets"][i].height)<=0&&objs["bullets"].splice(i,1);
+					isNaN(objs["bullets"][i].y)&&objs["bullets"].splice(i,1);
+				}		//移除越界的子弹
+			}
+			if (flash%50==0){
+				createEnemy();//使用创建敌人方法
+			}
+			for(var i=0;i<objs["enemys"].length;i++){//敌人 通过检查删除属性来删除特定的单位
+					objs["enemys"][i].Draw();
+					objs["enemys"][i].Fly();
+					objs["enemys"][i].Shoot();
+					(objs["enemys"][i].deleteMe==1)&&objs["enemys"].splice(i,1);
+			}
+			for(var i=0;i<objs["enemybullets"].length;i++){//如果有地方子弹 则运行敌方子弹
+				objs["enemybullets"][i].Draw();
+				objs["enemybullets"][i].Fly();
+				if (objs["enemybullets"].length>0){
+					((objs["enemybullets"][i].y+objs["enemybullets"][i].height)>=that.height)&&objs["enemybullets"].splice(i,1);
+				}
+			}
+			flash++;
+
+		},1);
+	}
+	
+
+<!--
+//-->
+	Element.prototype.planeBg=planeBg;
+	Element.prototype.planeGame=planeGame;
+
+	bg.planeBg({//bgImage 背景图片对象 height 背景图片高度 speed 想要的速度
+		speed:0.01
+	});
+	game.planeGame({
+	
+	});
+</script>
+
