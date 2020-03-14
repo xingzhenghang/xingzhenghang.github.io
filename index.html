@@ -1,567 +1,722 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
- <head> 
-  <title>欢迎访问！</title> 
-  <link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css" /> 
-  <script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script> 
-  <link rel="stylesheet" href="https://www.xingzhenghang.tk/ui/css/mdui.min.css" /> 
-  <script async="" src="https://www.xingzhenghang.tk/js/mdui.min.js"></script> 
-  <meta charset="utf-8" /> 
-  <meta name="format-detection" content="telephone=no" /> 
-  <meta name="viewport" content="width=device-width" /> 
-  <meta name="theme-color" content="#3F51B5" /> 
-  <script>
-var _hmt = _hmt || [];
+	<head>
+		<title>
+			欢迎访问！
+		</title>
+		<link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css"
+		/>
+		<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js">
+		</script>
+		<link rel="stylesheet" href="https://www.xingzhenghang.tk/ui/css/mdui.min.css"
+		/>
+		<script async="" src="https://www.xingzhenghang.tk/js/mdui.min.js">
+		</script>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="theme-color" content="#3F51B5" />
+		<script>
+			var _hmt = _hmt || [];
 (function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?10b3469c417e40383a17d8d05828d4de";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?10b3469c417e40383a17d8d05828d4de";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
 })();
-</script> 
-  <link rel="manifest" href="https://www.xingzhenghang.tk/manifest.json" /> 
-  <script>
-if ('serviceWorker' in navigator) {
+		</script>
+		<link rel="manifest" href="https://www.xingzhenghang.tk/manifest.json"
+		/>
+		<script>
+			if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('https://www.xingzhenghang.tk/sw.js');
 }
-</script> 
-  <script>
-function addLink() {
+		</script>
+		<script>
+			function addLink() {
     var body_element = document.body;
     var selection;
     selection = window.getSelection();
     if (window.clipboardData) { // Internet Explorer
-        var pagelink ="\r\n\r\n 原文出自[ 小 X ] 转载请保留原文链接: "+document.location.href+"";
+        var pagelink = "\r\n\r\n 原文出自[ 小 X ] 转载请保留原文链接: " + document.location.href + "";
         var copytext = selection + pagelink;
-        window.clipboardData.setData ("Text", copytext);
+        window.clipboardData.setData("Text", copytext);
         return false;
     } else {
-        var pagelink = " 原文出自[ 小 X ] 转载请保留原文链接: "+document.location.href+"";
+        var pagelink = " 原文出自[ 小 X ] 转载请保留原文链接: " + document.location.href + "";
         var copytext = selection + pagelink;
         var newdiv = document.createElement('div');
-        newdiv.style.position='absolute';
-        newdiv.style.left='-99999px';
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
         body_element.appendChild(newdiv);
         newdiv.innerHTML = copytext;
         selection.selectAllChildren(newdiv);
         window.setTimeout(function() {
-        body_element.removeChild(newdiv);
-        },0);
+            body_element.removeChild(newdiv);
+        }, 0);
     }
 }
 document.oncopy = addLink;
-</script> 
-<script> 
-(function () {
-  var DEFAULT_PRIMARY = 'indigo';
-  var DEFAULT_ACCENT = 'pink';
-  var DEFAULT_LAYOUT = '';
+		</script>
+		<script>
+			 (function() {
+     var DEFAULT_PRIMARY = 'indigo';
+     var DEFAULT_ACCENT = 'pink';
+     var DEFAULT_LAYOUT = '';
 
-  // 设置 cookie
-  var setCookie = function (key, value) {
-    // cookie 有效期为 1 年
-    var date = new Date();
-    date.setTime(date.getTime() + 365*24*3600*1000);
-    document.cookie = key + '=' + value + '; expires=' + date.toGMTString() + '; path=/';
-  };
+     // 设置 cookie
+     var setCookie = function(key, value) {
+         // cookie 有效期为 1 年
+         var date = new Date();
+         date.setTime(date.getTime() + 36500 * 24 * 3600 * 1000);
+         document.cookie = key + '=' + value + '; expires=' + date.toGMTString() + '; path=/';
+     };
 
-  var setDocsTheme = function (theme) {
-    if (typeof theme.primary === 'undefined') {
-      theme.primary = false;
-    }
-    if (typeof theme.accent === 'undefined') {
-      theme.accent = false;
-    }
-    if (typeof theme.layout === 'undefined') {
-      theme.layout = false;
-    }
+     var setDocsTheme = function(theme) {
+         if (typeof theme.primary === 'undefined') {
+             theme.primary = false;
+         }
+         if (typeof theme.accent === 'undefined') {
+             theme.accent = false;
+         }
+         if (typeof theme.layout === 'undefined') {
+             theme.layout = false;
+         }
 
-    var i, len;
-    var $body = $$('body');
+         var i, len;
+         var $body = $$('body');
 
-    var classStr = $body.attr('class');
-    var classs = classStr.split(' ');
+         var classStr = $body.attr('class');
+         var classs = classStr.split(' ');
 
-    // 设置主色
-    if (theme.primary !== false) {
-      for (i = 0, len = classs.length; i < len; i++) {
-        if (classs[i].indexOf('mdui-theme-primary-') === 0) {
-          $body.removeClass(classs[i])
-        }
-      }
-      $body.addClass('mdui-theme-primary-' + theme.primary);
-      setCookie('docs-theme-primary', theme.primary);
-      $$('input[name="doc-theme-primary"][value="' + theme.primary + '"]').prop('checked', true);
-    }
+         // 设置主色
+         if (theme.primary !== false) {
+             for (i = 0, len = classs.length; i < len; i++) {
+                 if (classs[i].indexOf('mdui-theme-primary-') === 0) {
+                     $body.removeClass(classs[i])
+                 }
+             }
+             $body.addClass('mdui-theme-primary-' + theme.primary);
+             setCookie('docs-theme-primary', theme.primary);
+             $$('input[name="doc-theme-primary"][value="' + theme.primary + '"]').prop('checked', true);
+         }
 
-    // 设置强调色
-    if (theme.accent !== false) {
-      for (i = 0, len = classs.length; i < len; i++) {
-        if (classs[i].indexOf('mdui-theme-accent-') === 0) {
-          $body.removeClass(classs[i]);
-        }
-      }
-      $body.addClass('mdui-theme-accent-' + theme.accent);
-      setCookie('docs-theme-accent', theme.accent);
-      $$('input[name="doc-theme-accent"][value="' + theme.accent + '"]').prop('checked', true);
-    }
+         // 设置强调色
+         if (theme.accent !== false) {
+             for (i = 0, len = classs.length; i < len; i++) {
+                 if (classs[i].indexOf('mdui-theme-accent-') === 0) {
+                     $body.removeClass(classs[i]);
+                 }
+             }
+             $body.addClass('mdui-theme-accent-' + theme.accent);
+             setCookie('docs-theme-accent', theme.accent);
+             $$('input[name="doc-theme-accent"][value="' + theme.accent + '"]').prop('checked', true);
+         }
 
-    // 设置主题色
-    if (theme.layout !== false) {
-      for (i = 0, len = classs.length; i < len; i++) {
-        if (classs[i].indexOf('mdui-theme-layout-') === 0) {
-          $body.removeClass(classs[i]);
-        }
-      }
-      if (theme.layout !== '') {
-        $body.addClass('mdui-theme-layout-' + theme.layout);
-      }
-      setCookie('docs-theme-layout', theme.layout);
-      $$('input[name="doc-theme-layout"][value="' + theme.layout + '"]').prop('checked', true);
-    }
-  };
+         // 设置主题色
+         if (theme.layout !== false) {
+             for (i = 0, len = classs.length; i < len; i++) {
+                 if (classs[i].indexOf('mdui-theme-layout-') === 0) {
+                     $body.removeClass(classs[i]);
+                 }
+             }
+             if (theme.layout !== '') {
+                 $body.addClass('mdui-theme-layout-' + theme.layout);
+             }
+             setCookie('docs-theme-layout', theme.layout);
+             $$('input[name="doc-theme-layout"][value="' + theme.layout + '"]').prop('checked', true);
+         }
+     };
 
-  // 切换主色
-  $$(document).on('change', 'input[name="doc-theme-primary"]', function () {
-    setDocsTheme({
-      primary: $$(this).val()
-    });
-  });
+     // 切换主色
+     $$(document).on('change', 'input[name="doc-theme-primary"]', function() {
+         setDocsTheme({
+             primary: $$(this).val()
+         });
+     });
 
-  // 切换强调色
-  $$(document).on('change', 'input[name="doc-theme-accent"]', function () {
-    setDocsTheme({
-      accent: $$(this).val()
-    });
-  });
+     // 切换强调色
+     $$(document).on('change', 'input[name="doc-theme-accent"]', function() {
+         setDocsTheme({
+             accent: $$(this).val()
+         });
+     });
 
-  // 切换主题色
-  $$(document).on('change', 'input[name="doc-theme-layout"]', function () {
-    setDocsTheme({
-      layout: $$(this).val()
-    });
-  });
+     // 切换主题色
+     $$(document).on('change', 'input[name="doc-theme-layout"]', function() {
+         setDocsTheme({
+             layout: $$(this).val()
+         });
+     });
 
-  // 恢复默认主题
-  $$(document).on('cancel.mdui.dialog', '#dialog-docs-theme', function () {
-    setDocsTheme({
-      primary: DEFAULT_PRIMARY,
-      accent: DEFAULT_ACCENT,
-      layout: DEFAULT_LAYOUT
-    });
-  });
-})();
-</script> 
-  <meta name="description" content="欢迎访问！ 反馈 小 X 开发者 欢迎来到这里! 你可以点击 转到“产品大全” 来查看我们提供那些服务，也可以点击右上角的 “ GitHub ” 来查看我们的开源代码。当然，如果你想向我们反馈，请点击右上角的 “ 反馈 ” 转到“产品大全” " /> 
- </head> 
- <body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink"> 
-  <div class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide"> 
-   <div class="mdui-toolbar mdui-color-theme"> 
-    <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a> 
-    <span class="mdui-typo-title">欢迎访问！</span> 
-    <div class="mdui-toolbar-spacer"></div> 
-    <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#dialog-docs-theme'}" mdui-tooltip="{content: '设置主题'}"><i class="mdui-icon material-icons">color_lens</i></span>
-    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAAun6mRUMFVKMEk1TUpaR1dCRlpWRjAzR0M5SUJKQS4u" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">feedback</i></a> 
-    <a href="https://github.com/xingzhenghang/xingzhenghang.github.io/" class="mdui-btn mdui-btn-icon"> 
-     <svg version="1.1" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 36 36" enable-background="new 0 0 36 36" xml:space="preserve" class="mdui-icon" style="width: 24px;height:24px;"> 
-      <path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5
-	c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1
-	c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4
-	c-0.2-0.4-0.7-2.1,0.2-4.3c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7
-	c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5
-	c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C34.3,8.7,27,1.4,18,1.4z"></path> 
-     </svg> </a> 
-   </div> 
-  </div> 
-  <div class="mdui-container doc-container"> 
-   <br /> 
-   <div class="mdui-card"> 
-    <!-- 卡片头部，包含头像、标题、副标题 --> 
-    <div class="mdui-card-header"> 
-     <img class="mdui-card-header-avatar" src="images/photo.png" <="" mg="" /> 
-     <div class="mdui-card-header-title">
-      小 X
-     </div> 
-     <div class="mdui-card-header-subtitle">
-      小 X 开发者
-     </div> 
-    </div> 
-    <!-- 卡片的媒体内容，可以包含图片、视频等媒体内容，以及标题、副标题 --> 
-    <div class="mdui-card-media"> 
-     <img src="images/card.webp" /> 
-    </div> 
-    <!-- 卡片的标题和副标题 --> 
-    <div class="mdui-card-primary"> 
-     <div class="mdui-card-primary-title">
-      欢迎来到这里!
-     </div> 
-     <div class="mdui-card-primary-subtitle">
-      欢迎来到这里!
-     </div> 
-    </div> 
-    <!-- 卡片的内容 --> 
-    <div class="mdui-card-content">
-     你可以点击 
-     <button class="mdui-btn mdui-ripple-white mdui-color-theme-white">转到“产品大全”</button> 来查看我们提供那些服务，也可以点击右上角的 “ 
-     <i class="mdui-btn mdui-btn-icon"> 
-      <svg version="1.1" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 36 36" enable-background="new 0 0 36 36" xml:space="preserve" class="mdui-icon" style="width: 24px;height:24px;"> 
-       <path fill-rule="evenodd" clip-rule="evenodd" fill="#000000" d="M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5
-c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1
-c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4
-c-0.2-0.4-0.7-2.1,0.2-4.3c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7
-c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5
-c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C34.3,8.7,27,1.4,18,1.4z"> 
-       </path> 
-      </svg> </i> ”来查看我们的开源代码。当然，如果你想向我们反馈，请点击右上角的“ 
-     <i class="mdui-btn mdui-btn-icon"> <i class="mdui-icon material-icons">feedback</i> </i> ” 
-    </div> 
-    <!-- 卡片的按钮 --> 
-    <div class="mdui-card-actions"> 
-     <a href="./pro/" class="mdui-btn mdui-btn-raised mdui-ripple-white mdui-color-theme-white">转到“产品大全”</a> 
-    </div> 
-   </div> 
-  </div> 
-  <br/> 
-  <footer class="mdui-color-indigo"> 
-   <div class="warn" style="text-align:center;"> 
-    <div>
-     <span id="sitetime"></span>
-     <noscript>
-      本站已稳定运行 ? 年 ? 天 ? 时 ? 分 ? 秒
-     </noscript>
-    </div> 
-    <script language="javascript">
-    function siteTime(){
-        window.setTimeout("siteTime()", 1000);
-        var seconds = 1000;
-        var minutes = seconds * 60;
-        var hours = minutes * 60;
-        var days = hours * 24;
-        var years = days * 365;
-        var today = new Date();
-        var todayYear = today.getFullYear();
-        var todayMonth = today.getMonth()+1;
-        var todayDate = today.getDate();
-        var todayHour = today.getHours();
-        var todayMinute = today.getMinutes();
-        var todaySecond = today.getSeconds();
-        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
-        year - 作为date对象的年份，为4位年份值
-        month - 0-11之间的整数，做为date对象的月份
-        day - 1-31之间的整数，做为date对象的天数
-        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
-        minutes - 0-59之间的整数，做为date对象的分钟数
-        seconds - 0-59之间的整数，做为date对象的秒数
-        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
-        var t1 = Date.UTC(2019,07,22,00,00,00); //北京时间2016-12-1 00:00:00
-        var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
-        var diff = t2-t1;
-        var diffYears = Math.floor(diff/years);
-        var diffDays = Math.floor((diff/days)-diffYears*365);
-        var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
-        var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
-        var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-        document.getElementById("sitetime").innerHTML=" 本站已稳定运行 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 时 "+diffMinutes+" 分 "+diffSeconds+" 秒";
-    }
-    siteTime();
-</script>
-    <noscript>
-     抱歉，你的浏览器不支持/已关闭 JavaScript!
-    </noscript> 
-    <p> 本站使用QUIC传输层网络协议为您呈现精彩内容。<br /> 注：本站不出售、本站不出售友链、不出租二级目录、不接下载器和捆绑类的广告，以上需求无需联系谢谢。 </p> 
-    <p> copyright 2019 - <script>document.write( new Date().getFullYear() );</script> 小 X 版权所有<br /> </p> 
-    <p> 鸣谢： <a href="//Github.com" target="_blank" class="mdui-color-indigo">Github</a> <a href="//MDUI.org" target="_blank" class="mdui-color-indigo">MDUI</a> <a href="//zy.baidu.com" target="_blank" class="mdui-color-indigo">百度</a> <a href="//www.google.cn/webmasters/" target="_blank" class="mdui-color-indigo">Google</a> <a href="//cloudflare.com" target="_blank" class="mdui-color-indigo">Cloudflare</a> <a href="//www.runoob.com" target="_blank" class="mdui-color-indigo">菜鸟教程</a> <a href="//ym.163.com" target="_blank" class="mdui-color-indigo">网易企业邮</a> <br /> 节点由： <a href="//cloudflare.com" target="_blank" class="mdui-color-indigo">Cloudflare CDN</a>、<a href="//pages.github.com" target="_blank" class="mdui-color-indigo">Github Pages</a>提供<br /> </p> 
-    <p> <a href="./sitemap.html" class="mdui-color-indigo">网站地图</a> </p> 
-    <a href="mailto:admin@xingzhenghang.tk"><i class="mdui-icon material-icons mdui-text-color-white">email</i></a> 
-    <a href="tel:18656261151"><i class="mdui-icon material-icons mdui-text-color-white">phone_forwarded</i></a> 
-    <a target="_blank" href="https://wpa.qq.com/msgrd?v=3&amp;uin=1713712100&amp;site=qq&amp;menu=yes"> 
-     <svg t="1573685631938" class="icon" viewbox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1075" width="24" height="24">
-      <path d="M154.285714 460.571429q-4.571429-10.857143-4.571428-29.714286 0-11.428571 6.285714-28t13.714286-25.714286q-0.571429-12.571429 4.285714-30.285714t12.857143-24.571429q0-79.428571 52.857143-164.857143T364 37.714286Q443.428571 0 549.142857 0q76 0 152 31.428571 28 12 51.428572 27.428572t40.571428 32 31.428572 38.857143 24 42.285714 18.571428 48.285714T881.714286 271.428571t12.571428 56l0.571429 2.857143q31.428571 47.428571 31.428571 85.714286 0 8-5.142857 22.857143t-5.142857 21.714286q0 0.571429 0.857143 2t2 2.857142 1.142857 2q44 65.142857 68.857143 122.571429T1013.714286 709.142857q0 24.571429-11.142857 57.142857t-31.714286 32.571429q-5.142857 0-11.142857-4.285714t-10.857143-10-10.857143-14.857143-9.142857-15.142857-7.714286-14.857143-5.142857-10q-0.571429-0.571429-1.714286-0.571429l-2.857143 2.285714q-33.714286 88-75.428571 127.428572 11.428571 11.428571 35.142857 22t39.428572 23.714286 20.285714 37.142857q-1.142857 2.285714-2.285714 9.142857t-4 10.285714q-36.571429 55.428571-172.571429 55.428572-30.285714 0-63.142857-5.142858t-56-11.428571-59.714286-17.142857q-8.571429-2.857143-13.142857-4-8-2.285714-26.285714-2.571429t-22.857143-0.857143q-23.428571 25.714286-72.857143 37.142858T341.714286 1024q-20 0-39.428572-0.857143t-53.142857-5.142857-57.714286-11.714286-42.571428-22.857143-18.571429-36.571428q0-22.857143 5.714286-34t23.428571-27.714286q6.285714-1.142857 23.142858-7.428571t28.285714-6.857143q2.285714 0 8-1.142857 1.142857-1.142857 1.142857-2.285715l-1.142857-1.714285q-27.428571-6.285714-61.714286-60.285715T115.428571 716l-2.857142-1.714286q-2.285714 0-6.857143 11.428572-10.285714 23.428571-31.142857 42.571428T30.285714 789.714286h-0.571428q-2.285714 0-3.428572-2.571429t-2.857143-3.142857q-13.142857-30.857143-13.142857-57.142857 0-157.142857 144-266.285714z" p-id="1076" fill="#ffffff"></path>
-     </svg> </a> 
-    <iframe src="https://ghbtns.com/github-btn.html?user=xingzhenghang&amp;repo=xingzhenghang.github.io&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe> 
-   </div> 
-  </footer> 
-  <script async src="https://www.xingzhenghang.tk/fy.js"></script>  
-<div class="mdui-dialog" id="dialog-docs-theme">
-  <div class="mdui-dialog-title">设置文档主题</div>
-  <div class="mdui-dialog-content">
+     // 恢复默认主题
+     $$(document).on('cancel.mdui.dialog', '#dialog-docs-theme', function() {
+         setDocsTheme({
+             primary: DEFAULT_PRIMARY,
+             accent: DEFAULT_ACCENT,
+             layout: DEFAULT_LAYOUT
+         });
+     });
+ })();
+		</script>
+	</head>
+	<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-theme-layout-light">
+		<div class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide">
+			<div class="mdui-toolbar mdui-color-theme-primary">
+				<a href="javascript:;" class="mdui-btn mdui-btn-icon">
+					<i class="mdui-icon material-icons">
+						menu
+					</i>
+				</a>
+				<span class="mdui-typo-title">
+					欢迎访问！
+				</span>
+				<div class="mdui-toolbar-spacer">
+				</div>
+				<span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#dialog-docs-theme'}"
+				mdui-tooltip="{content: '设置主题'}">
+					<i class="mdui-icon material-icons">
+						color_lens
+					</i>
+				</span>
+				<a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAAun6mRUMFVKMEk1TUpaR1dCRlpWRjAzR0M5SUJKQS4u"
+				class="mdui-btn mdui-btn-icon">
+					<i class="mdui-icon material-icons">
+						feedback
+					</i>
+				</a>
+				<a href="https://github.com/xingzhenghang/xingzhenghang.github.io/" class="mdui-btn mdui-btn-icon">
+					<svg version="1.1" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"
+					x="0px" y="0px" viewbox="0 0 36 36" enable-background="new 0 0 36 36" xml:space="preserve"
+					class="mdui-icon" style="width: 24px;height:24px;">
+						<path fill-rule="evenodd" clip-rule="evenodd" fill="#ffffff" d="M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5
+						c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1
+						c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4
+						c-0.2-0.4-0.7-2.1,0.2-4.3c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7
+						c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5
+						c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C34.3,8.7,27,1.4,18,1.4z">
+						</path>
+					</svg>
+				</a>
+			</div>
+		</div>
+		<div class="mdui-container doc-container">
+			<br />
+			<div class="mdui-card">
+				<!-- 卡片头部，包含头像、标题、副标题 -->
+				<div class="mdui-card-header">
+					<img class="mdui-card-header-avatar" src="images/photo.png" <="" mg=""
+					/>
+					<div class="mdui-card-header-title">
+						小 X
+					</div>
+					<div class="mdui-card-header-subtitle">
+						小 X 开发者
+					</div>
+				</div>
+				<!-- 卡片的媒体内容，可以包含图片、视频等媒体内容，以及标题、副标题 -->
+				<div class="mdui-card-media">
+					<img src="images/card.webp" />
+				</div>
+				<!-- 卡片的标题和副标题 -->
+				<div class="mdui-card-primary">
+					<div class="mdui-card-primary-title">
+						欢迎来到这里!
+					</div>
+					<div class="mdui-card-primary-subtitle">
+						欢迎来到这里!
+					</div>
+				</div>
+				<!-- 卡片的内容 -->
+				<div class="mdui-card-content">
+					你可以点击
+					<button class="mdui-btn mdui-ripple-white mdui-color-theme-white">
+						转到“产品大全”
+					</button>
+					来查看我们提供那些服务，也可以点击右上角的 “
+					<i class="mdui-btn mdui-btn-icon">
+						<svg version="1.1" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"
+						x="0px" y="0px" viewbox="0 0 36 36" enable-background="new 0 0 36 36" xml:space="preserve"
+						class="mdui-icon" style="width: 24px;height:24px;">
+							<path fill-rule="evenodd" clip-rule="evenodd" fill="#000000" d="M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5
+							c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1
+							c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4
+							c-0.2-0.4-0.7-2.1,0.2-4.3c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7
+							c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5
+							c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C34.3,8.7,27,1.4,18,1.4z">
+							</path>
+						</svg>
+					</i>
+					”来查看我们的开源代码。当然，如果你想向我们反馈，请点击右上角的“
+					<i class="mdui-btn mdui-btn-icon">
+						<i class="mdui-icon material-icons">
+							feedback
+						</i>
+					</i>
+					”
+				</div>
+				<!-- 卡片的按钮 -->
+				<div class="mdui-card-actions">
+					<a href="./pro/" class="mdui-btn mdui-btn-raised mdui-ripple-white mdui-color-theme-white">
+						转到“产品大全”
+					</a>
+				</div>
+			</div>
+		</div>
+		<br/>
+		<footer class="mdui-color-theme-primary">
+			<div class="warn" style="text-align:center;">
+				<div>
+					<span id="sitetime">
+					</span>
+					<noscript>
+						本站已稳定运行 ? 年 ? 天 ? 时 ? 分 ? 秒
+					</noscript>
+				</div>
+				<script language="javascript">
+					function siteTime() {
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000;
+    var minutes = seconds * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+    var today = new Date();
+    var todayYear = today.getFullYear();
+    var todayMonth = today.getMonth() + 1;
+    var todayDate = today.getDate();
+    var todayHour = today.getHours();
+    var todayMinute = today.getMinutes();
+    var todaySecond = today.getSeconds();
+    /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+    year - 作为date对象的年份，为4位年份值
+    month - 0-11之间的整数，做为date对象的月份
+    day - 1-31之间的整数，做为date对象的天数
+    hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+    minutes - 0-59之间的整数，做为date对象的分钟数
+    seconds - 0-59之间的整数，做为date对象的秒数
+    microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+    var t1 = Date.UTC(2019, 07, 22, 00, 00, 00); //北京时间2016-12-1 00:00:00
+    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+    var diff = t2 - t1;
+    var diffYears = Math.floor(diff / years);
+    var diffDays = Math.floor((diff / days) - diffYears * 365);
+    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+    document.getElementById("sitetime").innerHTML = " 本站已稳定运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 时 " + diffMinutes + " 分 " + diffSeconds + " 秒";
+}
+siteTime();
+				</script>
+				<noscript>
+					抱歉，你的浏览器不支持/已关闭 JavaScript!
+				</noscript>
+				<p>
+					本站使用QUIC传输层网络协议为您呈现精彩内容。
+					<br />
+					注：本站不出售、本站不出售友链、不出租二级目录、不接下载器和捆绑类的广告，以上需求无需联系谢谢。
+				</p>
+				<p>
+					copyright 2019 -
+					<script>
+						document.write(new Date().getFullYear());
+					</script>
+					小 X 版权所有
+					<br />
+				</p>
+				<p>
+					鸣谢：
+					<a href="//Github.com" target="_blank" class="mdui-color-indigo">
+						Github
+					</a>
+					<a href="//MDUI.org" target="_blank" class="mdui-color-indigo">
+						MDUI
+					</a>
+					<a href="//zy.baidu.com" target="_blank" class="mdui-color-indigo">
+						百度
+					</a>
+					<a href="//www.google.cn/webmasters/" target="_blank" class="mdui-color-indigo">
+						Google
+					</a>
+					<a href="//cloudflare.com" target="_blank" class="mdui-color-indigo">
+						Cloudflare
+					</a>
+					<a href="//www.runoob.com" target="_blank" class="mdui-color-indigo">
+						菜鸟教程
+					</a>
+					<a href="//ym.163.com" target="_blank" class="mdui-color-indigo">
+						网易企业邮
+					</a>
+					<br />
+					节点由：
+					<a href="//cloudflare.com" target="_blank" class="mdui-color-indigo">
+						Cloudflare CDN
+					</a>
+					、
+					<a href="//pages.github.com" target="_blank" class="mdui-color-indigo">
+						Github Pages
+					</a>
+					提供
+					<br />
+				</p>
+				<p>
+					<a href="./sitemap.html" class="mdui-color-indigo">
+						网站地图
+					</a>
+				</p>
+				<a href="mailto:admin@xingzhenghang.tk">
+					<i class="mdui-icon material-icons mdui-text-color-white">
+						email
+					</i>
+				</a>
+				<a href="tel:18656261151">
+					<i class="mdui-icon material-icons mdui-text-color-white">
+						phone_forwarded
+					</i>
+				</a>
+				<a target="_blank" href="https://wpa.qq.com/msgrd?v=3&amp;uin=1713712100&amp;site=qq&amp;menu=yes">
+					<svg t="1573685631938" class="icon" viewbox="0 0 1024 1024" version="1.1"
+					xmlns="http://www.w3.org/2000/svg" p-id="1075" width="24" height="24">
+						<path d="M154.285714 460.571429q-4.571429-10.857143-4.571428-29.714286 0-11.428571 6.285714-28t13.714286-25.714286q-0.571429-12.571429 4.285714-30.285714t12.857143-24.571429q0-79.428571 52.857143-164.857143T364 37.714286Q443.428571 0 549.142857 0q76 0 152 31.428571 28 12 51.428572 27.428572t40.571428 32 31.428572 38.857143 24 42.285714 18.571428 48.285714T881.714286 271.428571t12.571428 56l0.571429 2.857143q31.428571 47.428571 31.428571 85.714286 0 8-5.142857 22.857143t-5.142857 21.714286q0 0.571429 0.857143 2t2 2.857142 1.142857 2q44 65.142857 68.857143 122.571429T1013.714286 709.142857q0 24.571429-11.142857 57.142857t-31.714286 32.571429q-5.142857 0-11.142857-4.285714t-10.857143-10-10.857143-14.857143-9.142857-15.142857-7.714286-14.857143-5.142857-10q-0.571429-0.571429-1.714286-0.571429l-2.857143 2.285714q-33.714286 88-75.428571 127.428572 11.428571 11.428571 35.142857 22t39.428572 23.714286 20.285714 37.142857q-1.142857 2.285714-2.285714 9.142857t-4 10.285714q-36.571429 55.428571-172.571429 55.428572-30.285714 0-63.142857-5.142858t-56-11.428571-59.714286-17.142857q-8.571429-2.857143-13.142857-4-8-2.285714-26.285714-2.571429t-22.857143-0.857143q-23.428571 25.714286-72.857143 37.142858T341.714286 1024q-20 0-39.428572-0.857143t-53.142857-5.142857-57.714286-11.714286-42.571428-22.857143-18.571429-36.571428q0-22.857143 5.714286-34t23.428571-27.714286q6.285714-1.142857 23.142858-7.428571t28.285714-6.857143q2.285714 0 8-1.142857 1.142857-1.142857 1.142857-2.285715l-1.142857-1.714285q-27.428571-6.285714-61.714286-60.285715T115.428571 716l-2.857142-1.714286q-2.285714 0-6.857143 11.428572-10.285714 23.428571-31.142857 42.571428T30.285714 789.714286h-0.571428q-2.285714 0-3.428572-2.571429t-2.857143-3.142857q-13.142857-30.857143-13.142857-57.142857 0-157.142857 144-266.285714z"
+						p-id="1076" fill="#ffffff">
+						</path>
+					</svg>
+				</a>
+				<iframe src="https://ghbtns.com/github-btn.html?user=xingzhenghang&amp;repo=xingzhenghang.github.io&amp;type=star&amp;count=true"
+				frameborder="0" scrolling="0" width="80px" height="20px">
+				</iframe>
+			</div>
+		</footer>
+		<script async src="https://www.xingzhenghang.tk/fy.js">
+		</script>
+		<div class="mdui-dialog" id="dialog-docs-theme">
+			<div class="mdui-dialog-title">
+				设置文档主题
+			</div>
+			<div class="mdui-dialog-content">
+				<p class="mdui-typo-title">
+					主题色
+				</p>
+				<div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3">
+					<div class="mdui-col">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-layout" value="" checked/>
+							<i class="mdui-radio-icon">
+							</i>
+							浅色调
+						</label>
+					</div>
+					<div class="mdui-col">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-layout" value="dark" />
+							<i class="mdui-radio-icon">
+							</i>
+							深色调（OLED 省电）
+						</label>
+					</div>
+				</div>
+				<p class="mdui-typo-title mdui-text-color-theme">
+					主色
+				</p>
+				<form class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3">
+					<div class="mdui-col mdui-text-color-amber">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="amber" />
+							<i class="mdui-radio-icon">
+							</i>
+							Amber
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-blue">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="blue" />
+							<i class="mdui-radio-icon">
+							</i>
+							Blue
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-blue-grey">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="blue-grey" />
+							<i class="mdui-radio-icon">
+							</i>
+							Blue Grey
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-brown">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="brown" />
+							<i class="mdui-radio-icon">
+							</i>
+							Brown
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-cyan">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="cyan" />
+							<i class="mdui-radio-icon">
+							</i>
+							Cyan
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-deep-orange">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="deep-orange" />
+							<i class="mdui-radio-icon">
+							</i>
+							Deep Orange
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-deep-purple">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="deep-purple" />
+							<i class="mdui-radio-icon">
+							</i>
+							Deep Purple
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-green">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="green" />
+							<i class="mdui-radio-icon">
+							</i>
+							Green
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-grey">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="grey" />
+							<i class="mdui-radio-icon">
+							</i>
+							Grey
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-indigo">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="indigo" checked/>
+							<i class="mdui-radio-icon">
+							</i>
+							Indigo
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-light-blue">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="light-blue" />
+							<i class="mdui-radio-icon">
+							</i>
+							Light Blue
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-light-green">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="light-green" />
+							<i class="mdui-radio-icon">
+							</i>
+							Light Green
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-lime">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="lime" />
+							<i class="mdui-radio-icon">
+							</i>
+							Lime
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-orange">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="orange" />
+							<i class="mdui-radio-icon">
+							</i>
+							Orange
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-pink">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="pink" />
+							<i class="mdui-radio-icon">
+							</i>
+							Pink
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-purple">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="purple" />
+							<i class="mdui-radio-icon">
+							</i>
+							Purple
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-red">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="red" />
+							<i class="mdui-radio-icon">
+							</i>
+							Red
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-teal">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="teal" />
+							<i class="mdui-radio-icon">
+							</i>
+							Teal
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-yellow">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-primary" value="yellow" />
+							<i class="mdui-radio-icon">
+							</i>
+							Yellow
+						</label>
+					</div>
+				</form>
+				<p class="mdui-typo-title mdui-text-color-theme-accent">
+					强调色
+				</p>
+				<form class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3">
+					<div class="mdui-col mdui-text-color-amber">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="amber" />
+							<i class="mdui-radio-icon">
+							</i>
+							Amber
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-blue">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="blue" />
+							<i class="mdui-radio-icon">
+							</i>
+							Blue
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-cyan">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="cyan" />
+							<i class="mdui-radio-icon">
+							</i>
+							Cyan
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-deep-orange">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="deep-orange" />
+							<i class="mdui-radio-icon">
+							</i>
+							Deep Orange
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-deep-purple">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="deep-purple" />
+							<i class="mdui-radio-icon">
+							</i>
+							Deep Purple
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-green">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="green" />
+							<i class="mdui-radio-icon">
+							</i>
+							Green
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-indigo">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="indigo" />
+							<i class="mdui-radio-icon">
+							</i>
+							Indigo
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-light-blue">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="light-blue" />
+							<i class="mdui-radio-icon">
+							</i>
+							Light Blue
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-light-green">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="light-green" />
+							<i class="mdui-radio-icon">
+							</i>
+							Light Green
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-lime">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="lime" />
+							<i class="mdui-radio-icon">
+							</i>
+							Lime
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-orange">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="orange" />
+							<i class="mdui-radio-icon">
+							</i>
+							Orange
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-pink">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="pink" checked/>
+							<i class="mdui-radio-icon">
+							</i>
+							Pink
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-purple">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="purple" />
+							<i class="mdui-radio-icon">
+							</i>
+							Purple
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-red">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="red" />
+							<i class="mdui-radio-icon">
+							</i>
+							Red
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-teal">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="teal" />
+							<i class="mdui-radio-icon">
+							</i>
+							Teal
+						</label>
+					</div>
+					<div class="mdui-col mdui-text-color-yellow">
+						<label class="mdui-radio mdui-m-b-1">
+							<input type="radio" name="doc-theme-accent" value="yellow" />
+							<i class="mdui-radio-icon">
+							</i>
+							Yellow
+						</label>
+					</div>
+				</form>
+			</div>
+			<div class="mdui-divider">
+			</div>
+			<div class="mdui-dialog-actions">
+				<button class="mdui-btn mdui-ripple mdui-float-left" mdui-dialog-cancel>
+					恢复默认主题
+				</button>
+				<button class="mdui-btn mdui-ripple" mdui-dialog-confirm>
+					ok
+				</button>
+			</div>
+		</div>
+	</body>
 
-    <p class="mdui-typo-title">主题色</p>
-    <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3">
-      <div class="mdui-col">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-layout" value="" checked/>
-          <i class="mdui-radio-icon"></i>
-          Light
-        </label>
-      </div>
-      <div class="mdui-col">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-layout" value="dark" />
-          <i class="mdui-radio-icon"></i>
-          Dark
-        </label>
-      </div>
-    </div>
-
-    <p class="mdui-typo-title mdui-text-color-theme">主色</p>
-    <form class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3">
-      <div class="mdui-col mdui-text-color-amber">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="amber" />
-          <i class="mdui-radio-icon"></i>
-          Amber
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-blue">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="blue" />
-          <i class="mdui-radio-icon"></i>
-          Blue
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-blue-grey">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="blue-grey" />
-          <i class="mdui-radio-icon"></i>
-          Blue Grey
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-brown">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="brown" />
-          <i class="mdui-radio-icon"></i>
-          Brown
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-cyan">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="cyan" />
-          <i class="mdui-radio-icon"></i>
-          Cyan
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-deep-orange">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="deep-orange" />
-          <i class="mdui-radio-icon"></i>
-          Deep Orange
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-deep-purple">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="deep-purple" />
-          <i class="mdui-radio-icon"></i>
-          Deep Purple
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-green">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="green" />
-          <i class="mdui-radio-icon"></i>
-          Green
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-grey">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="grey" />
-          <i class="mdui-radio-icon"></i>
-          Grey
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-indigo">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="indigo" checked/>
-          <i class="mdui-radio-icon"></i>
-          Indigo
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-light-blue">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="light-blue" />
-          <i class="mdui-radio-icon"></i>
-          Light Blue
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-light-green">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="light-green" />
-          <i class="mdui-radio-icon"></i>
-          Light Green
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-lime">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="lime" />
-          <i class="mdui-radio-icon"></i>
-          Lime
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-orange">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="orange" />
-          <i class="mdui-radio-icon"></i>
-          Orange
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-pink">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="pink" />
-          <i class="mdui-radio-icon"></i>
-          Pink
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-purple">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="purple" />
-          <i class="mdui-radio-icon"></i>
-          Purple
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-red">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="red" />
-          <i class="mdui-radio-icon"></i>
-          Red
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-teal">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="teal" />
-          <i class="mdui-radio-icon"></i>
-          Teal
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-yellow">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-primary" value="yellow" />
-          <i class="mdui-radio-icon"></i>
-          Yellow
-        </label>
-      </div>
-    </form>
-
-    <p class="mdui-typo-title mdui-text-color-theme-accent">强调色</p>
-    <form class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3">
-      <div class="mdui-col mdui-text-color-amber">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="amber" />
-          <i class="mdui-radio-icon"></i>
-          Amber
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-blue">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="blue" />
-          <i class="mdui-radio-icon"></i>
-          Blue
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-cyan">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="cyan" />
-          <i class="mdui-radio-icon"></i>
-          Cyan
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-deep-orange">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="deep-orange" />
-          <i class="mdui-radio-icon"></i>
-          Deep Orange
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-deep-purple">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="deep-purple" />
-          <i class="mdui-radio-icon"></i>
-          Deep Purple
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-green">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="green" />
-          <i class="mdui-radio-icon"></i>
-          Green
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-indigo">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="indigo" />
-          <i class="mdui-radio-icon"></i>
-          Indigo
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-light-blue">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="light-blue" />
-          <i class="mdui-radio-icon"></i>
-          Light Blue
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-light-green">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="light-green" />
-          <i class="mdui-radio-icon"></i>
-          Light Green
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-lime">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="lime" />
-          <i class="mdui-radio-icon"></i>
-          Lime
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-orange">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="orange" />
-          <i class="mdui-radio-icon"></i>
-          Orange
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-pink">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="pink" checked/>
-          <i class="mdui-radio-icon"></i>
-          Pink
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-purple">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="purple" />
-          <i class="mdui-radio-icon"></i>
-          Purple
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-red">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="red" />
-          <i class="mdui-radio-icon"></i>
-          Red
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-teal">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="teal" />
-          <i class="mdui-radio-icon"></i>
-          Teal
-        </label>
-      </div>
-      <div class="mdui-col mdui-text-color-yellow">
-        <label class="mdui-radio mdui-m-b-1">
-          <input type="radio" name="doc-theme-accent" value="yellow" />
-          <i class="mdui-radio-icon"></i>
-          Yellow
-        </label>
-      </div>
-    </form>
-  </div>
-  <div class="mdui-divider"></div>
-  <div class="mdui-dialog-actions">
-    <button class="mdui-btn mdui-ripple mdui-float-left" mdui-dialog-cancel>恢复默认主题</button>
-    <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>ok</button>
-  </div>
-</div>
- </body>
 </html>
