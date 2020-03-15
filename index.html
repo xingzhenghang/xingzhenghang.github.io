@@ -186,6 +186,33 @@ $$('.viewsource').on('click', function () {
     });
   });
 })();
+    if(localStorage.getItem("mode")==null || localStorage.getItem("mode")=="white")
+    {
+        document.getElementById("bwmode").innerHTML = '<input  οnclick="checkmode()" type="checkbox"/><i class="mdui-switch-icon"></i>';
+    }
+    else
+    {
+        document.getElementById("bwmode").innerHTML = '<input  οnclick="checkmode()" type="checkbox" checked/><i class="mdui-switch-icon"></i>';
+        document.getElementById("allconfig").className = "mdui-color-black mdui-bottom-nav-fixed";
+    }
+ 
+    function checkmode()
+    {
+        if(localStorage.getItem("mode")==null)
+        {
+            localStorage.setItem("mode","black");
+        }
+        else if(localStorage.getItem("mode") == "white")
+        {
+            localStorage.setItem("mode","black");
+            document.getElementById("allconfig").className = "mdui-color-black mdui-bottom-nav-fixed";
+        }
+        else
+        {
+            localStorage.setItem("mode","white");
+            document.getElementById("allconfig").className = "mdui-color-white mdui-bottom-nav-fixed";
+        }
+    }
 		</script>
 	</head>
 	<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-theme-layout-light">
