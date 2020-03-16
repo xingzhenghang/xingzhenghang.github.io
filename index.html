@@ -58,7 +58,7 @@
     document.getElementById("sitetime").innerHTML = " 本站已稳定运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 时 " + diffMinutes + " 分 " + diffSeconds + " 秒";
 }
 siteTime();
-document.getElementById("body").class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-theme-layout-light";
+document.getElementById("body").class = "mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-theme-layout-light";
 		</script>
 	</head>
 	<body id="body" class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
@@ -74,7 +74,7 @@ document.getElementById("body").class="mdui-appbar-with-toolbar mdui-theme-prima
 				</span>
 				<div class="mdui-toolbar-spacer">
 				</div>
-				<a href="javascript:(function () { var script = document.createElement('script'); script.src="//cdn.jsdelivr.net/npm/eruda"; document.body.appendChild(script); script.onload = function () { eruda.init() } })();" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white""
+				<a href="javascript:(function () { var script = document.createElement('script'); script.src='//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init() } })();" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
 				mdui-tooltip="{content: '开发者调试台'}">
 					<i class="mdui-icon material-icons">
 						developer_mode
