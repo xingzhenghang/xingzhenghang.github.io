@@ -25,7 +25,7 @@
     navigator.serviceWorker.register('https://www.xingzhenghang.tk/sw.js');
 }
 
-					function siteTime() {
+function siteTime() {
     window.setTimeout("siteTime()", 1000);
     var seconds = 1000;
     var minutes = seconds * 60;
@@ -74,8 +74,8 @@ document.getElementById("body").class = "mdui-appbar-with-toolbar mdui-theme-pri
 				</span>
 				<div class="mdui-toolbar-spacer">
 				</div>
-				<a onclick="(function () { var script = document.createElement('script'); script.src='//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init() } })();" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
-				mdui-tooltip="{content: '开发者调试台'}">
+				<a onclick="(function () { var script = document.createElement('script'); script.src='//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init() } })();"
+				class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '开发者调试台'}">
 					<i class="mdui-icon material-icons">
 						developer_mode
 					</i>
@@ -250,6 +250,87 @@ document.getElementById("body").class = "mdui-appbar-with-toolbar mdui-theme-pri
 				<iframe src="https://ghbtns.com/github-btn.html?user=xingzhenghang&amp;repo=xingzhenghang.github.io&amp;type=star&amp;count=true"
 				frameborder="0" scrolling="0" width="80px" height="20px">
 				</iframe>
+				<center>
+					<small id="outputdomain">
+					</small>
+					<small id="TimeShow">
+					</small>
+				</center>
+				<center>
+					<small id="result">
+					</small>
+				</center>
+				<div id="jsonTip">
+				</div>
+				<script type="text/javascript">
+					document.getElementById("TimeShow").innerHTML = " 页面加载耗时" + (new Date().getTime() - t1) + "毫秒";
+$(function() {
+    $.getJSON("count.php", function(data) {
+        $("#outputdomain").empty();
+        $.each(data, function(infoIndex, info) {})
+        $("#outputdomain").html(strHtml);
+    })
+    $.ajax({
+        type: "get",
+        dataType: "json",
+        url: "ip.php",
+        success: function(result) {
+            var ipData = "";
+            ipData += result.status + "回源节点：" + result.cdnip;
+            $("#jsonTip").append(ipData);
+            var cdnip = result.cdnip;
+            $.ajax({
+                type: "get",
+                dataType: "json",
+                url: "https://ip.bnxb.com/ip-query-qqwry.php?ip=" + cdnip,
+                success: function(result) {
+                    var ipData = "";
+                    ipData += "(" + result.country + result.city + result.area + ")";
+                    $("#jsonTip").append(ipData);
+                }
+            });
+        }
+    });
+    $.get("/cdn-cgi/trace", function(data) {
+        var sip = data.match(/(ip=?)(\S*)/)[2];
+        var str = data.match(/(colo=?)(\S*)/)[2];
+        var every = [
+            ['HKG', '香港'],
+            ['TPE', '台北'],
+            ['MFM', '澳门'],
+            ['NRT', '东京'],
+            ['KIX', '大阪'],
+            ['ICN', '仁川'],
+            ['BKK', '曼谷'],
+            ['LHR', '伦敦'],
+            ['SIN', '新加坡'],
+            ['CDG', '巴黎'],
+            ['FRA', '法兰克福'],
+            ['KUL', '马来西亚'],
+            ['LAX', '洛杉矶'],
+            ['SJC', '圣何塞'],
+            ['KBP', '乌克兰'],
+            ['PRG', '布拉格']
+        ];
+        for (var i = 0; i < every.length; i++) {
+            if (str == every[i][0]) {
+                $("#result").append("当前CDN节点:[" + str + "]" + every[i][1] + ",您的IP:" + sip);
+            }
+        }
+        $.ajax({
+            type: "get",
+            dataType: "json",
+            url: "https://ip.bnxb.com/ip-query-qqwry.php?ip=" + sip,
+            success: function(result) {
+                var ipData = "";
+                ipData += "(" + result.country + result.city + result.area + ")";
+                $("#result").append(ipData);
+            }
+        });
+    });
+})
+				</script>
+			</div>
 			</div>
 		</footer>
 		<script async src="https://www.xingzhenghang.tk/fy.js">
