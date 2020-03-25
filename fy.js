@@ -1,4 +1,4 @@
-document.getElementById("TimeShow").innerHTML = " 页面加载耗时" + (new Date().getTime() - echotime) + "毫秒";
+document.getElementById("TimeShow").innerHTML = " 页面加载耗时" + (new Date().getTime() + 1 - echotime) + "毫秒";
 $(function() {
     $.getJSON("https://cdn.bnxb.com/count.php", function(data) {
         $("#outputdomain").empty();
