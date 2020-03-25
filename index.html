@@ -23,7 +23,7 @@
 		<script>
 			if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('https://www.xingzhenghang.tk/sw.js');
-}
+};
 function siteTime() {
     window.setTimeout("siteTime()", 1000);
     var seconds = 1000;
@@ -55,11 +55,12 @@ function siteTime() {
     var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
     var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
     document.getElementById("sitetime").innerHTML = " 本站已稳定运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours + " 时 " + diffMinutes + " 分 " + diffSeconds + " 秒";
-}
+};
 siteTime();
+var t1 = new Date().getTime(); 
 document.getElementById("TimeShow").innerHTML = " 页面加载耗时" + (new Date().getTime() - t1) + "毫秒";
 $(function() {
-    $.getJSON("http://cdn.bnxb.com/count.php", function(data) {
+    $.getJSON("https://cdn.bnxb.com/count.php", function(data) {
         $("#outputdomain").empty();
         $.each(data, function(infoIndex, info) {})
         $("#outputdomain").html(strHtml);
@@ -67,7 +68,7 @@ $(function() {
     $.ajax({
         type: "get",
         dataType: "json",
-        url: "http://cdn.bnxb.com/ip.php",
+        url: "https://cdn.bnxb.com/ip.php",
         success: function(result) {
             var ipData = "";
             ipData += result.status + "回源节点：" + result.cdnip;
