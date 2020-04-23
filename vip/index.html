@@ -35,18 +35,90 @@ var _hmt = _hmt || [];
 <div class="mdui-container doc-container">
 
 <br>
-
-<div class="mdui-row">
-<form action="//jx.du2.cc/">
-<div class="mdui-textfield mdui-textfield-floating-label">
-   <i class="mdui-icon material-icons">link</i>
-   <label class="mdui-textfield-label">在这里输入会员视频地址</label>
-   <input class="mdui-col-xs-6 mdui-textfield-input" type="url" name="url" required maxlength="200"></input>
-   <div class="mdui-textfield-error">网站地址格式错误<br>请检查是否有 HTTP/HTTPS 协议</div>
-</div>
-<input type="submit" class="mdui-col-xs-3 mdui-float-right mdui-btn mdui-btn-raised mdui-ripple mdui-color-indigo" value="播放"></input>
-</form>
-</div>
+		<div class="container">
+			<div class="container-l">
+				<!-- 移动端 -->
+				<div class="hint-text visible-xs">
+					<p><b>* 福利消息：<a href="https://mp.weixin.qq.com/s/AzkRyjnVdvDcbFvDsUEHBA" target="_blank">【半价】爱奇艺十周年，所有会员半价，过期不候</a></b></p>
+					<!--<p><b>* 福利消息：<a href="https://shimo.im/docs/JcVPD6tPGWccWr9t/read" target="_blank">利用信息不对称，领取各种优惠福利，超实惠[可抢口罩]</a></b></p>-->
+					<p>* 默认为高清、快速播放线路，进入页面后请点击屏幕或播放按钮，开始播放</p>
+				</div>
+				<!-- PC端 -->
+				<div class="hint-text hidden-xs">
+					<p><b>* 福利消息：<a href="https://mp.weixin.qq.com/s/AzkRyjnVdvDcbFvDsUEHBA" target="_blank">【半价】爱奇艺十周年，所有会员半价，过期不候</a></b></p>
+					<p><b>* 插件推荐：<a href="https://greasyfork.org/zh-CN/scripts/379893" target="_blank">百度文库文档免费下载，文档内容自由复制；移除百度文库网页中的广告；解除大部分网站操作限制</a></b></p>
+					<p>* 默认为高清、快速播放线路，进入页面后请点击屏幕或播放按钮，开始播放。(使用前请确保已经安装了「<a href="http://www.macromedia.com/go/getflashplayer" target="_blank"><b>FLASH插件</b></a>」)。</p>
+				</div>
+				<div id="ckvip" style="position:relative;z-index:1000;background-color:#000;">
+					<iframe border="0" id="vplay" name="vplay" allowfullscreen="" allowtransparency="" frameborder="0"></iframe>
+				</div>
+				<div class="operation">
+					<!-- 移动端显示 -->
+					<div class="visible-xs mobile-input">					
+						<input type="text" value="https://www.iqiyi.com/v_19rrn34998.html" id="film-play-url-mobile" class="form-control text-control" aria-label="Text input with segmented button dropdown" placeholder="请输入爱奇艺、腾讯视频、优酷等视频播放链接"/>				
+					</div>
+					<div class="input-group">
+						<input type="hidden" value="https://www.iqiyi.com/v_19rrn34998.html" id="film-play-url-send"/>
+						<!-- PC端显示 -->
+						<input type="text" value="https://www.iqiyi.com/v_19rrn34998.html" id="film-play-url" class="hidden-xs form-control text-control" aria-label="Text input with segmented button dropdown" placeholder="请输入爱奇艺、腾讯视频、优酷等视频播放链接"/>
+						<div class="input-group-addon">
+							<select class="input-group select-control text-control" id="link-choice">
+								
+									<option value="https://z1.m1907.cn/?jx=">
+										解析线路一
+									</option>
+								
+									<option value="https://jx.618g.com/?url=">
+										解析路线二
+									</option>
+								
+									<option value="http://py.ha12.xyz/sos/index.php?url=">
+										解析路线四
+									</option>
+								
+									<option value="https://www.1717yun.com/jx/ty.php?url=">
+										接口:17云
+									</option>
+								
+									<option value="https://api.sigujx.com/?url=">
+										接口:思古
+									</option>
+								
+									<option value="http://5.5252e.com/p/iqiyi.php?url=">
+										接口:52解析
+									</option>
+								
+									<option value="https://jqaaa.com/jx.php?url=">
+										接口:金桥
+									</option>
+								
+									<option value="http://api.smq1.com/?url=">
+										接口:紫云
+									</option>
+								
+									<option value="https://beaacc.com/api.php?url=">
+										接口:瀚晶
+									</option>
+								
+									<option value="https://api.xiguaimg.com/odflv105/index.php?url=">
+										接口:西瓜
+									</option>
+								
+									<option value="http://www.917k.la/?url=">
+										接口:无AD高清
+									</option>
+								
+									<option value="http://jx.cesms.cn/?url=">
+										大亨影院解析
+									</option>
+								
+							</select>
+						</div>
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default btn-play" title="点击开始解析并开始播放" id="play-btn">解析播放</button>
+						</div>
+					</div>
+				</div>
 
 <br>
 
