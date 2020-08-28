@@ -126,7 +126,7 @@ var x = e.pageX,
 "left": x,
 "position": "absolute",
 "font-weight": "bold",
-"color": "#ff6651"
+"color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
         });
         $("body").append($i);
         $i.animate({
