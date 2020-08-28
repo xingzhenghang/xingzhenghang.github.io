@@ -11,6 +11,36 @@
 		<meta charset="UTF-8">
 		<meta name="format-detection" content="telephone=no" />
 		<meta name="viewport" content="width=device-width" />
+		<script type="text/javascript">
+			/* 鼠标点击特效 */
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+        var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+        var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+            y = e.pageY;
+        $i.css({
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        });
+        $("body").append($i);
+        $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function() {
+                $i.remove();
+            });
+    });
+});
+		</script>
 	</head>
 	<body class="mdui-drawer-body mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
 		<div>
@@ -35,7 +65,7 @@
 					{
 					total= total+i.toString();
 					history.pushState(0,0,total);
-					}" class="mdui-btn mdui-btn-raised mdui-ripple-white mdui-color-theme-white">
+					}" class="mdui-btn mdui-btn-raised mdui-ripple-indigo mdui-color-theme-indigo">
 						作死
 					</a>
 				</div>
