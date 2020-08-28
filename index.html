@@ -22,10 +22,11 @@
 		/>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
 		</script>
-		<script>
-			if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('https://www.xingzhenghang.tk/sw.js');
-};
+			< script >
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('https://www.xingzhenghang.tk/sw.js');
+    };
+
 function siteTime() {
     window.setTimeout("siteTime()", 1000);
     var seconds = 1000;
@@ -61,85 +62,102 @@ function siteTime() {
 siteTime();
 document.getElementById("TimeShow").innerHTML = " 页面加载耗时" + (new Date().getTime() - t1) + "毫秒";
 $(function() {
-	$.getJSON("count.php",
-	function(data) {
-		$("#outputdomain").empty();
-		$.each(data,
-		function(infoIndex, info) {}) $("#outputdomain").html(strHtml);
-	}) $.ajax({
-		type: "get",
-		dataType: "json",
-		url: "ip.php",
-		success: function(result) {
-			var ipData = "";
-			ipData += result.status + "回源节点：" + result.cdnip;
-			$("#jsonTip").append(ipData);
-			var cdnip = result.cdnip;
-			$.ajax({
-				type: "get",
-				dataType: "json",
-				url: "https://ip.bnxb.com/ip-query-qqwry.php?ip=" + cdnip,
-				success: function(result) {
-					var ipData = "";
-					ipData += "(" + result.country + result.city + result.area + ")";
-					$("#jsonTip").append(ipData);
-				}
-			});
-		}
-	});
-	$.get("/cdn-cgi/trace",
-	function(data) {
-		var sip = data.match(/(ip=?)(\S*)/)[2];
-		var str = data.match(/(colo=?)(\S*)/)[2];
-		var every = [['HKG', '香港'], ['TPE', '台北'], ['MFM', '澳门'], ['NRT', '东京'], ['KIX', '大阪'], ['ICN', '仁川'], ['BKK', '曼谷'], ['LHR', '伦敦'], ['SIN', '新加坡'], ['CDG', '巴黎'], ['FRA', '法兰克福'], ['KUL', '马来西亚'], ['LAX', '洛杉矶'], ['SJC', '圣何塞'], ['KBP', '乌克兰'], ['PRG', '布拉格']];
-		for (var i = 0; i < every.length; i++) {
-			if (str == every[i][0]) {
-				$("#result").append("当前CDN节点:[" + str + "]" + every[i][1] + ",您的IP:" + sip);
-			}
-		}
-		$.ajax({
-			type: "get",
-			dataType: "json",
-			url: "https://ip.bnxb.com/ip-query-qqwry.php?ip=" + sip,
-			success: function(result) {
-				var ipData = "";
-				ipData += "(" + result.country + result.city + result.area + ")";
-				$("#result").append(ipData);
-			}
-		});
-	});
+    $.getJSON("count.php",
+        function(data) {
+            $("#outputdomain").empty();
+            $.each(data,
+                function(infoIndex, info) {}) $("#outputdomain").html(strHtml);
+        }) $.ajax({
+        type: "get",
+        dataType: "json",
+        url: "ip.php",
+        success: function(result) {
+            var ipData = "";
+            ipData += result.status + "回源节点：" + result.cdnip;
+            $("#jsonTip").append(ipData);
+            var cdnip = result.cdnip;
+            $.ajax({
+                type: "get",
+                dataType: "json",
+                url: "https://ip.bnxb.com/ip-query-qqwry.php?ip=" + cdnip,
+                success: function(result) {
+                    var ipData = "";
+                    ipData += "(" + result.country + result.city + result.area + ")";
+                    $("#jsonTip").append(ipData);
+                }
+            });
+        }
+    });
+    $.get("/cdn-cgi/trace",
+        function(data) {
+            var sip = data.match(/(ip=?)(\S*)/)[2];
+            var str = data.match(/(colo=?)(\S*)/)[2];
+            var every = [
+                ['HKG', '香港'],
+                ['TPE', '台北'],
+                ['MFM', '澳门'],
+                ['NRT', '东京'],
+                ['KIX', '大阪'],
+                ['ICN', '仁川'],
+                ['BKK', '曼谷'],
+                ['LHR', '伦敦'],
+                ['SIN', '新加坡'],
+                ['CDG', '巴黎'],
+                ['FRA', '法兰克福'],
+                ['KUL', '马来西亚'],
+                ['LAX', '洛杉矶'],
+                ['SJC', '圣何塞'],
+                ['KBP', '乌克兰'],
+                ['PRG', '布拉格']
+            ];
+            for (var i = 0; i < every.length; i++) {
+                if (str == every[i][0]) {
+                    $("#result").append("当前CDN节点:[" + str + "]" + every[i][1] + ",您的IP:" + sip);
+                }
+            }
+            $.ajax({
+                type: "get",
+                dataType: "json",
+                url: "https://ip.bnxb.com/ip-query-qqwry.php?ip=" + sip,
+                success: function(result) {
+                    var ipData = "";
+                    ipData += "(" + result.country + result.city + result.area + ")";
+                    $("#result").append(ipData);
+                }
+            });
+        });
 })
 		</script>
-<script type="text/javascript">
-/* 鼠标点击特效 */
+		<script type="text/javascript">
+			/* 鼠标点击特效 */
 var a_idx = 0;
 jQuery(document).ready(function($) {
     $("body").click(function(e) {
-var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
-var $i = $("<span/>").text(a[a_idx]);
+        var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+        var $i = $("<span/>").text(a[a_idx]);
         a_idx = (a_idx + 1) % a.length;
-var x = e.pageX,
-        y = e.pageY;
+        var x = e.pageX,
+            y = e.pageY;
         $i.css({
-"z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
-"top": y - 20,
-"left": x,
-"position": "absolute",
-"font-weight": "bold",
-"color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
         });
         $("body").append($i);
         $i.animate({
-"top": y - 180,
-"opacity": 0
-        },
-        1500,
-function() {
-            $i.remove();
-        });
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function() {
+                $i.remove();
+            });
     });
 });
-</script>
+		</script>
 	</head>
 	<body id="body" class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
 		<div class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide">
@@ -308,9 +326,19 @@ function() {
 					<a href="./sitemap.html" class="mdui-color-theme">
 						网站地图
 					</a>
-				</p><center><small id="outputdomain"> </small><small id="TimeShow"> </small></center>
-<center><small id="result"> </small></center>
-<div id="jsonTip"> </div>
+				</p>
+				<center>
+					<small id="outputdomain">
+					</small>
+					<small id="TimeShow">
+					</small>
+				</center>
+				<center>
+					<small id="result">
+					</small>
+				</center>
+				<div id="jsonTip">
+				</div>
 				<a href="mailto:admin@xingzhenghang.tk">
 					<i class="mdui-icon material-icons mdui-text-color-white">
 						email
@@ -338,4 +366,5 @@ function() {
 		<script async src="https://www.xingzhenghang.tk/fy.js">
 		</script>
 	</body>
+
 </html>
