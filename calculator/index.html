@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html page="question:m-calculator/m-calculator" rem-enable>
 
@@ -42,9 +43,9 @@
             window.addEventListener && window.addEventListener(resizeEvt, resizeCall, false);
         }(this);
     </script>
-    <link rel="stylesheet" type="text/css" href="https://ws-s.zuoyebang.cc/static/common/css/m-base_b34640f.css" />
-    <link rel="stylesheet" type="text/css" href="https://yy-s.zuoyebang.cc/static/question/m-calculator/m-calculator_db7ef06.css" />
-    <link rel="stylesheet" type="text/css" href="https://ws-s.zuoyebang.cc/static/question/m-calculator/mathquill_9595636.css" />
+    <link rel="stylesheet" type="text/css" href="//yy-s.zuoyebang.cc/static/common/css/m-base_b34640f.css" />
+    <link rel="stylesheet" type="text/css" href="//yy-s.zuoyebang.cc/static/question/m-calculator/m-calculator_1d84fc5.css" />
+    <link rel="stylesheet" type="text/css" href="//yy-s.zuoyebang.cc/static/question/m-calculator/mathquill_9595636.css" />
 </head>
 
 <body class="m-body">
@@ -52,7 +53,7 @@
         <div class="m-input">
             <div class="question">
                 <span id="inputArea" class="area"></span>
-                <img src="https://ws-s.zuoyebang.cc/static/question/m-calculator/resource/emptyButton_b2db521.png" alt="clear" class="emptyInput hidden"></span>
+                <img src="//yy-s.zuoyebang.cc/static/question/m-calculator/resource/emptyButton_b2db521.png" alt="clear" class="emptyInput hidden"></span>
             </div>
             <div class="example">
                 <span class="icon"></span>
@@ -91,41 +92,46 @@
                 <div class="row"><em class="cmn-icon calc-icons orange calc-icons_ellipsis" data-expand="main" data-keys="ellipsis"></em><em class="cmn-icon calc-icons white calc-icons_daoshu" data-keys="daoshu"></em></div>
             </div>
             <div class="guid hidden">
-                <img class="step step1" src="https://ws-s.zuoyebang.cc/static/question/m-calculator/resource/step1_cd13f35.png" alt="step1">
-                <img class="step step2 hidden" src="https://ws-s.zuoyebang.cc/static/question/m-calculator/resource/step2_8b60bd4.png" alt="step2">
-                <img class="step step3 hidden" src="https://ws-s.zuoyebang.cc/static/question/m-calculator/resource/step3_65569f4.png" alt="step3">
+                <img class="step step1" src="//yy-s.zuoyebang.cc/static/question/m-calculator/resource/step1_cd13f35.png" alt="step1">
+                <img class="step step2 hidden" src="//yy-s.zuoyebang.cc/static/question/m-calculator/resource/step2_8b60bd4.png" alt="step2">
+                <img class="step step3 hidden" src="//yy-s.zuoyebang.cc/static/question/m-calculator/resource/step3_65569f4.png" alt="step3">
             </div>
         </div>
     </div>
     <div class="page page-result hidden">
         <dl class="step-list"></dl><span class="feedback">答案优化建议</span></div>
-    <div class="page page-help hidden"><img src="https://ws-s.zuoyebang.cc/static/question/m-calculator/resource/calculator_guid_fafe23b.png" alt="guid" class="guid"></div>
+    <div class="page page-help hidden"><img src="//yy-s.zuoyebang.cc/static/question/m-calculator/resource/calculator_guid_fafe23b.png" alt="guid" class="guid"></div>
     <div class="page page-loading">
-        <div class="line-scale">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div class="page-loading-img"></div>
+        
         </div>
-    </div>
-    <div class="shadow hidden"></div>
-    <div class="dialog ">
-        <p class="title">答案优化建议<em class="cmn-icon cmn-icons cmn-icons_close btn-close"></em></p>
-        <div class="content">
-            <div class="row"><span class="item" data-index="1">答案有错误</span><span class="item" data-index="2">解答不详细</span></div>
-            <div class="row"><span class="item" data-index="3">没有简便运算</span><span class="item" data-index="4">解答方法错误</span></div>
-            <div class="row"><span class="item" data-index="5">步骤解释不详细</span></div>
+        <div class="shadow hidden">
         </div>
-        <a class="btn-submit" href="javascript:;">提交</a>
-    </div>
+        <div class="dialog ">
+        <dl>
+            <dd class="reportItem" data-index="1">答案有错误</dd>
+            <dd class="reportItem" data-index="2">解答不详细</dd>
+            <dd class="reportItem" data-index="3">没有简便运算</dd>
+            <dd class="reportItem" data-index="4">解答方法错误</dd>
+            <dd class="reportItem" data-index="5">步骤解释不详细</dd>
+            <dt class="reportSubmit" data-index="0">取消</dt>
+        </dl>
+        </div>
+        <div class="popover">
+        <div class="popover-body">
+            <div class="popover-text">对计算器满意么？评个分吧</div>
+            <button class="popover-btn">点击评价</button>
+            <img class="popover-close" src="//boxcdn.zuoyebang.cc/v1/zyb-srmp/cc60fc3e/delete.png" />
+        </div>
+        </div>
 </body>
-<script type="text/javascript" src="https://ws-s.zuoyebang.cc/static/common/pkg/m-common-base_378f428.js"></script>
-<script type="text/javascript" src="https://ws-s.zuoyebang.cc/static/question/m-calculator/jquery-1.7.2_7947209.js"></script>
-<script type="text/javascript" src="https://ws-s.zuoyebang.cc/static/question/m-calculator/mathquill_915874e.js"></script>
-<script type="text/javascript" src="https://ws-s.zuoyebang.cc/static/common/pkg/util_e5bc2cd.js"></script>
-<script type="text/javascript" src="https://yy-s.zuoyebang.cc/static/question/m-calculator/m-calculator_61b1134.js"></script>
+<script type="text/javascript" src="//yy-s.zuoyebang.cc/static/common/pkg/m-common-base_378f428.js"></script>
+<script type="text/javascript" src="//yy-s.zuoyebang.cc/static/question/m-calculator/jquery-1.7.2_7947209.js"></script>
+<script type="text/javascript" src="//yy-s.zuoyebang.cc/static/question/m-calculator/mathquill_915874e.js"></script>
+<script type="text/javascript" src="//yy-s.zuoyebang.cc/static/common/pkg/util_e5bc2cd.js"></script>
+<script type="text/javascript" src="//yy-s.zuoyebang.cc/static/question/m-calculator/m-calculator_59c8b7f.js"></script>
 
 </html><!--22602269412097785024061417-->
-<script> var _trace_page_logid = 2260226941; </script><!--31194531123221858496091717-->
-<script> var _trace_page_logid = 3119453112; </script>
+<script> var _trace_page_logid = 2260226941; </script><!--28129030232097785024110115-->
+<script> var _trace_page_logid = 2812903023; </script><!--01841043093347491008121315-->
+<script> var _trace_page_logid = 0184104309; </script>
