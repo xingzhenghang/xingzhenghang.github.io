@@ -26,7 +26,8 @@
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('https://www.xingzhenghang.tk/sw.js');
     };
-
+</script>
+<script>
 function siteTime() {
     window.setTimeout("siteTime()", 1000);
     var seconds = 1000;
@@ -200,11 +201,11 @@ jQuery(document).ready(function($) {
 				<div>
 					<span id="sitetime">
 					</span>
-<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" style="font-size:16px">北京时间:</a>
+<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow" style="font-size:16px" class="mdui-color-theme">北京时间:</a>
 <span id="Beijing_z43d" style="font-size:16px"></span>
 <script src="//widget.time.is/zh.js"></script>
 <script>
-time_is_widget.init({Beijing_z43d:{template:"TIME<br>DATE<br>SUN", date_format:"year年monthnamednum日dayname，第week周", sun_format:"日出: srhour:srminute 日落: sshour:ssminute<br>昼长: dlhours时 dlminutes分", coords:"39.9075000,116.3972300"}});
+time_is_widget.init({Beijing_z43d:{template:"TIME<br>DATE<br>SUN", date_format:"year年monthnamednum日dayname，week", sun_format:"日出: srhour:srminute 日落: sshour:ssminute<br>昼长: dlhours时 dlminutes分", coords:"39.9075000,116.3972300"}});
 </script>
 
 					<noscript>
