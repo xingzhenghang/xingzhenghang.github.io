@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<title>富文本编辑器</title>
+<link rel="stylesheet" href="https://www.xingzhenghang.tk/ui/css/mdui.min.css"/>
+<script async src="https://www.xingzhenghang.tk/js/mdui.js"></script>
+<meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no"/>
+<meta name="viewport" content="width=device-width"/>
+</head>
+
+
+<body class="mdui-drawer-body mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+<div>
+<div class="mdui-container">
+<header class="mdui-appbar mdui-appbar-fixed">
+<div class="mdui-toolbar mdui-color-theme">
+<span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}">
+   <i class="mdui-icon material-icons">menu</i>
+</span>
+<span class="mdui-typo-title">富文本编辑器</span>
+</div>
+</header>
+</div>
+
+<div class="mdui-container doc-container">
+
+<br>
+<!-- Include Quill stylesheet -->
+<link href="https://cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+
+<!-- Create the toolbar container -->
+<div id="toolbar">
+  <button class="ql-bold">Bold</button>
+  <button class="ql-italic">Italic</button>
+</div>
+
+<!-- Create the editor container -->
+<div id="editor">
+  <p>富文本编辑器</p>
+</div>
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+  var editor = new Quill('#editor', {
+    modules: { toolbar: '#toolbar' },
+    theme: 'snow'
+  });
+</script><br>
+</div>
+</body>
+</html>
