@@ -1,4 +1,4 @@
-
+﻿
 /**
  * 汉字与拼音互转工具，根据导入的字典文件的不同支持不同
  * 对于多音字目前只是将所有可能的组合输出，准确识别多音字需要完善的词库，而词库文件往往比字库还要大，所以不太适合web环境。
@@ -15,10 +15,10 @@
 
 	var toneMap = 
 	{
-		"ᾱ": "a1",
-		"ά": "a2",
-		"α̌": "a3",
-		"ὰ": "a4",
+		"ā": "a1",
+		"á": "a2",
+		"ǎ": "a3",
+		"à": "a4",
 		"ō": "o1",
 		"ó": "o2",
 		"ǒ": "o3",
@@ -254,12 +254,12 @@
 			return this.getHanzi(this.getPinyin(hz, ' ', false))
 		},
 		/**
-		 * 去除拼音中的声调，比如将 xiα̌o míng tóng xué 转换成 xiao ming tong xue
+		 * 去除拼音中的声调，比如将 xiǎo míng tóng xué 转换成 xiao ming tong xue
 		 * @param pinyin 需要转换的拼音
 		 */
 		removeTone: function(pinyin)
 		{
-			return pinyin.replace(/[ᾱάα̌ὰōóǒòēéěèīíǐìūúǔùüǖǘǚǜńň]/g, function(m){ return toneMap[m][0]; });
+			return pinyin.replace(/[āáǎàōóǒòēéěèīíǐìūúǔùüǖǘǚǜńň]/g, function(m){ return toneMap[m][0]; });
 		},
 		/**
 		 * 将数组拼音转换成真正的带标点的拼音
