@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+	<link rel="stylesheet" href="https://www.xingzhenghang.tk/ui/css/mdui.min.css" />
+	<script async="" src="https://www.xingzhenghang.tk/js/mdui.js"></script>
+	<meta charset="utf-8"/>
+	<title>汉字转拼音</title>
+</head>
+<body class="mdui-drawer-body mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+<content="yes" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width" />
+<div>
+<div class="mdui-container">
+<header class="mdui-appbar mdui-appbar-fixed">
+<div class="mdui-toolbar mdui-color-theme">
+<span class="mdui-btn  mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
+<span class="mdui-typo-title">文字转拼音</span>
+</div>
+</header>
+</div>
+<div class="mdui-container doc-container">
+<br />
+		<div class="loading-tip">正在加载词库，文件比较大，请耐心等待加载完毕再尝试。</div>
+		<div>
+			<span>输出类型：</span>
+			<label class="mdui-radio"><input type="radio" name="pinyin_type" value="0" checked/><i class="mdui-radio-icon"></i>带声调拼音</label>
+			<label class="mdui-radio"><input type="radio" name="pinyin_type" value="1"/><i class="mdui-radio-icon"></i>不带声调拼音</label>
+			<label class="mdui-radio"><input type="radio" name="pinyin_type" value="2"/><i class="mdui-radio-icon"></i>拼音首字母</label>
+		</div>
+		<input type="text" id="test" value="小明说长大后要去看长城！" placeholder="请输入中文"/>
+		<h3>转换结果：</h3>
+		<div id="result"></div>
+	</div>
+
+	<script type="text/javascript" src="pinyin_dict_withtone.js"></script>
+	<script type="text/javascript" src="pinyin_dict_polyphone.js"></script>
+	<script type="text/javascript" src="pinyinUtil.js"></script>
+	
+	<script type="text/javascript">
+	function getPinyin()
+	{
+		var value = document.getElementById('test').value;
+		var type = document.querySelector('[name="pinyin_type"]:checked').value;
+		var result = '';
+		if(value)
+		{
+			switch(type)
+			{
+				case '0': result = pinyinUtil.getPinyin(value, ' ', true, true); break;
+				case '1': result = pinyinUtil.getPinyin(value, ' ', false, true); break;
+				case '2': result = pinyinUtil.getFirstLetter(value, true); break;
+				default: break;
+			}
+		}
+		var html = result;
+		if(result instanceof Array)
+		{
+			html = '<ol>';
+			result.forEach(function(val)
+			{
+				html += '<li>'+val+'</li>';
+			});
+			html += '</ol>';
+		}
+		document.getElementById('result').innerHTML = html;
+	}
+	document.getElementById('test').addEventListener('input', getPinyin);
+	document.addEventListener('change', function(e)
+	{
+		if(e.target.name === 'pinyin_type')
+		{
+			getPinyin();
+		}
+	});
+	getPinyin();
+	document.querySelector('.loading-tip').innerHTML = 'JS加载完毕，现在你可以开始打字了！';
+	</script>
+
+</body>
+</html>
