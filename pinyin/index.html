@@ -28,7 +28,9 @@
 			<label class="mdui-radio"><input type="radio" name="pinyin_type" value="1"/><i class="mdui-radio-icon"></i>不带声调拼音</label>
 			<label class="mdui-radio"><input type="radio" name="pinyin_type" value="2"/><i class="mdui-radio-icon"></i>拼音首字母</label>
 		</div>
-		<input type="text" id="test" value="小明说长大后要去看长城！" placeholder="请输入中文"/>
+<div class="mdui-textfield">
+		<textarea type="text" id="test" value="小明说长大后要去看长城！" placeholder="请输入中文"/>
+</div>
 		<h3>转换结果：</h3>
 		<div id="result"></div>
 	</div>
@@ -74,7 +76,7 @@
 		}
 	});
 	getPinyin();
-	document.querySelector('.loading-tip').innerHTML = 'JS加载完毕，现在你可以开始打字了！';
+	document.querySelector('.loading-tip').innerHTML = '词库加载完毕，现在你可以开始输入汉字了！';
 	</script>
 
 </body>
