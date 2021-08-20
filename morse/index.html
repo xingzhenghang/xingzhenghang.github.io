@@ -28,7 +28,8 @@
     <br />
 <div class="mdui-panel" mdui-panel>
   <div class="mdui-panel-item">
-    <div class="mdui-panel-item-header">First</div>
+    <div class="mdui-panel-item-header">电码设置</div>
+      <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
     <div class="mdui-panel-item-body">
     Space: <input type='text' id='space' value='/' placeholder='space' />
     Short: <input type='text' id='short' value='.' placeholder='short' />
@@ -37,8 +38,14 @@
   </div>
 </div>
     <br />
-    <input type='button' onclick='encode()' value='Encode morse code' />
-    <input type='button' onclick='decode()' value='Decode morse code' />
+<div class="mdui-row-xs-2">
+  <div class="mdui-col">
+    <input class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple" type='button' onclick='encode()' value='编码' />
+  </div>
+  <div class="mdui-col">
+    <input class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple" type='button' onclick='decode()' value='解码' />
+  </div>
+</div>
   </form>
   <pre id='result'></pre>
 
