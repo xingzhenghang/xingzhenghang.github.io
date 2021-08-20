@@ -1,51 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cmn-Hans">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Xmorse is a pure JavaScript library for encoding/decoding morse code messages, unicode supported.</title>
-  <meta name="keywords" content="morse encode, morse decode, morse unicode" />
-  <meta name="description" content="xmorse is a pure JavaScript library for encoding/decoding morse code messages, unicode supported." />
-  <style type="text/css">
-  body {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  pre {
-    background-color: #f6dcd7;
-    padding: 10px 15px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
-  pre.strong {
-    font-weight: bold;
-  }
-  form, form textarea {
-    width: 100%;
-  }
-  </style>
+	<link rel="stylesheet" href="https://www.xingzhenghang.tk/ui/css/mdui.min.css" />
+	<script async="" src="https://www.xingzhenghang.tk/js/mdui.js"></script>
+	<meta charset="utf-8"/>
+	<title>莫斯电码</title>
 </head>
-<body>
-  <h1> Xmorse </h1>
-  <p>
-    Project <a href="https://github.com/hustcc/xmorse">xmorse</a> is a pure JavaScript (1.5 kb) library for encoding/decoding morse code messages, unicode supported.
-  </p>
-  <p>
-    项目 <a href="https://github.com/hustcc/xmorse">xmorse</a> 是一个 JavaScript 开发的摩斯密码编码库(1.5 kb)，可以支持 unicode，例如中文摩斯密码。
-  </p>
-
-  <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <!-- sorry for ad -->
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-7292810486004926"
-       data-ad-slot="7806394673"
-       data-ad-format="auto"></ins>
-  <script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-
+<body class="mdui-drawer-body mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+<content="yes" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width" />
+<div>
+<div class="mdui-container">
+<header class="mdui-appbar mdui-appbar-fixed">
+<div class="mdui-toolbar mdui-color-theme">
+<span class="mdui-btn  mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
+<span class="mdui-typo-title">莫斯电码</span>
+</div>
+</header>
+</div>
+<div class="mdui-container doc-container">
+<br />
   <form>
-    <textarea rows='10' id='input'>I love you, 我爱你。</textarea>
+    <textarea rows='10' id='input'></textarea>
     <br />
     Space: <input type='text' id='space' value='/' placeholder='space' />
     Short: <input type='text' id='short' value='.' placeholder='short' />
@@ -57,32 +34,7 @@
   </form>
   <pre id='result'></pre>
 
-  <h2> Install </h2>
-  <pre class="strong">
-npm install xmorse </pre>
-  <p> Then import it. </p>
-  <pre>
-// import library use script tag.
-&lt;script type="text/javascript" src="dist/xmorse.min.js"&gt;&lt;/script&gt;
-
-// or ES6 style.
-var WordWidth = require('xmorse');</pre>
-
-  <h3>Usage</h3>
-  <pre>
-xmorse.encode('Hello, Xmorse!');
-// unicode
-xmorse.encode('コンニチハ, セカイ!');
-xmorse.encode('越过长城，走向世界');
-
-xmorse.decode('../.-../---');
-  </pre>
-  <hr />
-
-  <p>
-    The code of xmorse hosted on Github, click <a href="https://github.com/hustcc/xmorse">here</a>. Welcome to issue or pull request.
-  </p>
-  <script type="text/javascript" src="dist/xmorse.min.js"></script>
+  <script type="text/javascript" src="xmorse.min.js"></script>
   <script type="text/javascript">
     function $_(id) {
       return document.getElementById(id);
@@ -101,8 +53,7 @@ xmorse.decode('../.-../---');
       $_('result').innerHTML = xmorse.decode($_('input').value, getoption()) || 'Morse code is not valid.';
     }
   </script>
-  <script>
-    location.href = 'https://atool.vip/morse';
-  </script>
+</div>
+</div>
 </body>
 </html>
