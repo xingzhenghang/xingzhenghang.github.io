@@ -26,15 +26,16 @@
     <textarea class="mdui-textfield-input" type="text" placeholder="请输入原文或电码" rows='10' id='input'></textarea>
 </div>
     <br />
-<button class="mdui-fab mdui-fab-fixed mdui-ripple"><i class="mdui-icon material-icons" mdui-dialog="{target: '#setting'}">settings</i></button>
-<div class="mdui-dialog" id="setting">
-<div class="mdui-dialog-title">电码设置</div>
+<div class="mdui-panel" mdui-panel>
+  <div class="mdui-panel-item">
+    <div class="mdui-panel-item-header">First</div>
+    <div class="mdui-panel-item-body">
     Space: <input type='text' id='space' value='/' placeholder='space' />
     Short: <input type='text' id='short' value='.' placeholder='short' />
     Long: <input type='text' id='long' value='-' placeholder='long' />
-    <input type='button' onclick='getoption()' value='保存' />
+    </div>
+  </div>
 </div>
-    <br />
     <br />
     <input type='button' onclick='encode()' value='Encode morse code' />
     <input type='button' onclick='decode()' value='Decode morse code' />
