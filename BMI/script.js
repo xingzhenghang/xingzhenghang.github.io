@@ -17,7 +17,7 @@ form.addEventListener('submit', function(e){
     //calculate BMI
     const bmi = (weight / ((height*height)/10000)).toFixed(2);
     //display the results
-    results.innerHTML = `<span>${bmi}</span>`
+    results.innerHTML = `<span>你的 BMI 是：${bmi}</span>`
     }
     
     
