@@ -54,11 +54,27 @@
   <div class="mdui-col">
     <input class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple" type='button' onclick='decode()' value='解码' />
   </div>
+        <button class="btn btn-info" id="copycode" data-clipboard-target='#result'>
+          <i class="fa fa-copy"></i> 复制</button>
+        <button class="btn btn-info" id="play" style="display: none">
+          <i class="fa fa-play-circle-o"></i> 播放</button>
 </div>
   </form>
   <p id='result'></p>
 
   <script type="text/javascript" src="xmorse.min.js"></script>
+<script src="morse.js"></script>
+<script>
+  var clipboard = new ClipboardJS('#copycode');
+  clipboard.on('success',function(e){
+    e.clearSelection();
+    layer.msg('复制成功！');
+  });
+  clipboard.on('error',function(e){
+    e.clearSelection();
+    layer.msg('复制失败！');
+  });
+</script>
   <script type="text/javascript">
     function $_(id) {
       return document.getElementById(id);
