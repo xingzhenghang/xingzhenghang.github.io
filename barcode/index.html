@@ -119,65 +119,65 @@ document.oncopy = addLink;
     </p>
 
     <p>
-      <label for="text">Text:</label>
+      <label for="text">内容：</label>
     </p>
     <p>
-      <textarea type="text" id="text" class="textarea" ng-model="qrcodeString" placeholder="YOUR TEXT TO ENCODE"></textarea>
-    </p>
-
-    <h3>Optional attributes:</h3>
-
-    <p class="code code-html">
-      <span class="code-vial">&lt;qr <span class="code-yellow">text="qrcodeString" type-number="typeNumber" correction-level="correctionLevel" size="SIZE" input-mode="inputMode" image="image"</span>&gt;&lt;/qr&gt;</span>
+<div class="mdui-textfield">
+      <textarea class="mdui-textfield-input" type="text" id="text" ng-model="qrcodeString" placeholder="YOUR TEXT TO ENCODE"></textarea>
+</div>
     </p>
 
     <p>
-      <label for="typeNumber">Type Number:</label>
-      <span>{{typeNumber}} (use 0 as minimal possible)</span>
+      <label for="typeNumber">模式:</label>
+      <span>{{typeNumber}}（尽可能使用0）</span>
     </p>
     <p>
-      <input type="range" id="typeNumber" class="range" ng-model="typeNumber" min="0" max="40"/>
+<label class="mdui-slider mdui-slider-discrete">
+  <input id="typeNumber" ng-model="typeNumber" type="range" step="1" min="0" max="40"/>
+</label>
     </p>
 
     <p>
-      <label for="size">Correction Level:</label>
+      <label for="size">纠错等级：</label>
       <span>{{correctionLevel}}</span>
     </p>
     <p>
-      <input type="radio" id="correctionLevel" ng-model="correctionLevel" value=""/>  Auto (M)
-      <input type="radio" id="correctionLevel" ng-model="correctionLevel" value="L"/>  L (Low)
-      <input type="radio" id="correctionLevel" ng-model="correctionLevel" value="M"/>  M (Medium)
-      <input type="radio" id="correctionLevel" ng-model="correctionLevel" value="Q"/>  Q (Quartile)
-      <input type="radio" id="correctionLevel" ng-model="correctionLevel" value="H"/>  H (High)
+      <label class="mdui-radio"><input type="radio" id="correctionLevel" ng-model="correctionLevel" value="" checked/><i class="mdui-radio-icon"></i>自动 (M)</label>
+      <label class="mdui-radio"><input type="radio" id="correctionLevel" ng-model="correctionLevel" value="L"/><i class="mdui-radio-icon"></i>L (低)</label>
+      <label class="mdui-radio"><input type="radio" id="correctionLevel" ng-model="correctionLevel" value="M"/><i class="mdui-radio-icon"></i>M (中)</label>
+      <label class="mdui-radio"><input type="radio" id="correctionLevel" ng-model="correctionLevel" value="Q"/><i class="mdui-radio-icon"></i>Q (较高)</label>
+      <label class="mdui-radio"><input type="radio" id="correctionLevel" ng-model="correctionLevel" value="H"/><i class="mdui-radio-icon"></i>H (高)</label>
     </p>
 
 
     <p>
-      <label for="size">Size:</label>
+      <label for="size">大小:</label>
       <span>{{size}}</span>
     </p>
     <p>
-      <input type="range" id="size" class="range" ng-model="size" min="100" max="500"/>
+<label class="mdui-slider mdui-slider-discrete">
+  <input id="size" ng-model="size" type="range" step="1" min="100" max="500"/>
+</label>
     </p>
 
     <p>
-      <label for="size">Input Mode:</label>
+      <label for="size">输出模式：</label>
       <span>{{inputMode}}</span>
     </p>
     <p>
-      <input type="radio" id="inputMode" ng-model="inputMode" value=""/>  Auto
-      <input type="radio" id="inputMode" ng-model="inputMode" value="NUMBER"/>  NUMBER
-      <input type="radio" id="inputMode" ng-model="inputMode" value="ALPHA_NUM"/>  ALPHA_NUM
-      <input type="radio" id="inputMode" ng-model="inputMode" value="8bit"/>  8bit
+      <label class="mdui-radio"><input type="radio" id="inputMode" ng-model="inputMode" value="" checked/><i class="mdui-radio-icon"></i>自动</label>
+      <label class="mdui-radio"><input type="radio" id="inputMode" ng-model="inputMode" value="NUMBER"/><i class="mdui-radio-icon"></i>数字</label>
+      <label class="mdui-radio"><input type="radio" id="inputMode" ng-model="inputMode" value="ALPHA_NUM"/><i class="mdui-radio-icon"></i>数字（测试）</label>
+      <label class="mdui-radio"><input type="radio" id="inputMode" ng-model="inputMode" value="8bit"/><i class="mdui-radio-icon"></i>8位</label>
     </p>
 
     <p>
-      <label for="image">Render Image:</label>
+      <label for="image">渲染图像：</label>
       <span>{{image}}</span>
     </p>
     <p>
-      <input type="radio" id="image" ng-model="image" ng-value="true"/>  Yes
-      <input type="radio" id="image" ng-model="image" ng-value="false"/>  No
+      <label class="mdui-radio"><input type="radio" id="image" ng-model="image" ng-value="true" checked/><i class="mdui-radio-icon"></i>是</label>
+      <label class="mdui-radio"><input type="radio" id="image" ng-model="image" ng-value="false"/><i class="mdui-radio-icon"></i>否</label>
     </p>
 
   </div>
