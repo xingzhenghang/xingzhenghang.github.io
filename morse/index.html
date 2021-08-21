@@ -64,14 +64,13 @@
 <script src="morse.js"></script>
   <script type="text/javascript" src="clipboard.min.js"></script>
 <script>
+var $ = mdui.$;
   var clipboard = new ClipboardJS('#copycode');
   clipboard.on('success',function(e){
     e.clearSelection();
-    layer.msg('复制成功！');
   });
   clipboard.on('error',function(e){
     e.clearSelection();
-    layer.msg('复制失败！');
   });
 </script>
   <script type="text/javascript">
