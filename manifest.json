@@ -31,7 +31,7 @@
   "shortcuts": [
     {
       "name": "小 X",
-      "short_name": "小 X,
+      "short_name": "小 X",
       "description": "小 X 的网站",
       "url": "/",
       "icons": [{ "src": "/192px.png", "sizes": "192x192" }]
