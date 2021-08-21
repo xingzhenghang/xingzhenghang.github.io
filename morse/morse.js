@@ -1,23 +1,3 @@
-// 编码
-$("#encode").click(function() {
-    $('#result').val(xmorse.encode($('#input').val(), getoption()));
-    $('#play').show();
-});
-
-// 解码
-$("#decode").click(function() {
-    $('#result').val(xmorse.decode($('#input').val(), getoption()) || '解码失败，请确认输入是否正确');
-    $('#play').hide();
-});
-
-function getoption() {
-    return {
-        space: $('#space').val(),
-        short: $('#short').val(),
-        long: $('#long').val()
-    };
-}
-
 $("#play").click(function() {
     var AudioContext = window.AudioContext || window.webkitAudioContext;
     var ctx = new AudioContext();
