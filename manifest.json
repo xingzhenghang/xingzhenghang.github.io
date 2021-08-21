@@ -1,10 +1,6 @@
 {
-  "name": "小 X",
   "short_name": "小 X",
-  "theme_color": "#3F51B5",
-  "background_color": "#3F51B5",
-  "display": "standalone",
-  "start_url": "/",
+  "name": "小 X",
   "icons": [
     {
       "src": "/512px.png",
@@ -27,5 +23,31 @@
       "sizes": "96x96"
     }
   ],
-  "splash_pages": null
+  "start_url": "/",
+  "background_color": "#3F51B5",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3F51B5",
+  "shortcuts": [
+    {
+      "name": "小 X",
+      "short_name": "小 X,
+      "description": "小 X 的网站",
+      "url": "/",
+      "icons": [{ "src": "/192px.png", "sizes": "192x192" }]
+    }
+  ],
+  "description": "小 X 的网站",
+  "screenshots": [
+    {
+      "src": "/images/Screenshot1.png",
+      "type": "image/png",
+      "sizes": "1191x2048"
+    },
+    {
+      "src": "/images/Screenshot2.png",
+      "type": "image/png",
+      "sizes": "1191x2048"
+    }
+  ]
 }
