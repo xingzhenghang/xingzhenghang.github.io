@@ -60,15 +60,15 @@
 			}
 		}
 		var html = result;
-		if(result instanceof Array)
-		{
-			html = '<ol>';
-			result.forEach(function(val)
-			{
-				html += '<li>'+val+'</li>';
-			});
-			html += '</ol>';
-		}
+//		if(result instanceof Array)
+//		{
+//			html = '<ol>';
+//			result.forEach(function(val)
+//			{
+//				html += '<li>'+val+'</li>';
+//			});
+//			html += '</ol>';
+//		}
 		document.getElementById('result').innerHTML = html;
 	}
 	document.getElementById('test').addEventListener('input', getPinyin);
