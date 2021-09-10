@@ -24,16 +24,16 @@
 <div class="mdui-container doc-container">
 		<fieldset id="settings">
 			<legend>Settings</legend>
-			<label>Volume: <input type="range" /></label>
+			<label>Volume: <label class="mdui-slider"><input type="range" /></label></label>
 			<label>Multiple input mode:
-				<select id="multiMode">
+				<select class="mdui-select" id="multiMode">
 					<option value="overlay">Overlay</option>
 					<option value="scale">Scale</option>
 					<option value="xy" selected="selected">XY</option>
 				</select>
 			</label>
 			<label>Pixels per sample:
-				<select id="pps">
+				<select class="mdui-select" id="pps">
 					<option selected="selected" value="0.5">0.5</option>
 					<option value="1">1</option>
 					<option value="3">3</option>
@@ -61,8 +61,8 @@
 			<label class="mdui-radio"><input type="radio" name="mode" id="mode-signal" value="signal" /><i class="mdui-radio-icon"></i>Web Audio Signal</label>
 			<section id="signal">
 				<label><input type="checkbox" checked="checked" />Stabilize</label>
-				<label>Frequency #1: <input type="range" min="20" max="1000" value="440" /><span></span></label>
-				<label>Shape #1: <select>
+				<label>Frequency #1: <label class="mdui-slider"><input type="range" min="20" max="1000" value="440" /></label><span></span></label>
+				<label>Shape #1: <select class="mdui-select">
 					<option value="sine">Sine</option>
 					<option value="square">Square</option>
 					<option value="triangle">Triangle</option>
@@ -79,8 +79,7 @@
 				</form>
 			</section>
 
-			<input type="radio" name="mode" id="mode-local" value="local" />
-			<label for="mode-local">Local sound file</label>
+			<label class="mdui-radio"><input type="radio" name="mode" id="mode-local" value="local" /><i class="mdui-radio-icon"></i>Local sound file</label>
 			<section id="local">
 				<label><input type="file" /></label>
 			</section>
