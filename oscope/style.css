@@ -9,6 +9,8 @@ h1 {
 }
 
 canvas {
+	width: 96vmin;
+	height: 96vmin;
 	background-color: #032b5c;
 	float: left;
 	margin-right: 2vmin;
@@ -22,6 +24,12 @@ canvas {
 
 #fps::after {
 	content: " fps";
+}
+
+footer {
+	font-size: 80%;
+	text-align: center;
+	margin-top: 1em;
 }
 
 [type=radio]:not(:checked) + label + section {
