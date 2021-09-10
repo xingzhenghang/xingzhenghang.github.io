@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>oscope.js demo</title>
+	</head>
+	<body>
+		<h1>oscope.js demo</h1>
+		<fieldset id="settings">
+			<legend>Settings</legend>
+			<label>Volume: <input type="range" /></label>
+			<label>Multiple input mode:
+				<select id="multiMode">
+					<option value="overlay">Overlay</option>
+					<option value="scale">Scale</option>
+					<option value="xy" selected="selected">XY</option>
+				</select>
+			</label>
+			<label>Pixels per sample:
+				<select id="pps">
+					<option selected="selected" value="0.5">0.5</option>
+					<option value="1">1</option>
+					<option value="3">3</option>
+				</select>
+			</label>
+		</fieldset>
+
+		<fieldset id="mode">
+			<legend>Mode</legend>
+
+			<input type="radio" name="mode" id="mode-math" value="math" />
+			<label for="mode-math">Math function</label>
+			<section id="math">
+				<label>
+					#1: <code>function(x, t) {</code>
+					<input type="text" value="return Math.sin((x + t/1000) * 2 * Math.PI)" />
+					<code>}</code>
+				</label>
+				<label>
+					#2: <code>function(x, t) {</code>
+					<input type="text" value="return Math.cos(x * 2 * Math.PI)" />
+					<code>}</code>
+				</label>
+			</section>
+			
+			<input type="radio" name="mode" id="mode-signal" value="signal" />
+			<label for="mode-signal">Web Audio Signal</label>
+			<section id="signal">
+				<label><input type="checkbox" checked="checked" />Stabilize</label>
+				<label>Frequency #1: <input type="range" min="20" max="1000" value="440" /><span></span></label>
+				<label>Shape #1: <select>
+					<option value="sine">Sine</option>
+					<option value="square">Square</option>
+					<option value="triangle">Triangle</option>
+					<option value="sawtooth">Sawtooth</option>
+				</select></label>
+				<label>Frequency #2: </label>
+				<label>Shape #2: </label>
+			</section>
+
+			<input type="radio" name="mode" id="mode-remote" value="remote" />
+			<label for="mode-remote">Remote sound file</label>
+			<section id="remote">
+				<form>
+					<label>URL: <input type="text" value="jerobeam.ogg" /><input type="submit" value="Load" /></label>
+				</form>
+			</section>
+
+			<input type="radio" name="mode" id="mode-local" value="local" />
+			<label for="mode-local">Local sound file</label>
+			<section id="local">
+				<label><input type="file" /></label>
+			</section>
+
+			<input type="radio" name="mode" id="mode-mic" value="mic" />
+			<label for="mode-mic">Microphone input</label>
+		</fieldset>
+		
+		<script src="js/object.assign.js"></script>
+		<script src="js/performance.now.js"></script>
+		<script src="js/oscope.js"></script>
+		<script src="js/app.js"></script>
+
+		<script>App.init();</script>
+	</body>
+</html>
