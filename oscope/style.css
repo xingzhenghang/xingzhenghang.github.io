@@ -51,11 +51,12 @@ section {
 }
 
 #math code {
+	font-family: "Times New Roman", Times, serif;
 	display: block;
 }
 
 #math input {
-	font-family: monospace;
+	font-family: "Times New Roman", Times, serif;
 	width: 80%;
 	margin-left: 2ch;
 }
