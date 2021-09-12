@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0" />
-		<title>My Mind</title>
+		<title>思维导图</title>
 		<link rel="icon" href="favicon.ico" />
 
 		<link rel="stylesheet" type="text/css" href="vendor/pell/css/pell.min.css">
@@ -878,7 +878,7 @@
 			</p>
 
 			<a id="github" href="https://github.com/ondras/my-mind" title="GitHub project page"><img src="github.png" alt="GitHub project page" /></a>
-			<a id="privacy" href="http://my-mind.github.io/PRIVACY.txt">Privacy policy</a>
+			<a id="privacy" href="PRIVACY.txt">隐私协议</a>
 			<button id="toggle" title="Toggle UI"></button>
 			<button data-command="Help" title="Help"><img src="icons/help.png" alt="Help" /></button>
 			<button data-command="Notes" title="Notes"><img src="icons/notes.png" alt="Notes" /></button>
@@ -890,36 +890,36 @@
 		<div id="io" class="ui">
 			<h3></h3>
 			<p>
-				<span>Storage</span>
+				<span>存储</span>
 				<select id="backend"></select>
 			</p>
 			
 			<div id="file">
-				<p class="desc">Local files are suitable for loading/saving files from other mindmapping applications.</p>
+				<p class="desc">本地文件适用于从其他思维导图软件加载/保存文件。</p>
 				<p data-for="save">
-					<span>Format</span>
+					<span>格式</span>
 					<select class="format"></select>
 				</p>
 				<p data-for="save load">
-					<button class="go"></button><button class="cancel">Cancel</button>
+					<button class="go"></button><button class="cancel">取消</button>
 				</p>
 			</div>
 
 			<div id="image">
-				<p class="desc">Export your design as a PNG image.</p>
+				<p class="desc">将你的创意导出成PNG图像。</p>
 				<p data-for="save">
-					<button class="go"></button><button class="cancel">Cancel</button>
+					<button class="go"></button><button class="cancel">取消</button>
 				</p>
 			</div>
 
 			<div id="local">
-				<p class="desc">Your browser's localStorage can handle many mind maps and creates a permalink, but this URL cannot be shared.</p>
+				<p class="desc">你的浏览器的本地存储可以储存许多思维导图并创建永久链接，但此链接无法共享。</p>
 				<p data-for="load">
 					<span>Saved maps</span>
 					<select class="list"></select>
 				</p>
 				<p data-for="save load">
-					<button class="go"></button><button class="cancel">Cancel</button>
+					<button class="go"></button><button class="cancel">取消</button>
 				</p>
 				<p data-for="load">
 					<button class="remove">Delete</button>
@@ -927,15 +927,15 @@
 			</div>
 
 			<div id="firebase">
-				<p class="desc">Firebase offers real-time synchronization for true multi-user collaboration.</p>
+				<p class="desc">Firebase可以为真正的多用户协作提供实时同步服务。</p>
 				<p data-for="save load">
-					<span>Server</span>
+					<span>服务器</span>
 					<input type="text" class="server" />
 				</p>
 				<p data-for="save load">
-					<span>Auth</span>
+					<span>验证</span>
 					<select class="auth">
-						<option value="">(None)</option>
+						<option value="">无</option>
 						<option value="facebook">Facebook</option>
 						<option value="twitter">Twitter</option>
 						<option value="github">GitHub</option>
@@ -943,14 +943,14 @@
 					</select>
 				</p>
 				<p data-for="load">
-					<span>Saved maps</span>
+					<span>保存的思维导图</span>
 					<select class="list"></select>
 				</p>
 				<p data-for="save load">
-					<button class="go"></button><button class="cancel">Cancel</button>
+					<button class="go"></button><button class="cancel">取消</button>
 				</p>
 				<p data-for="load">
-					<button class="remove">Delete</button>
+					<button class="remove">删除</button>
 				</p>
 			</div>
 
