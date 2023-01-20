@@ -14,6 +14,12 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <title data-gettext="纪年转换工具">纪年转换工具</title>
 <base target="_blank" />
+<style type="text/css">
+
+#column_to_select {
+	display: none;
+}
+</style >
 <!-- </style type="text/css">
 /* <![CDATA[ */
 @font-face {
@@ -630,15 +636,15 @@ div.box {
 <input  id="era_input" title="来源纪年与日期" type="text" speech="Text"
 			onmouseover="this.select(); this.focus();" continue="true"
 			nospeechtimeout="60000" x-webkit-speech="x-webkit-speech"
-			x-webkit-grammar="builtin:translate" lang="cmn-Hans-CN" /> <span
+			x-webkit-grammar="builtin:translate" lang="cmn-Hans-CN" /> <br> <span
 			data-gettext="输出格式"></span> <span id="format_type_bar"></span> <br />
 		<!-- http://www.fileformat.info/info/emoji/list.htm -->
 		<!-- ⌚ ⌛ ⏰ ⏱ ⏲   -->
-		📅 <span data-gettext="自订输出格式"></span> <input id="output_format"
+		📅 <span data-gettext="自定义输出格式"></span> <input id="output_format"
 			title="输出格式" /> <a href="#"
 			onclick="output_numeral=output_numeral==='Chinese'?'':'Chinese';this.className=output_numeral==='Chinese'?'selected':'unselected';translate_era();return false;"
-			data-gettext="中文数字" title="输出中文数字"></a> <a href="#" id="translate"
-			title="执行转换">→</a> <span id="era_output"></span>
+			data-gettext="中文数字" title="输出中文数字"></a> <a href="#" id="translate" class="mdui-btn"
+			title="执行转换">转换</a> <span id="era_output"></span>
 	</div>
 	<div id="example" class="note_panel"></div>
 	<div id="input_history" class="note_panel">
