@@ -611,7 +611,17 @@ div.box {
 	<div id="analysis"></div>
 
 	<!-- <div id="language_menu"></div>-->
+<div class="loading-tip">
 
+	<div id="note_botton_layer" class="LOADING">
+		<div id="loading_progress" title="loading progress bar">
+			正进行程式初始化作业，请稍待片刻…<br />⏰ Loading... 少しお待ちください。
+		</div>
+		如等待超过30秒，请<a href="#" onclick="history.go(0);return false;">重新整理</a>试试。
+	</div>
+<div class="mdui-progress">
+<div class="mdui-progress-indeterminate"></div>
+</div></div>
 	<div id="input_panel">
 		<span data-gettext="纪年"
 			title="Convert an era name to the specified format"></span>
@@ -628,13 +638,6 @@ div.box {
 			onclick="output_numeral=output_numeral==='Chinese'?'':'Chinese';this.className=output_numeral==='Chinese'?'selected':'unselected';translate_era();return false;"
 			data-gettext="中文数字" title="输出中文数字"></a> <a href="#" id="translate"
 			title="执行转换">→</a> <span id="era_output"></span>
-	</div>
-
-	<div id="note_botton_layer" class="LOADING">
-		<div id="loading_progress" title="loading progress bar">
-			正进行程式初始化作业，请稍待片刻…<br />⏰ Loading... 少しお待ちください。
-		</div>
-		如等待超过30秒，请<a href="#" onclick="history.go(0);return false;">重新整理</a>试试。
 	</div>
 	<div id="example" class="note_panel"></div>
 	<div id="input_history" class="note_panel">
