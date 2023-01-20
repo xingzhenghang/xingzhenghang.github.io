@@ -1,0 +1,61 @@
+﻿<!-- The first line is blank due to BOM -->
+= CeJS internationalization mechanism 国际化机制 =
+
+== Introduction 简介 ==
+本函式库采用一支小工具 [https://github.com/kanasimi/CeJS/blob/master/_build/build.nodejs.js _build/build.nodejs.js] 来同步原始码以及 translatewiki 推送的本土化讯息 json 档案。假如您也管理著 JavaScript 项目，非常欢迎您一同参与开发。
+
+现行 CeJS 本土化讯息存放在4个地方。
+; 1. <b>IETF language tag</b>.js
+: 程式执行时实际采用的是 [https://github.com/kanasimi/CeJS/tree/master/application/locale/resources application/locale/resources]/<b>IETF language tag</b>.js，这些档案将由 _build/build.nodejs.js 自动生成。
+; 2. <b>ISO 639-1 language tag</b>.json
+: [https://translatewiki.net/wiki/Translating:Colorless_echo_JavaScript_kit cejs@translatewiki] 每个礼拜会汇入两次本土化讯息至 [https://github.com/kanasimi/CeJS/tree/master/application/locale/resources/i18n application/locale/resources/i18n]/<b>ISO 639-1 language tag</b>.json 。[https://translatewiki.net/wiki/Special:Contributions/FuzzyBot FuzzyBot] 每一至三日会将原始码的变更更新到 translatewiki 上。
+; 3. qqq_data.json
+: 这是纪录 qqq.json 和原始讯息的 cache 档。
+; 4. 原始程式码中
+: 原始程式码的讯息前，必须包含 <code>// gettext_config:{}</code> 标记，在换行之前的内容会被视为 JSON 解析。例如
+:: <code>// gettext_config:{"id":"message-id"}</code>
+: 在 <code>gettext_config</code> 标记之后紧接著一行，第一个字串会被视为原始讯息。采用 <code>// gettext_config:{"qqq":"notes"}</code> 会自动转成 <code>// gettext_config:{}</code>。
+_build/build.nodejs.js 生成 application/locale/resources/ 下的 .js 档时，会以原先的 resources/qqq_data.json, <b>IETF language tag</b>.js 为基础、将之当作旧版本，参考 translatewiki 汇入的本土化讯息与原始码的讯息来更新，将所有3处内容更新为后两者修改过的讯息。在执行 build.nodejs.js 时，若 translatewiki 和原始码有冲突，会跳出错误。[https://translatewiki.net/wiki/FAQ#Special_private_language_codes_qqq,_qqx 翻译说明 qqq] 的产生模式可参考 resources/i18n/qqq.json, resources/qqq_data.json。
+
+
+== Translation Notes ==
+=== Plural form ===
+This project CeJS supports the [https://www.mediawiki.org/wiki/Help:Magic_words#Localization MediaWiki forms] <code><nowiki>{{PLURAL:%1|one|other}}</nowiki></code> and <code><nowiki>{{PLURAL:%1|1=one|2=two|other}}</nowiki></code> mentioned in [[Plural#Plural syntax in MediaWiki]]. It uses the plural rules listed [https://github.com/wikimedia/mediawiki-extensions-Translate/blob/master/data/plural-gettext.txt here].
+
+Please note: CeJS uses percentage symbol %1, %2 instead of string symbol $1.
+
+See also: [[Thread:Portal talk:Ru/Plural changes in many languages]]
+
+; The [[Plural#Plural in Gettext|"GETTEXT" forms]] is NOT supported: <del><code><nowiki>{{PLURAL:GETTEXT|%1 one|%1 two|%1 other}}</nowiki></code></del>. Please use the MediaWiki plural forms.
+
+==== Examples ====
+; en
+: <code><nowiki>{{PLURAL:1|page|pages}}</nowiki></code> → page
+: <code><nowiki>{{PLURAL:2|page|pages}}</nowiki></code> → pages
+; fr
+: <code><nowiki>{{PLURAL:0|one or zero|other}}</nowiki></code> → one or zero
+: <code><nowiki>{{PLURAL:1|one or zero|other}}</nowiki></code> → one or zero
+: <code><nowiki>{{PLURAL:2|one or zero|other}}</nowiki></code> → other
+: <code><nowiki>{{PLURAL:3|one or zero|other}}</nowiki></code> → other
+; zh
+: <code><nowiki>{{PLURAL:1|page|pages}}</nowiki></code> → page
+: Special case: <code><nowiki>{{PLURAL:2|page|pages}}</nowiki></code> → pages
+: <code><nowiki>{{PLURAL:1|字}}</nowiki></code> → 字
+: <code><nowiki>{{PLURAL:2|字}}</nowiki></code> → 字
+; [https://www.mediawiki.org/wiki/Help:Magic_words/ru#Локализация ru]
+: Special case: <code><nowiki>{{PLURAL:5|1=Категория|Категории}}</nowiki></code> → Категории
+: <code><nowiki>{{PLURAL:3|страница|страницы|страниц}}</nowiki></code> → страницы
+: <code><nowiki>{{PLURAL:5|страница|страницы|страниц}}</nowiki></code> → страниц
+: <code><nowiki>%1 {{PLURAL:%1|байт|байта|байтов}}</nowiki></code> for %1=0 → 0 байтов
+: <code><nowiki>%1 {{PLURAL:%1|байт|байта|байтов}}</nowiki></code> for %1=1 → 1 байт
+: <code><nowiki>%1 {{PLURAL:%1|байт|байта|байтов}}</nowiki></code> for %1=2 → 2 байта
+
+
+== Git push 更新方法 ==
+每次更新前必须 git pull --rebase 加上 stash。
+
+若忘了 pull 就直接 push，出现冲突，则需要 fetch + rebase (using git sync of TortoiseGit)。重新 git push --force-with-lease。
+
+
+== License 软体授权条款 ==
+application/locale/resources/i18n/ 目录中的翻译由 translatewiki 提供，基于 [https://creativecommons.org/licenses/by/3.0/ CC BY 3.0]。

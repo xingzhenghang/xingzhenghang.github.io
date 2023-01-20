@@ -1,0 +1,1105 @@
+﻿<?xml version="1.1" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" manifest="test suite.manifest">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style type="text/css">/* <![CDATA[ */
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#error_load_panel {
+	color:#f00;background-color:#ff8;padding:.5em;
+	/* hack for NS4 */
+	/*position:absolute;*/
+	top:-800px;*top:0px;
+	/* hack for IE7 @ wine: no javascript allowed.
+	 * 事实上应该对所有读得懂 CSS 但 javascript 无作用的 browser 作处理。
+	 */
+	_top:-800px;
+}
+
+.test_toggle {
+	color: #e6d;
+	display: inline;
+	cursor: pointer;
+}
+
+.test_panel {
+	display: none;
+}
+
+#single_line_toggle {
+	color:#3c2;
+	font-size: .9em;
+	cursor: pointer;
+}
+#eval_code {
+	width:20em;
+}
+#eval_code_block {
+	color: #3a0;
+	background-color:#eff;
+	width:100%;
+	height:20em;
+}
+
+/* copy from 维基百科 */
+.Unicode {
+	font-family: "Segoe UI", "TITUS Cyberbit Basic", "Code2000",
+		"Doulos SIL", "Chrysanthi Unicode", "Bitstream Cyberbit",
+		"Bitstream CyberBase", "Thryomanes", "Gentium", "GentiumAlt",
+		"Visual Geez Unicode", "Lucida Grande", "Arial Unicode MS",
+		"Microsoft Sans Serif", "Lucida Sans Unicode";
+}
+
+#address,#legal_domicile {
+	font-size: .9em;
+}
+
+
+.lang_select{
+	color:#59e;
+	cursor:pointer;
+}
+.lang_selected{
+	background-color:#fdd;
+}
+
+.Chinese_numeral{
+	color:#26f;
+	background-color:#eef;
+	font-family:"标楷体",DFKai-SB,\006a19\006977\009ad4;
+}
+/*]]>*/</style>
+
+<title>CeL test suite / demo (examples) 功能范例展示</title>
+</head>
+
+<body class="bgn">
+
+<h1 style="float: right; font-size: 1em; margin: 0;">CeL Test Suite</h1>
+
+<div id="error_load_panel">
+<hr />
+<h2>Loading error</h2>
+JavaScript doesn't work or XMLHttpRequest loading error?<br />
+You may need to check the configuration of the browser, <a href="#" onclick="history.go(0);return false;">reload the page</a>, or start from <a href="basic/basic_test_1.htm">the basic test</a>.
+<div id="loading_error_message"></div>
+<hr />
+</div>
+
+
+<div class="test_toggle" onclick="CeL.toggle_display('eval_panel');">evaluation test</div>
+<div id="eval_panel" class="test_panel" style="display:block;">
+<b id="single_line_toggle" href="#"></b><div id="single_line_code_panel" style="display:none;"><input id="eval_code" title="code to run" type="text" speech="Text" continue="true" nospeechtimeout="60000" x-webkit-speech="x-webkit-speech" x-webkit-grammar="builtin:translate"/></div>
+<textarea id="eval_code_block" title="code to run"></textarea>
+<a href="#" id="execute" onclick="return evaluate_code();">show/run</a>
+<input id="run_times" type="number" style="width:5em;" />
+times<br />
+
+<textarea id="eval_result" style="width:99%;height:8em;" title="result"></textarea>
+
+<div id="panel_for_math">
+</div>
+
+<div id="panel_for_SVG">
+</div>
+
+<div id="panel_for_test">
+</div>
+<!--
+<OBJECT id=tts_flash codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000 width=18 height=18><PARAM NAME="_cx" VALUE="476"><PARAM NAME="_cy" VALUE="476"><PARAM NAME="FlashVars" VALUE=""><PARAM NAME="Movie" VALUE="http://www.gstatic.com/translate/sound_player.swf"><PARAM NAME="Src" VALUE="http://www.gstatic.com/translate/sound_player.swf"><PARAM NAME="WMode" VALUE="Transparent"><PARAM NAME="Play" VALUE="0"><PARAM NAME="Loop" VALUE="-1"><PARAM NAME="Quality" VALUE="High"><PARAM NAME="SAlign" VALUE=""><PARAM NAME="Menu" VALUE="-1"><PARAM NAME="Base" VALUE=""><PARAM NAME="AllowScriptAccess" VALUE="always"><PARAM NAME="Scale" VALUE="ShowAll"><PARAM NAME="DeviceFont" VALUE="0"><PARAM NAME="EmbedMovie" VALUE="0"><PARAM NAME="BGColor" VALUE=""><PARAM NAME="SWRemote" VALUE=""><PARAM NAME="MovieData" VALUE=""><PARAM NAME="SeamlessTabbing" VALUE="1"><PARAM NAME="Profile" VALUE="0"><PARAM NAME="ProfileAddress" VALUE=""><PARAM NAME="ProfilePort" VALUE="0"><PARAM NAME="AllowNetworking" VALUE="all"><PARAM NAME="AllowFullScreen" VALUE="false"></OBJECT>
+-->
+
+<hr />
+</div>
+
+
+<span>|</span>
+<div id="choose" onclick="CeL.toggle_display('choose_panel');" class="test_toggle">choose test</div>
+<div id="choose_panel" class="test_panel">
+<h3>台湾地区县市加路名 地址/住址输入表单</h3>
+<div id="legal_domicile">🏠 户籍地址 </div>
+<div id="address">🏠 通讯地址 </div>
+<!--
+⌂ U+2302 HOUSE
+🏠 U+1F3E0 HOUSE BUILDING
+📱 MOBILE PHONE (U+1F4F1)
+☎ BLACK TELEPHONE (U+260E)
+℻ U+213B FACSIMILE SIGN
+℡ U+2121 TELEPHONE SIGN
+🏦 U+1F3E6 BANK
+℀ U+2100 ACCOUNT OF
+🎓 U+1F393 GRADUATION CAP
+-->
+
+<div id="account">🏦 汇款帐号 </div>
+
+<div id="education">🎓 教育程度 </div>
+
+<hr />
+
+attach test:<br />
+span: <span id="attach_span">test: </span>
+input: <input id="attach_input" value="input test" style="background-color:#ffb;" />
+select: <select id="attach_select"><option value="A">option A</option><option value="B">option B</option><option value="C">option C</option><option value="select" selected="selected">option selected</option></select>
+hr: <hr id="attach_hr" style="width:2em;" />
+
+<hr />
+</div>
+
+
+|
+<div onclick="CeL.toggle_display('change_base_panel');" class="test_toggle">换底</div>
+<div id="change_base_panel" class="test_panel">
+number（正负整数、分数与小数）: <input id="number1" type="number" value="1000" />
+in base: <input id="base1" value="10" type="number" style="width:3em;" />
+<br />
+change to base: <input id="base2" value="2" type="number" style="width:3em;" />
+<a href="#" onclick="return calc_base();">do</a>
+<hr />
+</div>
+
+
+|
+<div onclick="CeL.toggle_display('complement_panel');" class="test_toggle">补数</div>
+<div id="complement_panel" type="number" class="test_panel">
+number（整数）: <input id="number" value="1000" />
+base: <input id="base" value="2" type="number" style="width:3em;" />
+bits: <input id="bits" value="8" type="number" style="width:3em;" />
+<label for="diminished" title="diminished radix complement"><input type="checkbox" id="diminished" />diminished</label>
+<a href="#" onclick="return calc_complement();">←</a>
+<a href="#" onclick="return calc_value();">→</a>
+（正负整数）<input id="complement_value" type="number" value="16" /><span class="down">10</span>
+<hr />
+</div>
+
+
+|
+<div onclick="CeL.toggle_display('Hamming_panel');" class="test_toggle">Hamming code</div>
+<div id="Hamming_panel" class="test_panel">
+data(/^[01]{,20}$/): <input id="h_data" value="1101" type="number" pattern="[01]{0,20}" />
+<a href="#" onclick="return Hamming.dec();" title="decode">←</a>
+<a href="#" onclick="return Hamming.enc();" title="encode">→</a>
+code(/^[01]{,20}$/): <input id="h_code" type="number" pattern="[01]{0,20}" />
+<label for="h_reverse"><input type="checkbox" id="h_reverse" />reverse</label>
+|
+show
+<a href="#" onclick="Hamming.show(8);return false;" title="encode">8</a>
+<a href="#" onclick="Hamming.show(16);return false;" title="encode">16</a>
+
+
+
+<hr />
+</div>
+
+
+|
+<b style="cursor:pointer;" onclick="start_count(1);return false;">start count</b>
+<div id="clock" style="font-size:26em;font-family:'FZZhunYuan-M02','Maiandra GD';clear:both;"></div>
+
+
+
+<hr style="clear: both;" />
+[test suite] <span title="讯息提示与纪录栏">log panel</span>:
+<!--
+<a href="#" onclick="clipboardFunction(0,'panel_for_log');return false;">paste code</a>
+<b class="sp">|</b>
+<a href="#" onclick="var t=CeL.Log.get_log();clipboardFunction(t?2:1,t?(t+'').replace(/^\[\d+\]/,''):'result');return false;">copy result</a>
+-->
+<div id="panel_for_log">
+Page loaded. Initializing the framework. Please wait.. (<a href="#" onclick="
+try {
+	var appCache = self.applicationCache;
+	appCache.update();
+	if (appCache.status === appCache.UPDATEREADY)
+		appCache.swapCache();
+} catch (e) {
+}
+return false;">Update cache</a>) 已载入主网页。正进行程式初始化作业，请稍待片刻…
+</div>
+
+
+
+<script type="text/javascript">//<![CDATA[
+'use strict';
+
+if (true)
+//	设下障碍，测试 framework 是否健全。
+Array.prototype.test_Array_prototype = function() {
+	try {
+		console.warn('对 Array 不能用 for..in: 不能保证，亦不能限制使用者不改变 Array.prototype。');
+	} catch (e) {
+	}
+};
+
+
+
+var getElementById = document.getElementById ? function(id) {
+	return document.getElementById(id);
+} : document.all ? function(id) {
+	return document.all[id];
+} : document.layer ? function(id) {
+	return document.layer[id];
+} : function(id) {
+	return window[id];
+};
+
+//	仅用在不能初始化时。
+function evaluate_code() {
+	var c = getElementById('eval_code_block'), r = getElementById('eval_result');
+	try {
+		if (c && (c = c.value))
+			r.value = eval(c);
+	} catch (e) {
+		r.value = (e.name ? e.name + ': ' : '') + e.message;
+	}
+	return false;
+}
+
+
+
+//	2010/4/17 09:54:35
+//	TODO: stop/pause
+function start_count(restart) {
+	var timer, timeout = 10 * 60 * 1000, timeout1 = 2 * 60 * 1000, diff = 1000;// 100
+
+	// CeL.log(start_count.start_stamp);
+	if (restart || !start_count.start_stamp) {
+		start_count.start_stamp = new Date;
+		// 若之前已经在跑则 return
+		if (start_count.handle)
+			return;
+	}
+
+	timer = parseInt((timeout - (new Date - start_count.start_stamp)) / 1000) * 1000;
+	if (Math.abs(timer - timeout1) < 4000)
+		// 提醒
+		window.focus();
+	// 显示
+	CeL.get_element('clock').innerHTML = timer > timeout1 ?
+			new Date(timer).format('%M:%S') : '<span style="color:#f88">'
+			+ new Date(timer).format('%M:%S') + '</span>';
+	CeL.get_element('clock').style.marginTop = '50pt';
+
+	if (timer > 0)
+
+		start_count.handle = setTimeout(function() {
+			start_count();
+		}, diff);
+}
+
+	/*
+	 test short circuit
+	 http://hi.baidu.com/happy8d/blog/item/c6bc1146b4228e016b63e5d9.html
+	 把 A && B 对调，变成：B && A，结果还是 B 会先被 evaluate。
+	 test A||B
+	 */
+
+	/**
+	 * alias of CeL.run()
+	 */
+	// var sr;
+	var SVG_object, Hamming;
+	var OtS = Object.prototype.toString;
+	//var is_Function = CeL.type_tester('Function', 'OtS');
+
+	var TO_MULTI_LINE='▼';
+	function is_now_single_line_code() {
+		var single_line_toggle_panel=CeL.get_element('single_line_toggle');
+		return single_line_toggle_panel.innerHTML===TO_MULTI_LINE;
+	}
+	//	切换单行/多行模式。
+	function toggle_single_line_panel(is_single_line) {
+		var single_line_toggle_panel=CeL.get_element('single_line_toggle'),
+		//
+		is_now_single_line=is_now_single_line_code();
+
+		is_single_line=arguments.length==0?!is_now_single_line:!!is_single_line;
+
+		if (is_now_single_line!==is_single_line){
+			is_now_single_line=is_single_line;
+			CeL.toggle_display('single_line_code_panel', is_now_single_line&&'inline');
+			CeL.toggle_display('eval_code_block', !is_now_single_line);
+			single_line_toggle_panel.innerHTML=is_now_single_line?TO_MULTI_LINE:'缩减成单行模式';
+			single_line_toggle_panel.title=is_now_single_line?'扩展成多行模式。':'缩减成单行模式。';
+			var old_value=CeL.get_element(is_now_single_line?'eval_code_block':'eval_code').value,
+			new_input=CeL.get_element(is_now_single_line?'eval_code':'eval_code_block');
+			new_input.value=old_value;
+			new_input.focus();
+		}
+		return false;
+	}
+
+	function show_question(expression) {
+		var
+		//.match(/([+\-]?(?:\d+,)*\d+(?:\.\d+)?)\s*([+\-*\/])\s*([+\-]?(?:\d+,)*\d+(?:\.\d+)?)/);
+		m = expression.match(/^(\s*[+\-]?[\d, .]+)([+\-*\/×÷])(\s*[+\-]?[\d, .]+)$/)
+		//
+		|| expression.match(/^(\s*[+\-]?[\d, .]+)([\/÷])(\s*[+\-]?[\d, .]+)\/(\d+)$/);
+
+		CeL.remove_all_child('panel_for_math');
+		if (m)
+			try {
+				var f = CeL.SVG['draw_' + {
+					'+' : 'addition',
+					'-' : 'subtraction',
+					'*' : 'multiplication',
+					'×' : 'multiplication',
+					'/' : 'long_division',
+					'÷' : 'long_division'
+				}[m[2]]];
+				if (m[4])
+					f(m[1], m[3], m[4], SVG_object);
+				else
+					f(m[1], m[3], SVG_object);
+				SVG_object.show(1);
+			} catch (e) {
+				CeL.error(e);
+				SVG_object.show(0);
+			}
+		else {
+			SVG_object.show(0);
+			if (/^\s*\d+\s*(?:,\s*\d+\s*)*$/.test(expression)) {
+				// 短除法 因数分解
+				CeL.draw_short_division(expression.split(/\s*,\s*/), [ 'panel_for_math', 2 ]);
+				CeL.new_node({
+					div : [ CeL.to_Chinese_numeral(expression), {br:null}, CeL.to_Chinese_numeral(expression, true) ],
+					C : 'Chinese_numeral'
+				}, 'panel_for_math');
+			}
+		}
+	}
+
+	function run_code(code) {
+		var i = 0, t, t0, T,
+		//
+		v = code || CeL.get_element(is_now_single_line_code()?'eval_code':'eval_code_block').value,
+		//
+		times = parseInt(CeL.get_element('run_times').value);
+
+		if (!v)
+			return;
+
+		show_question(v);
+
+		try {
+			if (times > 0) {
+				//	Initializing script engine
+				eval('T='+Math.random()+';'+ 'true' + ';');
+				//	对照组
+				for (t0 = new Date; i < times; i++){
+					eval('T='+Math.random()+';'+ 'true' + ';');
+				}
+				t0 = new Date - t0;
+				//	实验组
+				for (i = 0, t = new Date; i < times; i++) {
+					eval('T=' + Math.random() + ';' + v + ';');
+				}
+				t = new Date - t;
+				//CeL.debug([t0,t]);
+				t-= t0;
+				v = t + ' ms / ' + times + ' times ≈ ' + t / times + ' ms. Get: ' + eval(v);
+			} else
+				//	这里不将回传当作 node 来 parse。
+				v = '' + eval(v);
+			CeL.log('run_code: return [' + v + ']');
+
+		} catch (e) {
+			if (/^[\u0020-\uffffffff]{1,20}$/.test(v) && e.message === 'illegal character') {
+				for (i = 0; i < v.length; i++)
+					CeL.log('[<em class="Unicode">' + v.charAt(i) + '</em>]: U+' + v.charCodeAt(i).toString(16).toUpperCase() + ' (' + v.charCodeAt(i) + '<span class="down">10</span>)');
+			} else {
+
+				if (t)
+					CeL.log('error @ ' + i + '/' + times + '(use ' + (new Date - t) + 'ms)');
+				CeL.error(e);
+			}
+		}
+	}
+
+	function calc_base() {
+		try {
+			var v = CeL.get_element('number1').value, m = v
+					.match(/^\s*([\+\-]?\d+)\s*\/\s*(\d+)\s*$/);
+			v = m ?
+			//	正负分数
+			new CeL.quotient(m[1], m[2]) :
+			//	正负整数与小数
+			CeL.quotient.parse_base(CeL.get_element('number1').value
+					.toLowerCase(), CeL.get_element('base1').value);
+			CeL.log('换底: '+v.toString(3) + '<span class="down">10</span> → ' + v.to_base(CeL.get_element('base2').value).replace(/_([^\(]+)/,'_<i style="text-decoration:overline">$1</i>')+'<span class="down">'+CeL.get_element('base2').value+'</span>');
+		} catch (e) {
+			CeL.error(e);
+		}
+		return false;
+	}
+
+	function calc_complement() {
+		var c = new CeL.complement;
+		c.bits = CeL.get_element('bits').value;
+		c.from(0, CeL.get_element('base').value,
+				CeL.get_element('diminished').checked);
+		c.set(CeL.get_element('complement_value').value);
+		CeL.get_element('number').value = c.to();
+		return false;
+	}
+
+	function calc_value() {
+		var c = new CeL.complement;
+		c.bits = CeL.get_element('bits').value;
+		c.from(CeL.get_element('number').value, CeL.get_element('base').value,
+				CeL.get_element('diminished').checked);
+		CeL.get_element('complement_value').value = c.valueOf();
+		return false;
+	}
+
+	/**
+	 * 初始作业
+	 * @return
+	 */
+	function initialization_work() {
+		//throw 1;
+		toggle_single_line_panel(true);
+		CeL.toggle_display('eval_result', false);
+
+		CeL.get_element('eval_code').onkeypress = function(e) {
+			if (!e)
+				e = window.event;
+			// press [Enter]
+			if (13 === (e.keyCode || e.which || e.charCode))
+				run_code();
+		};
+
+		if ('onwebkitspeechchange' in CeL.get_element('eval_code')) {
+			var speech_list=[], last_lang_select,lang_list = ['zh','ja','en'], lang_to_select={}, punctuation = {
+					//	标点符号.
+					顿号:'、',
+					逗号:'，',
+					破折号:'——',
+					惊叹号:'！',
+					叹号:'！',
+					引号:'「」',
+					上引号:'「',
+					下引号:'」',
+					句号:'。'
+				}, speech_lang_select = function() {
+				var m=this.id.match(/^lang_select_(.+)$/);
+				if (m){
+					m=m[1];
+					CeL.debug(['语音语言种类：',{span:CeL.gettext.get_alias(m),S:'color:#1a3;'},' (',CeL.gettext.to_standard(m),')']);
+					if(last_lang_select)
+						last_lang_select.className='lang_select';
+					last_lang_select=this;
+					this.className+=' lang_selected';
+					CeL.get_element('eval_code').lang=m;
+				}
+				return false;
+			};
+
+			for(var i=0,lang,lang_code;i<lang_list.length;i++){
+				lang_to_select[lang_code=CeL.gettext.to_standard(lang_list[i])]=lang=CeL.gettext.get_alias(lang_list[i]);
+				speech_list.push({b:lang,id:'lang_select_'+lang_code,C:"lang_select",onclick:speech_lang_select},' | ');
+			}
+			speech_list.push(
+				{b:'Show',	S:'cursor:pointer;',onclick:function(){var e=CeL.get_element('lang_select_list');if(CeL.toggle_display(e)){speech_list=speech_list.join('\n').replace(/([「」、，。！])\n/g,'$1');e.value=speech_list;speech_list=speech_list.split('\n');}}},
+				{br:null},
+				{textarea:'',id:'lang_select_list',S:'display:none;width:20em;height:10em;'}
+			);
+			CeL.new_node(speech_list, ["eval_result", 0]);
+			speech_lang_select.call(CeL.get_element('lang_select_'+CeL.gettext.to_standard(lang_list[0])));
+
+			speech_list=[];
+			//	语言识别成功，且文字输入到文本框后触发
+			CeL.get_element('eval_code').onwebkitspeechchange =
+			//CeL.get_element('eval_code').onspeechchange =
+			function(e) {
+				//	http://www.w3.org/2005/Incubator/htmlspeech/2010/10/google-api-draft.html
+				//	http://lists.w3.org/Archives/Public/public-webapps/2011OctDec/att-1696/speechapi.html
+				var speech_token=CeL.get_element('eval_code').value,select_lang=CeL.get_element('lang_select_'+CeL.gettext.to_standard(speech_token));
+				if(select_lang){
+					speech_lang_select.call(select_lang);
+					speech_token=speech_token+' ('+CeL.gettext.to_standard(speech_token)+')';
+				}else if(speech_list.length&&(speech_token in punctuation))
+					speech_list[speech_list.length-1]+=punctuation[speech_token];
+				else
+					speech_list.push(speech_token);
+
+				CeL.info(speech_token);
+			};
+		}
+
+
+		CeL.get_element('execute').onclick = function(e) {
+			CeL.get_element(is_now_single_line_code()?'eval_code':'eval_code_block').focus();
+			run_code();
+			return false;
+		};
+
+		CeL.get_element('single_line_toggle').onclick = function(e) {
+			return toggle_single_line_panel();
+		};
+
+		CeL.get_element(is_now_single_line_code()?'eval_code':'eval_code_block').autofocus="autofocus";
+
+		if (false)
+			CeL.run('extension.children2', function() {
+				CeL.children2_function('test!');
+			});
+
+		if (false)
+			CeL.run([ 'data', 'data.code.compatibility' ], [ function() {
+				CeL.log('test 1');
+			}, function() {
+				CeL.log('test 2');
+			} ], function() {
+				CeL.log('done');
+			});
+
+
+		//	test the biggest 10^?	取得能准确计算的最大值
+		var biggest_exponent_of_10 = 0, test_num = 1;
+		while (
+		//parseInt(test_num*=10)-1===test_num-1
+		//	/^9+$/.test(parseInt((test_num*=10)-1))
+		(test_num *= 10) - (test_num / 2 - 1) * 2 === 0)
+			biggest_exponent_of_10++
+			//	https://bugzilla.mozilla.org/show_bug.cgi?id=553799
+			//,CeL.debug('10^'+biggest_exponent_of_10+'='+test_num+'; '+(parseInt(test_num-1,10)))
+			;
+		//CeL.debug('biggest exponent of 10: ' + biggest_exponent_of_10);
+
+
+		CeL.debug('.set_value test', 2);
+		if (false) {
+			var value_to_set=657845,variable_name='a_test_variable',got_modify_action,test_namespace={a:234};
+			CeL.debug('value_of '+variable_name+' = '+CeL.value_of(variable_name,function(v,n){CeL.debug('收到讯息：设定 '+n+' = '+v);got_modify_action=1;},test_namespace));
+			CeL.debug('set_value:'+CeL.set_value(variable_name,value_to_set,test_namespace));
+			CeL.debug('after set_value, value_of '+variable_name+' = '+CeL.value_of(variable_name,0,test_namespace));
+			CeL.debug('after set_value, get global variable '+variable_name+' = '+CeL.value_of(variable_name));
+			try{
+				var get_value=(test_namespace?test_namespace.a_test_variable:a_test_variable);
+				CeL.debug('after set_value, 设定'+(got_modify_action&&get_value===value_to_set?'成功':'<em>失败</em>')+'. 直接取值 '+variable_name+' = '+get_value);
+			}catch(e){
+				CeL.warn('after set_value, 设定失败');
+			}
+			CeL.debug('set_value:'+CeL.set_value(variable_name,undefined,test_namespace));
+			CeL.debug('after 2nd set_value, value_of '+variable_name+' = '+CeL.value_of(variable_name,0,test_namespace));
+		}
+
+
+
+		CeL.run( [ 'data.code.compatibility', 'data.native' ], function() {
+			//Number.prototype.to_fixed = CeL.to_fixed;
+
+			//CeL.debug(CeL.is_type(window.navigator));
+			if (window.navigator) {
+				//	http://blogs.msdn.com/ie/archive/2010/03/23/introducing-ie9-s-user-agent-string.aspx
+				CeL.debug('User agent: ' + navigator.userAgent);
+				for ( var i in navigator)
+					//CeL.debug('navigator.' + i + ' = ' + navigator[i])
+					;
+			}
+
+		});
+
+		CeL.debug('no-exist module test', 2);
+		//	下面测试在 MSIE6 中会发生 throw
+		CeL.run('code.log.no_exist_module_to_test', function(){
+			CeL.warn('no-exist module tested 但仍持续执行.');
+		});
+
+		CeL.run({name:'code.log.no_exist_module_to_ignore',skip_error:true,timeout:80}, function(){
+			CeL.debug('no-exist module to ignore test end.');
+		});
+
+		//CeL.warn('a WARNING level message');
+
+		//	base test
+		//CeL.log('split length: '+'.'.split(/\./).length);
+
+		//if(false)CeL.debug(2223);test1();
+
+		CeL.debug('SVG', 2);
+		CeL.run('interact.integrate.SVG', function() {
+
+			//CeL.debug('CeL.SVG = ' + CeL.SVG, 0, 1);
+			//CeL.debug('CeL.log = ' + CeL.log, 0, 1);
+			//CeL.debug('CeL.net.SVG = ' + CeL.net.SVG);
+			//alert(CeL.SVG);
+			//CeL.debug(CeL.drawLongDivision);
+			SVG_object = new CeL.SVG(20, 20);
+			if(SVG_object.status_OK()) {
+				//CeL.debug('type of SVG_object = ' + CeL.is_type(SVG_object,0,1));
+				SVG_object.attach('panel_for_SVG');
+				//CeL.debug('SVG panel = ' + SVG_object);
+				//alert(SVG_object);
+			} else {
+				//SVG_object = null;
+			}
+
+			//CeL.SVG.draw_long_division(452, 34, SVG_object);
+			//CeL.draw_long_division(10000000000, 7, SVG_object);
+			//var SVG_object=CeL.SVG.draw_long_division(100000, 7);
+			//SVG_object.attach('panel_for_SVG').show(1);
+			//SVG_object.show();
+			//CeL.SVG.draw_long_division(1000000000000, 432, SVG_object);
+
+		});
+
+		/*
+		CeL.run('code.reorganize');
+		var c = CeL.get_file('../ce.js')+CeL.get_file('../code/log.js');
+		c = CeL.get_various_from_code(c);
+		c = CeL.get_code_from_generated_various(c);
+		CeL.debug(c.replace(/\n/g,'<br \/>'));
+		 */
+
+		CeL.debug('DOM', 2);
+		CeL.run('interact.DOM', function() {
+
+			//CeL.copy_to_clipboard('已经复制');
+			//CeL.debug(CeL.parse_URI('ftp://ftp.is.co.za/rfc/rfc1808.txt').path);
+
+		});
+
+		//CeL.log('long interger test: 36578368923657238645067315413986475314666666666666666666666666864506731541398647531466666666666666666666666666666666666666666666666666666666666666666666666666666622222222222222222222222222222222222222');
+
+		CeL.debug('phase: math test', 2);
+		CeL.run( [ 'data.math', 'data.math.quotient' ], function() {
+				//var p = 20374345, q = CeL.data.math.floor_sqrt(p = p * p - 1); CeL.log(q + '_$tag__' + (q * q) + '_$tag_' + p + '_$tag_' + (++q * q));
+
+				//CeL.debug(CeL.get_module_path('math.quotient')+': '+CeL.is_included('data.math.quotient')+': '+CeL.data.math.quotient);
+				//var q1=CeL.quotient.parse_base('.110011001100110011001100110011001100',2);
+				//CeL.log(q1.to_base());
+				//q1=CeL.quotient.parse_base('.110011001100110011001100110011001100110011001100110011001100110011001100',2);
+				//CeL.log(q1.to_base());
+				//CeL.log(CeL.quotient.parse_base('65.43'.toLowerCase(),8).to_base(16).replace(/_([^\(]+)/,'__$tag_______________________________$1_$ta'));
+				//CeL.log((new CeL.quotient(3,4)).count('*',new CeL.quotient(2,7)).reduce().to_print_mode());
+				//CeL.log(CeL.quotient.turnBaseQ('4565.5',16).to_print_mode(3,2));
+
+				/*
+				 var c1 = new CeL.complement, c2 = new CeL.complement;
+				 c1.bits = c2.bits = 4;
+				 //c1.bits = 16;
+				 //c1.from(1000 , 1);
+				 //c1.set(-1000);
+				 //CeL.log(c1.valueOf() + ', ' + c1.to());
+				 for ( var i = -9; i < 10; i++ ){
+				 c1.set(i);
+				 c2.from(c1.to());//c2.from(c1.to(0,1),0,1);
+				 CeL.log(c2.valueOf() + ', ' + c1.valueOf() + ', ' + c1.to());//CeL.log(c2.valueOf() + ', ' + c1.valueOf() + ', ' + c1.to(0,1));
+				 }
+				 */
+			});
+
+		CeL.run('data.math.Hamming', function() {
+			Hamming = CeL.data.math.Hamming;
+			//Hamming.show(16);
+			Hamming.dec = function() {
+				try {
+					Hamming.reverse = CeL.get_element('h_reverse').checked;
+					CeL.get_element('h_data').value = Hamming.decode(CeL
+							.get_element('h_code').value);
+				} catch (e) {
+					CeL.error(e);
+				}
+				return false;
+			};
+			Hamming.enc = function() {
+				try {
+					Hamming.reverse = CeL.get_element('h_reverse').checked;
+					CeL.get_element('h_code').value = Hamming.encode(CeL
+							.get_element('h_data').value);
+				} catch (e) {
+					CeL.error(e);
+				}
+				return false;
+			};
+
+		});
+
+		CeL.run('data.date');
+
+		CeL.run('application.math');
+
+		if (false)
+			CeL.run('data.code.API', function() {
+
+				CeL.use_API('Bing', function() {
+					//	http://msdn.microsoft.com/en-us/library/ff512406.aspx
+					//	http://msdn.microsoft.com/en-us/library/ff512445.aspx
+					Microsoft.Translator.translate('Hello!', 'en', 'zh-TW',
+							function(translation) {
+								CeL.log(translation);
+							});
+				});
+
+				if (false)
+					CeL.use_API('GAPI', function() {
+						google.load("search", 1);
+						google.setOnLoadCallback(function() {
+							if (new google.search.SearchControl())
+								CeL.log('API load OK.');
+						});
+					});
+			});
+
+		if (false)
+			rrtt = CeL.new_node( {
+				object : [ {
+					param : null,
+					name : "a",
+					value : "as"
+				} ],
+				//data : "h",
+				id : 'test_o'
+			}, 'panel_for_test');
+
+		//CeL.get_element('panel_for_test').innerHTML='_$tag_____________________________________________________________________________________________________________________________________________________________________________________<PARAM NAME="_cx" VALUE="476">_$tag_________________________<PARAM NAME="FlashVars" VALUE="">_$tag_________________________________________________________________________<PARAM NAME="Src" VALUE="http://www.gstatic.com/translate/sound_player.swf">_$tag___________________________________<PARAM NAME="Play" VALUE="0">_$tag_________________________<PARAM NAME="Quality" VALUE="High">_$tag_________________________<PARAM NAME="Menu" VALUE="-1">_$tag_______________________<PARAM NAME="AllowScriptAccess" VALUE="always">_$tag_______________________________<PARAM NAME="DeviceFont" VALUE="0">_$tag______________________________<PARAM NAME="BGColor" VALUE="">_$tag___________________________<PARAM NAME="MovieData" VALUE="">_$tag___________________________________<PARAM NAME="Profile" VALUE="0">_$tag_________________________________<PARAM NAME="ProfilePort" VALUE="0">_$tag_____________________________________<PARAM NAME="AllowFullScreen" VALUE="false">_$tag____'
+		/*
+		 //CeL.get_element('test_o').data='dd';
+		 CeL.get_element('panel_for_test').appendChild(rrtt);
+		 CeL.log(CeL.get_element('test_o').parentNode.innerHTML.replace(/</g,'&lt;'));
+		 CeL.log(CeL.get_element('test_o').outerHTML.replace(/</g,'&lt;'));
+		 //CeL.get_element('test_o').outerHTML=CeL.get_element('test_o').outerHTML.replace(/<OBJECT\s/,'<OBJECT data="'+'ddfsd'+'"');
+		 alert(CeL.get_element('test_o').parentNode.innerHTML.replace(/<OBJECT\s/,'<OBJECT data="'+'ddfsd'+'"'));
+		 //alert((CeL.get_element('test_o').outerHTML));
+		 alert(CeL.get_element('test_o').parentNode.innerHTML);
+		 CeL.log(CeL.get_element('test_o').outerHTML.replace(/</g,'&lt;'));
+		 */
+		//swfobject.embedSWF("http://www.gstatic.com/translate/sound_player.swf", "panel_for_test", "18", "18", "9.0.0");
+		//CeL.log(CeL.get_element('panel_for_test').outerHTML.replace(/</g,'&lt;'));
+		/*
+		 scope bug test
+		 https://mail.mozilla.org/pipermail/es-discuss/2008-September/007498.html
+		 */
+
+		/*
+		 CeL.debug('phase: data test',2);
+		 CeL.run('data');
+
+		 test_num=1125;
+		 CeL.log(test_num+' → '+CeL.to_1000_prefix(test_num,5));
+		 test_num*=1024;
+		 CeL.log(test_num+' → '+CeL.to_1000_prefix(test_num));
+		 */
+
+		//CeL.new_node({div:[1234,':',{p:{b:null}}]},0);
+		//var handle_select = function (e) { var s = CeL.get_selection(); if (s && s.text) CeL.debug('select @' + this + '(' + s.element + ')' + ' (' + s.left + '+' + s.width + ',' + s.top + '+' + s.height + '), (' + e.pageX + ',' + e.pageY + '): ' + s.text); };
+		//CeL.add_listener('mouseup', handle_select, 'panel_for_log');
+		//$('#panel_for_log').bind('mouseup', handle_select);
+		//$('#panel_for_log').select(function () { CeL.log(this); });
+		if (false) {
+			var cookie_name = 'cookie test';
+			CeL.debug(cookie_name + ': ' + CeL.get_cookie(cookie_name));
+			CeL.set_cookie(CeL.set_cookie.f.set_root); //	Gecko need this
+			CeL.set_cookie(cookie_name, 'test~~"OK"!');
+		}
+
+		CeL.debug('form.select_input test', 2);
+		CeL.run(
+				[ 'interact.form.address',
+						'interact.form.bank_account',
+						'interact.form.education' ],
+				function() {
+
+					// function aaa(v){alert('mmm='+mmm);var r={};r[v]=222;return r;}
+					// var fff3=33;eval('var mmm=1;(function(){var included=aaa("fff");alert(included.fff);})()');alert(fff);
+					//CeL.run('net.form.select_input');
+					if (false)
+						CeL.run( [ 'interact.form.address',
+								'interact.form.bank_account',
+								'interact.form.education' ]);
+
+					var qi = new CeL.select_input('eval_code', [ '423.2+5523',
+							'423243-5542.52', '423.2*34.42', '42342332.4323/34.4', '42342332.4323/34.4/2', '120', '70,195', '24,60,18,90,150' ], 'includeKeyWC');
+					//qi.attach('eval_code');
+					//qi.setSearch('includeKeyWC');
+
+					CeL.debug('phase: attach test', 2);
+					var a_sp = new CeL.select_input('attach_span', [ 5, 6, 55,
+							555, 7 ]), a_i = new CeL.select_input(0, [ 1, 2, 3,
+							4, 5 ]), a_s = new CeL.select_input, a_h = new CeL.select_input;
+
+					//sl('set attach_span: '+a_sp.loaded);
+					a_sp.attach('attach_span');
+					a_sp.setSearch('includeKeyWC');
+					//sl('set attach_input');
+					a_i.attach('attach_input');
+					a_i.setSearch('includeKeyWC');
+					//sl('set attach_select');
+					a_s.attach('attach_select');
+					a_s.setSearch('includeKeyWC');
+
+					a_h.attach('attach_hr');
+					a_h.setAllList( [ 1, 2, 3, 6 ]);
+					a_h.setSearch('includeKeyWC');
+
+					CeL.debug('attach set', 2);
+					(new CeL.select_input('run_times', [ 1, 100, 1000, 10000,
+							100000, 1000000, 10000000 ], 'always'))
+							.set_verify('|natural');
+
+					//(new CeL.select_input('number1')).set_verify('integer');
+					(new CeL.select_input('base1', [ 2, 8, 10, 16 ], 'always'))
+							.set_verify('natural');
+					(new CeL.select_input('base2', [ 2, 8, 10, 16 ], 'always'))
+							.set_verify('natural');
+
+					//(new CeL.select_input('number')).set_verify(/^[+-]?\d+$/);
+					(new CeL.select_input('base', [ 2, 8, 10, 16 ], 'always'))
+							.set_verify('natural');
+					(new CeL.select_input('bits', [ 4, 8, 16 ], 'always'))
+							.set_verify('natural');
+					(new CeL.select_input('complement_value'))
+							.set_verify('integer');
+
+					//	just setup pattern
+					new CeL.select_input('h_data');
+					new CeL.select_input('h_code');
+
+					CeL.debug('set education form', 2);
+					var education_form = new CeL.education.TW('education');
+
+					CeL.debug('set account form', 2);
+					var accountF = new CeL.bank_account.TW('account');
+
+					CeL.debug('set address form', 2);
+					var addF = new CeL.address.TW('address', 'address_');
+					var domicileF = new CeL.address.TW('legal_domicile',
+							'legal_domicile_');
+
+					addF.addFunc('同户籍地址', function() {
+						addF.setAddress(domicileF.setAddress());
+						domicileF.focus(0, 0);
+						addF.focus('a');
+						addF.focus(0, 0);
+					});
+
+				});
+
+		CeL.run('interact.DnD', function(){
+			CeL.set_drop_target('panel_for_log');
+		});
+	};
+
+	/**
+	 * 初始化 initialization
+	 * @return
+	 */
+	function initialization_setup() {
+		//if(typeof CeL!=='undefined')
+		try {
+			//CeL.cache_code = true;
+			//	Initialize log function
+
+			CeL.run(
+					'application.debug.log',
+					[
+							function() {
+								CeL.Log.set_board('panel_for_log');
+								CeL.debug('Log panel setted.');
+
+								//sr = CeL.run;
+
+								var e = 0;
+								try {
+									CeL.run(
+											'interact.DOM',
+											initialization_work,
+											function() {
+												CeL.get_element('error_load_panel').style.display = 'none';
+											});
+
+								} catch (e) {
+									CeL.warn('Initialization failed!');
+									CeL.error(e);
+								}
+
+								if(!isNaN(CeL.log.max_length))
+									CeL.log.max_length = 0;
+								// Initializated. 初始化完毕。您可开始进行操作。
+								CeL.log('Initialization '
+										+ (e ? 'error' : 'finished') + '.');
+							}
+							//, "lib/jquery-nightly.js"
+							//, "lib/swfobject.js"
+							]);
+
+		} catch (e) {
+			//	show the error panel
+			try {
+				if (location.protocol === 'file:')
+					document.getElementById('loading_error_message').innerHTML =
+					//	** 较新之 browser 通常需要使用 callback 的方法，不能使用 "CeL.run('module');_do_some_thing_;"!!
+					navigator.userAgent.indexOf('Chrome') === -1 ? CeL.get_file.error
+							|| 'Loading local file error!'
+							: 'You may <a href="http://code.google.com/p/chromium/issues/detail?id=4197#c26">add a flag_$ta --allow-file-access-from-files to run this tool._$tage.g., run '
+									+ (navigator.userAgent.indexOf('Linux') !== -1 ? '/opt/google/chrome/google-chrome %U --allow-file-access-from-files&'
+											: 'Chrome --allow-file-access-from-files')
+									+ '_$tag__';
+
+				document.getElementById('error_load_panel').style.position = 'static';
+			} catch (e) {
+			}
+		}
+	};
+
+	//CeL.run('net.web',function(){});
+
+	//
+//]]></script>
+
+<!--
+<script src="http://www.google.com/jsapi?key=ABQIAAAA8YsRfLuORC22bc07JTNYsBS3JAeykUxPSpDNfPvIbcz6s5aBrRRdn1nyUM_9cYox7ymS-IgI-2CNuA" type="text/javascript"></script>
+<script type="text/javascript">
+google.load("search", 1);
+google.setOnLoadCallback(function(){
+	if(new google.search.SearchControl())
+		CeL.debug('API load OK.');
+});
+</script>
+-->
+
+
+<script type="text/javascript">//<![CDATA[
+'use strict';
+
+/*
+	本 script 段落之存在是为了预防万一。因此只能放最简单的 script parser 亦能读懂的 code。
+
+	基本假设：通常能够读懂 CSS display:none; 的也能使用 DOM 来控制 error_load_panel 的显示。
+	但很遗憾的，对读得懂 CSS 却没有 document.getElementById 的 Netscape Navigator 4，这不成立。
+	因此不能用 display:none; 以从一开始避免显示。
+
+	此外，得考虑读得懂 CSS 但关闭了 JavaScript 或因故不能执行的状况。
+	** limit: 上一段 code 不能出错
+*/
+
+/**
+ * 初始环境侦测
+ * 
+ * @return
+ */
+function load_detect() {
+	if (typeof initialization_setup == 'function')
+		setTimeout(initialization_setup, 1);
+	else if (typeof window == 'object' && typeof document == 'object'
+			&& window.document == document) {
+
+		var message_handle = document.layers && document.layers['error_load_panel'];
+		if (message_handle)
+			// NS4
+			// message_handle.position = 'static'; 指定 position 对 NS4 事实上无效用。
+			message_handle.top = 8;
+
+		else if (typeof error_load_panel == 'object'
+				&& (message_handle = error_load_panel.style))
+			// IE4
+			// message_handle.position = 'static'; 指定 position 对 IE4 事实上无效用。
+			message_handle.top = '8px';
+
+		// 下面的不行：NS3 会显示出来 error_load_panel，但也会 alert。
+		// else if(typeof alert != 'undefined') alert('Initialization failed!');
+	}
+	// else alert('Initialization failed!');
+}
+
+if (typeof CeL == 'function' && typeof CeL.run == 'function')
+	CeL.run(load_detect);
+else
+	window.onload = load_detect;
+
+// CeL.run('net.web');CeL.on_load(load_detect);
+
+// for(var i=0,j=0;i<1e9;i++)j++;
+
+
+//]]></script>
+
+
+<!--
+<script type="text/javascript" src="http://sites.google.com/site/cejsph/lib/ce.txt"></script>
+<script type="text/javascript" src="http://neterr.hostwq.net/JS/ce.js"></script>
+
+http://code.jquery.com/jquery-nightly.js
+-->
+
+
+<script type="text/javascript" src="../ce.js">
+/*
+{
+	"run" : "../code/log/no_exist_module_to_test.js"
+}
+*/
+</script>
+
+
+<script type="text/javascript">//<![CDATA[
+'use strict';
+
+/*
+TODO:
+http://www.11gz.com/blog/2010/03/20/html5-doctype-use/
+
+JavaScript Shell
+http://nio127.blogspot.com/2008/11/javascript-shell-web-developerhacker.html
+
+本范例于 MSIE 8.0 local 会要求主动式内容!
+*/
+
+if (typeof CeL == 'function' && typeof CeL.run == 'function') {
+
+//	预防弹出警告视窗
+if(!isNaN(CeL.log.max_length))
+	CeL.log.max_length = 20;
+
+CeL.set_debug();
+//CeL.set_debug(2);
+
+//	相对于 library 本身来说的路径
+CeL.run(CeL.get_module_path('', '../../game/game.css'));
+//	CSS reset
+CeL.run(CeL.get_module_path('',
+	//'_test suite/lib/reset.css'
+	'_test suite/lib/normalize.css'
+));
+
+} else {
+	try {
+		eval("if('' in {'':1});");
+		alert('The library is not loaded!');
+	} catch(e) {
+		//	Internet Explorer 5.01 (5.00.3314.2100) 中，无法使用 "if('' in {})"！
+		if (typeof alert !== 'undefined')
+			alert('无法使用 "if(\'\' in {})"！\n这将使得 library 无法载入！');
+	}
+}
+
+try {
+	dojo.require("dojo.NodeList-fx");
+	//dojo.require("dojo.NodeList-fx33");
+} catch (e) {
+	//CeL.debug(e.message);
+}
+
+//CeL.debug(111);
+//CeL.debug(CeL.simplify_path('a/../b'));
+//if(CeL.warn)CeL.warn('a WARNING');
+
+setTimeout(function() {
+	//alert(document.body.innerHTML);
+	}, 200);
+
+function test1() {
+	CeL.warn('a WARNING level message');
+}
+
+
+//]]></script>
+
+
+</body>
+</html>

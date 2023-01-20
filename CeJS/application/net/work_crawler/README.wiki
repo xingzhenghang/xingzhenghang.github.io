@@ -1,0 +1,51 @@
+= CeJS 网路作品爬虫程式库 =
+批量下载网路作品（小说、漫画）的函式库。 WWW work crawler library.
+
+More examples: See [https://github.com/kanasimi/work_crawler 各网站工具档.js]
+
+== 下载作业流程 ==
+
+[[../work_crawler.js]]: [[arguments.js]]
+→ [[task.js]]
+→ [[search.js]]
+→ [[work.js]]
+→ [[chapter.js]]
+→ [[image.js]] or [[ebook.js]]
+
+# 获取伺服器列表。 start_downloading()
+# 解析设定档，判别所要下载的作品列表。 parse_work_id(), get_work_list(), .base_URL, .extract_work_id()
+# 特别处理特定id。	.convert_id()
+# 解析 作品名称 → 作品id	get_work(), .search_URL, .parse_search_result()
+# 获取作品资讯与各章节资料。 get_work_data(), pre_process_chapter_list_data(), process_chapter_list_data()
+# 对于章节列表与作品资讯分列不同页面(URL)的情况，应该另外指定 .chapter_list_URL。 get_work_data(), .work_URL, .parse_work_data(), chapter_list_URL, .get_chapter_list(), .after_get_work_data()
+# 获取每一个章节的内容与各个影像资料。 pre_get_chapter_data(), .chapter_URL, get_chapter_data(), .pre_parse_chapter_data(), .parse_chapter_data()
+# 获取各个章节的每一个影像内容。 get_image(), .image_preprocessor(), .image_post_processor(), .after_get_image()
+# finish_up(), .after_download_chapter(), .after_download_work()
+
+== History ==
+{| class="wikitable"
+|+ History 沿革
+! Date !! Modify
+|-
+| 2016/10/30 21:40:6 || 完成主要架构设计与构思，开始撰写程式。
+|-
+| 2016/11/1 23:15:16 || 正式运用：批量下载腾讯漫画 qq。
+|-
+| 2016/11/5 22:44:17 || 正式运用：批量下载漫画台 manhuatai。
+|-
+| 2016/11/27 19:7:2 || 模组化。 ([[sites]]/*)
+|-
+| 2019/10/13 13:23:25 || 分拆至 work_crawler/*.js
+|}
+
+== See also ==
+* https://github.com/abc9070410/JComicDownloader
+* http://pxer.pea3nut.org/md/use https://github.com/eight04/ComicCrawler
+* https://github.com/riderkick/FMD https://github.com/yuru-yuri/manga-dl
+* https://github.com/Xonshiz/comic-dl
+* https://github.com/wellwind/8ComicDownloaderElectron
+* https://github.com/inorichi/tachiyomi
+* https://github.com/Arachnid-27/Cimoc
+* https://github.com/qq573011406/KindleHelper
+* https://github.com/InzGIBA/manga
+* [https://scrapy.org/ Scrapy 爬虫框架]

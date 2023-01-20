@@ -1,0 +1,75 @@
+﻿<!-- The first line is blank due to BOM -->
+= CeJS MediaWiki module =
+MediaWiki 自动化作业程式库，主要用于编写[[维基百科:机器人]]。
+
+
+== Usage in [https://www.mediawiki.org/wiki/Manual:Interface/JavaScript mediawiki user script] (User:Example/common.js) ==
+<pre><code>
+if (!window.CeL) {
+	window.CeL = { initializer: function() { CeL.run('application.net.wiki', CeL_initialization); } };
+	mw.loader.load('https://kanasimi.github.io/CeJS/ce.js');
+}
+function CeL_initialization() {
+	/** {Array} parsed page content */
+	const parsed = CeL.wiki.parser('{{tl|t}}');
+	parsed.each('template', function(token) { console.log(token.name); });
+
+	const wiki = CeL.wiki.mw_web_session;
+	// wiki.page('Wikipedia:Sandbox').edit(function(page_data) { return CeL.wiki.content_of(page_data) + '\ntest'; });
+}
+</code></pre>
+(At 2021, The JavaScript parser of MediaWiki loader cannot read ECMAScript 2016 syntax.)
+
+Also refer to [https://kanasimi.github.io/CeJS/_test%20suite/wikitext_parser.html the wikitext parser examples].
+
+; Append parameter to template:
+<pre><code>
+const wiki = CeL.wiki.mw_web_session;
+wiki.page(mw.config.get('wgPageName')).edit(function(page_data) {
+	/** {Array} parsed page content */
+	const parsed = CeL.wiki.parser(page_data).parse();
+	parsed.each('Template:Artwork', function(token) {
+		token.push('wikidata=Q27964733');
+	});
+	return parsed.toString();
+}, {
+	summary: 'test edit'
+}).run(function() {
+	location.reload();
+});
+</code></pre>
+
+== Operation mechanism 运作机制 ==
+Main initial point: [[../wiki.js]]
+
+; Essential 必要: [[../wiki.js]] → [[namespace.js]] → [[parser.js]], [[query.js]], [[page.js]], [[Flow.js]], [[list.js]], [[edit.js]], [[task.js]]
+; Optional 可选功能: [[data.js]], [[admin.js]], [[cache.js]], [[Toolforge.js]]
+; Change with wikiproject page contents 随各 wikiproject 页面内容变化之功能: [[template_functions.js]], [[featured_content.js]]
+
+More examples: 使用范例可参照：
+<!--
+const util = require('util'); new util.promisify(CeL.wiki)(...)
+-->
+* [https://github.com/kanasimi/wikiapi JavaScript MediaWiki API for ECMAScript 2017+] / [https://github.com/kanasimi/wikiapi/blob/master/wikiapi.js wikiapi.js]
+* [https://github.com/kanasimi/wikibot Wikipedia bots demo] / [https://github.com/kanasimi/wikibot/blob/master/wiki%20loader.js wiki loader.js]
+* [[/_test suite/test.js|test.js]]
+* [https://kanasimi.github.io/CeJS/_test%20suite/wikitext_parser.html Wikitext parser examples. Wikitext 解析器使用例子]
+
+
+== History ==
+{| class="wikitable"
+|+ History 沿革
+! Date !! Modify
+|-
+| 2015/1/1 || Starting to write codes.
+
+开始撰写模组程式码。
+|-
+| 2019/10/11 || 分拆至 wiki/*.js
+|-
+| 2020/5/24 || 分拆 wiki.js。基本功能仅需要 `CeL.run('application.net.wiki')`。
+|}
+
+
+== See also ==
+* [https://www.mediawiki.org/w/api.php MediaWiki API help]

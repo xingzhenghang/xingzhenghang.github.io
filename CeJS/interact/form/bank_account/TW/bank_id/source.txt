@@ -1,0 +1,15 @@
+﻿bank data support for AccountF.TW
+
+These files are downloaded from The Taipei Disbursement Office.
+这些档案由财政部台北区支付处与财金资讯股份有限公司取得。
+
+http://www.trdo.gov.tw/
+
+财政部台北区支付处 跨行通汇专区 金融机构一览表下载
+参加单位总分支机构名称及帐号长度一览表
+
+http://www.fisc.com.tw/
+
+财金资讯股份有限公司 通汇总分支机构查询
+
+2010/6/18 20:29:29

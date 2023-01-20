@@ -1,0 +1,232 @@
+﻿<?xml version="1.1" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<style type="text/css">
+/* <![CDATA[ */
+table {
+	border-collapse: collapse;
+	width: 20em;
+}
+
+table, th, td {
+	border: solid 1px #aaa;
+}
+
+em {
+	color: #c73;
+	font-style: normal;
+	font-weight: bold;
+}
+
+#note_botton_layer {
+	color: #a2d;
+	font-weight: bold;
+}
+
+#original_text {
+	margin-left: 2em;
+	height: 8em;
+	width: 95%;
+}
+
+.article {
+	color: #221;
+	background-color: #eff;
+	padding: 1em;
+	border: 1pt solid #ea3;
+	border-radius: 1em;
+}
+
+/*]]>*/
+</style>
+<title>纪年日期标注示范</title>
+</head>
+<body>
+	<div id="analysis" style="float: right;">
+		<a title="visitor"
+			href="http://lyrics.meicho.com.tw/t.cgi?REQUEST=visit&FN=v&point=T"><img
+			src="http://lyrics.meicho.com.tw/t.cgi?REQUEST=visit&FN=v&mode=pic&page=CeL&point=era" /></a>
+		<g:plusone></g:plusone>
+	</div>
+
+	<h2>纪年日期标注之文本示范</h2>
+	<p>
+		请稍等，待<b>日期文字</b>（具纪年日期资讯的文字）变色后，可将滑鼠移至变色文字上观看效果。
+	</p>
+
+	<h3>示意图</h3>
+	<img
+		src="https://lh4.googleusercontent.com/-Ds8c7ka6qwQ/Uvc7ujJeWkI/AAAAAAAAAjY/gg5z81Ixzdg/w500-h244-no/20140209.%25E7%25B4%2580%25E5%25B9%25B4%25E6%2597%25A5%25E6%259C%259F%25E6%25A8%2599%25E6%25B3%25A8%25E4%25B9%258B%25E6%2596%2587%25E6%259C%25AC%25E7%25A4%25BA%25E7%25AF%2584.clip.png"
+		alt="示意图" />
+
+	<h3>示范文本</h3>
+
+	<div id="note_botton_layer">
+		正进行程式初始化作业，请稍待片刻…<br />Loading... 少しお待ちください。
+	</div>
+
+	<p class="article">
+		<a
+			href="https://zh.wikisource.org/wiki/%E8%88%8A%E5%94%90%E6%9B%B8/%E5%8D%B711"
+			target="_blank">旧唐书/卷11</a><br />
+		<time data-era="~">宝应元年</time>
+		..<br />
+		<time data-era="~">二年</time>
+		..<br />
+		<time data-era="~">二月甲午</time>
+		，回纥登里可汗辞归蕃。
+		<time data-era="~">三月甲辰朔</time>
+		，襄州右兵马使梁崇义杀大将李昭，据城自固，仍授崇义襄州刺史、山南东道节度使。
+		<time data-era="~">丁未</time>
+		，袁傪破袁晁之众于浙东。玄宗、肃宗归祔山陵。自
+		<time data-era="~">三月一日</time>
+		废朝，至于
+		<time data-era="~">晦日</time>
+		，百僚素服诣延英门通名起居。
+	</p>
+
+	<p class="article">
+		<a
+			href="https://zh.wikisource.org/wiki/%E6%98%8E%E5%8F%B2/%E5%8D%B715"
+			target="_blank">明史/卷15</a><br />
+		<time data-era="弘治~">十年春正月庚戌</time>
+		，大祀天地于南郊。
+		<time data-era="~">三月辛亥</time>
+		，以旱霾修省，求直言。
+		<time data-era="~">甲子</time>
+		，召大学士刘健、李东阳、谢迁于文华殿议庶政，后以为常。<br />
+		<time data-era="~">夏五月戊辰</time>
+		，小王子犯潮河川。
+		<time data-era="~">己巳</time>
+		，犯大同。
+		<time data-era="~">六月己卯</time>
+		，侍郎刘大夏、李介理宣府、大同军饷。
+	</p>
+
+	<!-- This section for test -->
+	<!--
+	<p class="article">
+		<time data-era="~"></time><time data-era="~"></time><time data-era="~"></time>
+	</p>
+	-->
+
+	<h3>文本自动判别示范</h3>
+
+	请贴上
+	<b>首句包含纪年名称</b>的史书原文：
+	<br />
+	<textarea id="original_text">宣帝黄龙元年十二月，宣帝崩。癸巳，太子即皇帝位，谒高庙。尊皇太后曰太皇太后，皇后曰皇太后。
+
+初元元年春正月辛丑，孝宣皇帝葬杜陵。赐诸侯王、公主、列侯黄金，吏二千石以下钱、帛，各有差。大赦天下。
+
+三月，封皇太后兄侍中中郎将王舜为安平侯。丙午，立皇后王氏。以三辅、太常、郡国公田及苑可省者振业贫民，訾不满千钱者赋贷种、食。封外祖父平恩戴侯同产弟子中常侍许嘉为平恩侯，奉戴侯后。</textarea>
+	<br />先指定：
+	<a href="#"
+		onclick="this.innerHTML=(parse_text.add_date=!parse_text.add_date)?'<em>添加</em>':'不添加';return false;">不添加</a>公元日期于纪年后，而后作
+	<a href="#" onclick="return parse_text();">自动判别与转换→</a>
+	<p id="parsed_text" class="article"></p>
+	<em>此自动判别功能尚有阙漏。祈不吝指教。</em>
+
+	<!--
+	<a>更多示file:///D:/USB/cgi-bin/lib/JS/_test%20suite/era_tag.htm#范文本</a>
+	<div>
+	<p></p>
+	
+	</div>
+	-->
+
+	<hr />
+
+	<p>可参照原始码以了解使用方法。只要标注代表日期的文字，即可自动产生日期转换之标签。</p>
+	<p>
+		另提供<a href="era.htm" target="_blank">纪年转换工具</a>。亦欢迎您协助我们，改善 <a
+			href="https://github.com/kanasimi/CeJS" target="_blank"
+			accessdate="2014/2/9 14:21" title="kanasimi/CeJS · GitHub">CeJS</a>。
+	</p>
+
+	<caption>Browser compatibility</caption>
+	<table>
+		<tr>
+			<th>浏览器</th>
+			<th>状况</th>
+			<th>备注及说明</th>
+		</tr>
+		<tr>
+			<td>Chrome/34.0</td>
+			<td>✓</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>Firefox/30.0</td>
+			<td>✓</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>IE 8, IE 11</td>
+			<td>✓</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>IE 6</td>
+			<td>△</td>
+			<td>载入速度缓慢。</td>
+		</tr>
+		<tr>
+			<td>Opera 19.0</td>
+			<td>✓</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>Safari 5.1.7</td>
+			<td>✓</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+		function parse_text(text) {
+			if (!CeL.era)
+				return false;
+
+			if (text === undefined)
+				text = document.getElementById('original_text').value;
+
+			CeL.era.to_HTML(text, 'parsed_text', parse_text.add_date ? {
+				add_date : true
+			} : null);
+
+			return false;
+		}
+
+		// -----------------------------------------------------------
+
+		function initializer() {
+			// CeL.set_debug(2);
+			var queue = [ [ 'data.date.era', 'interact.DOM' ], function() {
+				CeL.era.setup_nodes();
+			}, function() {
+				CeL.toggle_display('note_botton_layer', false);
+			} ];
+
+			if (location.protocol !== 'file:')
+				queue.push('http://apis.google.com/js/plusone.js');
+
+			CeL.env.era_data_load = function(country, queue) {
+				if (typeof country === 'object') {
+					// 第一次呼叫 callback。
+					// 在载入era模组之前设定好，可以用来筛选需要载入的国家。
+					// queue.truncate().push('中国', '日本', '한국', 'Việt Nam');
+				}
+			};
+			CeL.run(queue);
+		}
+	</script>
+
+	<script type="text/javascript" src="../ce.js">
+		//{"run":"initializer"}
+	</script>
+
+</body>
+</html>

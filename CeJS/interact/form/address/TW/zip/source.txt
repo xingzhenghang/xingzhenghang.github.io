@@ -1,0 +1,11 @@
+﻿ZIP code support for AddressF.TW
+
+These files are downloaded from Chunghwa Post Co., Ltd.
+这些档案由台湾邮政全球资讯网下载专区取得。
+
+http://www.post.gov.tw/
+
+3+2邮递区号资料文字档(自解压缩档) 98/11
+县市乡镇中英对照文字档(汉语拼音)
+
+2010/6/18 20:50:40

@@ -1,0 +1,61 @@
+# https://travis-ci.org/kanasimi/CeJS
+# http://docs.travis-ci.com/user/languages/javascript-with-nodejs/
+# http://lint.travis-ci.org/
+env:
+  global:
+    secure:
+
+language: node_js
+
+# https://docs.travis-ci.com/user/multi-os/
+matrix:
+  include:
+    - os: linux
+      # FreeBSD ports node-devel
+      # But it seems problems at v8 engine of Travis CI when running CeL.value_of()?
+      # @see https://travis-ci.org/kanasimi/CeJS/jobs/86175787
+      # @see https://ci.appveyor.com/project/kanasimi/cejs/build/job/co0jl2uj6r1m4ex8
+      # It's OK at my FreeBSD under node.js v0.11.16.
+      #node_js: 0.11
+
+      # Wikimedia Tool Labs: v0.10.25
+      # Travis CI gets "CERT_UNTRUSTED" on node.js 0.10.25 after 2016/10/15. Stop the version temporarily.
+      # https://thequietinnovator.com/2015/10/11/how-to-fix-nodejs-cert_untrusted-issues/
+      #node_js: 0.10.25
+      node_js: 0.10
+
+    - os: linux
+      # 2016/10/23: Travis CI failed on node.js 0.11
+      #node_js: 0.11
+      #node_js: 0.12
+      # sudo apt-get install nodejs @ Ubuntu-16.04.3
+      #node_js: 4.2.6
+      # LTS
+      node_js: 14
+
+    - os: linux
+      # Current
+      node_js: 15
+
+    #- os: windows
+    #  2019/8/14 10:50:35 date error
+    #node_js: 12
+
+    - os: osx
+      node_js: 15
+
+install:
+  - npm install
+
+# TODO: https://docs.travis-ci.com/user/deployment/releases/ https://github.com/Cretezy/scrypt-async-modern/blob/master/.travis.yml
+deploy:
+  # https://docs.travis-ci.com/user/deployment/npm/
+  provider: npm
+  email: vimunci@gmail.com
+  on:
+    #branch: master
+    tags: true
+    #node: "4"
+  # travis encrypt YOUR_AUTH_TOKEN --add deploy.api_key -r kanasimi/CeJS
+  api_key:
+    secure: qFVpryLMXZXTn1p6X0tQ+UEoZguZW4XhNGkMYgleAqly+E4kOnaUflpNrSSNAjdTYi5zAa8DjkfM9YxkfLPbTbRlvFfz2qo8+QzQvYOQRFPCebxAGocs3bMRRj70qx5S6a6E7/Ex2tVbk8gMoEBnHSFf2FlQ39BmPW+e2V+lExr4/tFk8QC9+RFCEXx7Ia9wKzizL3kLvJfgoh/3eFjvQ8IrP7wJlP6kOt9WNYgH5nTbaKMrKWibxiHzz7TzJU0gNvAe5rAyXZVcZu+8ANryTaqEsyfR6UP9ul+NBJ3/jUjzVxGPjkoS03kNCZIyzXLBqI0aMR+UKXhz0ASJr8lZGanXw6RSjvGygFHTwUgQ8jvBxkZeam304GE7j5eiqk9cnsmujCBevtbLg1Zl7zYI/O6W5Q3F/Tmy7lNVvmX7D36oQ8wP7wXxBuKH76b+rkhCdddAR/53X/iik9FJmH5mDQ5CsbZAN3BMbHuOca8lMTIzhnEBOaU4LPalOWUaVTN1tFc/pRB84apLv2TjVnS/tbZHuoc38ZVV3GcFkHSq5OzZGAWH0GsRzatpCvypDpKDbVEwdKtomrbBx4mV3sxDGykmmCeqzcqLmq7tvJ/+ibT6XGc2WpkZFFrzCCp0XSh09LfIzInrOw4XYvhuyVnIUwGoHiXRc6j+06wj8AS0vFg=

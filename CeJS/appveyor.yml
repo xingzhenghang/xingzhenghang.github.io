@@ -1,0 +1,38 @@
+# http://www.appveyor.com/docs/lang/nodejs-iojs
+# Test against this version of Node.js
+environment:
+  matrix:
+    # Wikimedia Tool Labs: v0.10.25
+    # 0.10.25: node  x86 package not found
+    #- nodejs_version: "0.10"
+    # FreeBSD ports node-devel
+    - nodejs_version: "0.11"
+    #- nodejs_version: "0.12"
+    # LTS
+    - nodejs_version: "14"
+    # Current
+    - nodejs_version: "16"
+
+platform:
+  - x86
+
+# Install scripts. (runs after repo cloning)
+install:
+  # Get the latest stable version of Node.js or io.js
+  - ps: Install-Product node $env:nodejs_version $env:platform
+  # install modules
+  - npm install
+
+# Post-install test scripts.
+test_script:
+  # Output useful info for debugging.
+  - node --version
+  - npm --version
+  # run tests
+  - npm test
+
+# Don't actually build.
+build: off
+
+# Set build version format here instead of in the admin panel.
+version: "{build}"
