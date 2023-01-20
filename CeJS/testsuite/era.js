@@ -3099,7 +3099,7 @@ function affairs() {
 				},
 				id : i + click_panel.postfix,
 				href : "#",
-				C : 'note_botton mdui-btn mdui-color-theme-accent mdui-ripple',
+				C : 'note_botton',
 				onclick : click_panel
 			}, ' | ');
 		else
