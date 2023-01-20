@@ -637,14 +637,14 @@ div.box {
 			onmouseover="this.select(); this.focus();" continue="true"
 			nospeechtimeout="60000" x-webkit-speech="x-webkit-speech"
 			x-webkit-grammar="builtin:translate" lang="cmn-Hans-CN" /> <br> <span
-			data-gettext="输出格式"></span> <span id="format_type_bar"></span> <br />
+			data-gettext="输出格式:"></span> <span id="format_type_bar"></span> <br />
 		<!-- http://www.fileformat.info/info/emoji/list.htm -->
 		<!-- ⌚ ⌛ ⏰ ⏱ ⏲   -->
 		📅 <span data-gettext="自定义输出格式"></span> <input id="output_format"
 			title="输出格式" /> <a href="#"
 			onclick="output_numeral=output_numeral==='Chinese'?'':'Chinese';this.className=output_numeral==='Chinese'?'selected':'unselected';translate_era();return false;"
-			data-gettext="中文数字" title="输出中文数字"></a> <a href="#" id="translate" class="mdui-btn"
-			title="执行转换">转换</a> <span id="era_output"></span>
+			data-gettext="中文数字" title="输出中文数字"></a> <a href="#" id="translate" class="mdui-btn mdui-color-theme-accent mdui-ripple"
+			title="执行转换">转换</a> <br><span id="era_output"></span>
 	</div>
 	<div id="example" class="note_panel"></div>
 	<div id="input_history" class="note_panel">
@@ -1759,21 +1759,21 @@ Jews, however, reckon the start of each new Seleucid year with the lunar month T
 			（请手动缮打电子邮件位址）
 		</p>
 
-		<div class="g-comments"
+		<div style="display: none;" class="g-comments"
 			data-href="http://lyrics.meicho.com.tw/lib/JS/_test%20suite/era.htm"
 			data-width="800" data-first_party_property="BLOGGER"
 			data-view_type="FILTERED_POSTMOD"></div>
 		<div id="fb-root"></div>
-		<div class="fb-comments"
+		<div style="display: none;" class="fb-comments"
 			data-href="http://lyrics.meicho.com.tw/lib/JS/_test%20suite/era.htm"
 			data-width="800" data-num-posts="10"></div>
 	</div>
 
-	<hr style="clear: both;" />
+	<hr style="display: none;" style="clear: both;" />
 	📓
-	<span data-gettext="纪年转换工具"></span>
-	<span data-gettext="讯息提示与纪录栏"></span>：
-	<div id="panel_for_log">
+	<span style="display: none;" data-gettext="纪年转换工具"></span>
+	<span style="display: none;" data-gettext="讯息提示与纪录栏"></span>：
+	<div style="display: none;" id="panel_for_log">
 		<b style="color: red;">已载入主网页。正进行程式初始化作业，请稍待片刻…</b>
 	</div>
 
