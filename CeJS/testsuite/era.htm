@@ -2,6 +2,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+
+<link rel="stylesheet" href="https://www.xingzhenghang.tk/ui/css/mdui.min.css" />
+<script async src="https://www.xingzhenghang.tk/js/mdui.js"></script>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#3F51B5" />
+
+
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <title data-gettext="纪年转换工具">纪年转换工具</title>
 <base target="_blank" />
@@ -587,8 +596,16 @@ div.box {
 </style>-->
 </head>
 
-<body>
-
+<body class="mdui-drawer-body mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink">
+<content="yes" />
+<div class="mdui-container">
+<header class="mdui-appbar mdui-appbar-fixed">
+<div class="mdui-toolbar mdui-color-theme">
+<span class="mdui-btn  mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#main-drawer', swipe: true}"><i class="mdui-icon material-icons">menu</i></span>
+<span class="mdui-typo-title">纪年转换工具</span>
+</div>
+</header>
+</div>
 	<div id="analysis"></div>
 
 	<div id="language_menu"></div>
