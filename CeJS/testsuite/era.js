@@ -2856,7 +2856,7 @@ function affairs() {
 			D : {
 				format : v
 			},
-			C : 'format_button',
+			C : 'format_button  mdui-btn mdui-color-theme-accent mdui-ripple',
 			onclick : function() {
 				output_format_object.setValue(this.dataset.format);
 				translate_era();
