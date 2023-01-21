@@ -708,9 +708,11 @@ function show_calendar(era_name) {
 			caption : era_caption
 		}, {
 			tbody : output
-		} ],
-	// , id : 'text_calendar'
+		},
 		C : 'mdui-table'
+		],
+	// , id : 'text_calendar'
+		C : 'mdui-table-fluid'
 	};
 	if (hidden_column.length > 0) {
 		hidden_column.unshift(': ');
