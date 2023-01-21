@@ -704,7 +704,7 @@ function show_calendar(era_name) {
 	} ] ];
 
 	title = {
-		table : [ {
+		table class="mdui-table" : [ {
 			caption : era_caption
 		}, {
 			tbody : output
