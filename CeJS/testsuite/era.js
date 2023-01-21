@@ -710,7 +710,7 @@ function show_calendar(era_name) {
 			tbody : output
 		} ],
 	// , id : 'text_calendar'
-		C : 'mdui-table' 
+		C : 'mdui-table'
 	};
 	if (hidden_column.length > 0) {
 		hidden_column.unshift(': ');
