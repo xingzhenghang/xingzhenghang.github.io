@@ -704,11 +704,12 @@ function show_calendar(era_name) {
 	} ] ];
 
 	title = {
-		table class="mdui-table" : [ {
+		table : [ {
 			caption : era_caption
 		}, {
 			tbody : output
-		} ]
+		},
+C : 'mdui-table' ]
 	// , id : 'text_calendar'
 	};
 	if (hidden_column.length > 0) {
