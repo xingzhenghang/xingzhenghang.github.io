@@ -1,42 +1,44 @@
-﻿#EXTM3U
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-web-us-west-2-tunein-com.s3-us-west-2.amazonaws.com/assets/img/shared/tiles/todays-hits-small.jpg" group-title="网络广播" radio="true",Today’s Hits
-http://rfcmedia.streamguys1.com/MusicPulsePremium.mp3
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/newpophits.png" group-title="网络广播" radio="true",Pop Hits
-http://rfcmedia.streamguys1.com/newpophitspremium.mp3
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s249914/images/logod.png?t=1" group-title="网络广播" radio="true",Alternative Hits
-http://rfcmedia.streamguys1.com/alternativehitspremium.mp3
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s249981/images/logog.jpg?t=2" group-title="网络广播" radio="true",Country Hits
-http://rfcmedia.streamguys1.com/countryhitspremium.mp3
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s224628/images/logog.jpg?t=4" group-title="网络广播" radio="true",Country Roads
-http://rfcmedia.streamguys1.com/countryroadspremium.mp3
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s249937/images/logog.jpg?t=2" group-title="网络广播" radio="true",Relax & Unwind
-http://rfcmedia.streamguys1.com/relaxationpremium.mp3
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s249973/images/logog.jpg?t=162282" group-title="网络广播" radio="true",Smooth Jazz
-http://rfcmedia.streamguys1.com/smoothjazzpremium.mp3
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-radiotime-logos.tunein.com/s291088g.png" group-title="网络广播" radio="true",The Hit List
-http://rfcmedia.streamguys1.com/srhitlist.mp3
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s303095/images/logod.png?t=158589" group-title="网络广播" radio="true",Dance One
-http://rfcmedia.streamguys1.com/srdanceone.mp3
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://cdn-profiles.tunein.com/g385/images/logod.png?t=636564760576470000" group-title="网络广播" radio="true",Disco Beats
-http://rfcmedia.streamguys1.com/srdiscobeats.mp3
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s249981/images/logog.jpg?t=2" group-title="网络广播" radio="true",Today's Country Hits
-http://rfcmedia.streamguys1.com/srtodayscountryhits.mp3
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-radiotime-logos.tunein.com/s293704g.png" group-title="网络广播" radio="true",Coffee House ☕️
-http://rfcmedia.streamguys1.com/coffeehousepremium.mp3
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s138074/images/logog.png?t=158317" group-title="网络广播" radio="true",Big B Radio - 中文流行
-http://cpop.bigbradio.net/s
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s135096/images/logog.png?t=158317" group-title="网络广播" radio="true",Big B Radio - 韩语流行
-http://kpop.bigbradio.net/s
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s135097/images/logog.png?t=158317" group-title="网络广播" radio="true",Big B Radio - 日语流行
-http://jpop.bigbradio.net/s
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s54185/images/logog.png?t=158645" group-title="网络广播" radio="true",Big B Radio - 亚洲流行
-http://apop.bigbradio.net/s
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="网络广播" radio="true",Modern Radio
-http://play.redefine.ltd/Stream1/FM1058-1.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="网络广播" radio="true",电音电台
-http://play.redefine.ltd/Stream3/FM1058-3.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="网络广播" radio="true",古典音乐台
-http://play.redefine.ltd/Stream2/FM1058-2.m3u8
+#EXTM3U
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/中国之声.png" group-title="综合广播" radio="true",CNR中国之声
+https://satellitepull.cnr.cn/live/wxzgzs/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/经济之声.png" group-title="综合广播" radio="true",CNR经济之声
+https://satellitepull.cnr.cn/live/wxjjzs/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/文艺之声.png" group-title="综合广播" radio="true",CNR文艺之声
+https://satellitepull.cnr.cn/live/wxwyzs/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/阅读之声.png" group-title="综合广播" radio="true",CNR阅读之声
+https://satellitepull.cnr.cn/live/wxylgb/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/台海之声.png" group-title="综合广播" radio="true",CNR台海之声
+https://satellitepull.cnr.cn/live/wxzhzs/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/乡村之声.png" group-title="综合广播" radio="true",CNR乡村之声
+https://satellitepull.cnr.cn/live/wxxczs/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/老年之声.png" group-title="综合广播" radio="true",CNR老年之声
+https://satellitepull.cnr.cn/live/wxlnzs/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/cnr民族之声.png" group-title="综合广播" radio="true",CNR民族之声
+https://satellitepull.cnr.cn/live/wxmzzs/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/cnr香港之声.png" group-title="综合广播" radio="true",CNR香港之声
+https://satellitepull.cnr.cn/live/wxxgzs/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/大湾区之声.png" group-title="综合广播" radio="true",CNR大湾区之声
+https://satellitepull.cnr.cn/live/wxhxzs/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/cnr神州之声.png" group-title="综合广播" radio="true",CNR神州之声
+http://ngcdn006.cnr.cn/live/szzs/index.m3u8
+#EXTINF:-1 tvg-id="1994" tvg-name="中国交通频道" tvg-logo="https://live.fanmingming.com/radio/中国交通广播.png" group-title="综合广播" radio="true",CNR中国交通广播
+https://satellitepull.cnr.cn/live/wxgsgljtgb/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/长三角之声.png" group-title="综合广播" radio="true",上海长三角之声
+https://satellitepull.cnr.cn/live/wx32dfgbdt/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/环球资讯广播.png" group-title="综合广播" radio="true",CRI环球资讯广播
+https://satellitepull.cnr.cn/live/wxhqzx01/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/华语环球广播.png" group-title="综合广播" radio="true",CRI华语环球广播
+http://sk.cri.cn/hyhq.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/chinaplusradio.png" group-title="综合广播" radio="true",CRI英语环球广播 China Plus Radio 
+http://sk.cri.cn/am846.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/chinaplusradio.png" group-title="综合广播" radio="true",CRI外语教学广播 China Plus Radio 
+http://sk.cri.cn/am1008.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/南海之声.png" group-title="综合广播" radio="true",CRI南海之声
+http://sk.cri.cn/nhzs.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/轻松调频.png" group-title="综合广播" radio="true",CRI轻松调频
+http://sk.cri.cn/915.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-radiotime-logos.tunein.com/p38821d.png" group-title="综合广播" radio="true",CRI粤语国际
+http://sk.cri.cn/hxfh.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/河南新闻广播.png" group-title="综合广播" radio="true",河南新闻广播
 https://stream.hndt.com/live/xinwen/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/河南经济广播.png" group-title="综合广播" radio="true",河南经济广播
@@ -59,46 +61,6 @@ https://stream.hndt.com/live/jiaoyu/playlist.m3u8
 https://stream.hndt.com/live/leling/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/Big%20Radio.jpg" group-title="综合广播" radio="true",Big Radio
 https://stream.hndt.com/live/gudian/playlist.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/环球资讯广播.png" group-title="综合广播" radio="true",CRI环球资讯广播
-https://satellitepull.cnr.cn/live/wxhqzx01/playlist.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/华语环球广播.png" group-title="综合广播" radio="true",CRI华语环球广播
-http://sk.cri.cn/hyhq.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/chinaplusradio.png" group-title="综合广播" radio="true",CRI英语环球广播 China Plus Radio 
-http://sk.cri.cn/am846.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/chinaplusradio.png" group-title="综合广播" radio="true",CRI外语教学广播 China Plus Radio 
-http://sk.cri.cn/am1008.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/南海之声.png" group-title="综合广播" radio="true",CRI南海之声
-http://sk.cri.cn/nhzs.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/轻松调频.png" group-title="综合广播" radio="true",CRI轻松调频
-http://sk.cri.cn/915.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-radiotime-logos.tunein.com/p38821d.png" group-title="综合广播" radio="true",CRI粤语国际
-http://sk.cri.cn/hxfh.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/中国之声.png" group-title="综合广播" radio="true",CNR中国之声
-http://ngcdn001.cnr.cn/live/zgzs/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/经济之声.png" group-title="综合广播" radio="true",CNR经济之声
-http://ngcdn002.cnr.cn/live/jjzs/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/文艺之声.png" group-title="综合广播" radio="true",CNR文艺之声
-http://audiows010.cnr.cn/live/wyzs192/playlist.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/阅读之声.png" group-title="综合广播" radio="true",CNR阅读之声
-http://ngcdn014.cnr.cn/live/ylgb/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/台海之声.png" group-title="综合广播" radio="true",CNR台海之声
-http://ngcdn005.cnr.cn/live/zhzs/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/乡村之声.png" group-title="综合广播" radio="true",CNR乡村之声
-http://ngcdn017.cnr.cn/live/xczs/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/老年之声.png" group-title="综合广播" radio="true",CNR老年之声
-http://ngcdn011.cnr.cn/live/lnzs/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/cnr民族之声.png" group-title="综合广播" radio="true",CNR民族之声
-http://ngcdn009.cnr.cn/live/mzzs/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/cnr香港之声.png" group-title="综合广播" radio="true",CNR香港之声
-http://ngcdn008.cnr.cn/live/xgzs/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/大湾区之声.png" group-title="综合广播" radio="true",CNR大湾区之声
-http://ngcdn007.cnr.cn/live/hxzs/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/cnr神州之声.png" group-title="综合广播" radio="true",CNR神州之声
-http://ngcdn006.cnr.cn/live/szzs/index.m3u8
-#EXTINF:-1 tvg-id="1994" tvg-name="中国交通频道" tvg-logo="https://live.fanmingming.com/radio/中国交通广播.png" group-title="综合广播" radio="true",CNR中国交通广播
-http://ngcdn016.cnr.cn/live/gsgljtgb/index.m3u8
-#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/长三角之声.png" group-title="综合广播" radio="true",上海长三角之声
-https://satellitepull.cnr.cn/live/wx32dfgbdt/playlist.m3u8
 #EXTINF:-1 tvg-id="1985" tvg-name="第一财经" tvg-logo="https://upload.ajmide.com/p/image/202101/14/142407-nN2AikHyrt1610609292338_1915x1915.jpg" group-title="综合广播" radio="true",上海第一财经广播
 https://satellitepull.cnr.cn/live/wx32dycjgb/playlist.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://pic.qingting.fm/2020/0701/20200701052348.png" group-title="综合广播" radio="true",天津静海区综合广播·交通广播网
@@ -479,6 +441,56 @@ http://ngcdn013.cnr.cn/live/wygb/index.m3u8
 http://ngcdn012.cnr.cn/live/zygb/index.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/cnr哈萨克语广播.png" group-title="综合广播" radio="true",哈萨克语广播
 http://ngcdn025.cnr.cn/live/hygb/index.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="国际广播" radio="true",All India Radio
+https://airhlspush.pc.cdn.bitgravity.com/httppush/hlspbaudio231/hlspbaudio231_Auto.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="国际广播" radio="true",KBS World Radio Chinese
+http://101.79.244.199:1935/cocotv/_definst_/CH00002/playlist.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="国际广播" radio="true",NHK Chinese (morning and evening)
+https://b-nhkwlive-rj.nhkworld.jp/hls/live/2003465-b/rj-3ch/index_03.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="国际广播" radio="true",NHK Chinese (noon)
+https://b-nhkwlive-rj.nhkworld.jp/hls/live/2003467-b/rj-6ch/index_06.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="国际广播" radio="true",Voice Of Mongolia Chinese
+https://api.xmgspace.me/api/vom-latest/
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="国际广播" radio="true",Voice of Vietnam Chinese 1200 2200
+https://stream.vovmedia.vn/vov5
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-web-us-west-2-tunein-com.s3-us-west-2.amazonaws.com/assets/img/shared/tiles/todays-hits-small.jpg" group-title="网络广播" radio="true",Today’s Hits
+http://rfcmedia.streamguys1.com/MusicPulsePremium.mp3
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/newpophits.png" group-title="网络广播" radio="true",Pop Hits
+http://rfcmedia.streamguys1.com/newpophitspremium.mp3
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s249914/images/logod.png?t=1" group-title="网络广播" radio="true",Alternative Hits
+http://rfcmedia.streamguys1.com/alternativehitspremium.mp3
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s249981/images/logog.jpg?t=2" group-title="网络广播" radio="true",Country Hits
+http://rfcmedia.streamguys1.com/countryhitspremium.mp3
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s224628/images/logog.jpg?t=4" group-title="网络广播" radio="true",Country Roads
+http://rfcmedia.streamguys1.com/countryroadspremium.mp3
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s249937/images/logog.jpg?t=2" group-title="网络广播" radio="true",Relax & Unwind
+http://rfcmedia.streamguys1.com/relaxationpremium.mp3
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s249973/images/logog.jpg?t=162282" group-title="网络广播" radio="true",Smooth Jazz
+http://rfcmedia.streamguys1.com/smoothjazzpremium.mp3
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-radiotime-logos.tunein.com/s291088g.png" group-title="网络广播" radio="true",The Hit List
+http://rfcmedia.streamguys1.com/srhitlist.mp3
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s303095/images/logod.png?t=158589" group-title="网络广播" radio="true",Dance One
+http://rfcmedia.streamguys1.com/srdanceone.mp3
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="http://cdn-profiles.tunein.com/g385/images/logod.png?t=636564760576470000" group-title="网络广播" radio="true",Disco Beats
+http://rfcmedia.streamguys1.com/srdiscobeats.mp3
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s249981/images/logog.jpg?t=2" group-title="网络广播" radio="true",Today's Country Hits
+http://rfcmedia.streamguys1.com/srtodayscountryhits.mp3
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-radiotime-logos.tunein.com/s293704g.png" group-title="网络广播" radio="true",Coffee House ☕️
+http://rfcmedia.streamguys1.com/coffeehousepremium.mp3
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s138074/images/logog.png?t=158317" group-title="网络广播" radio="true",Big B Radio - 中文流行
+http://cpop.bigbradio.net/s
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s135096/images/logog.png?t=158317" group-title="网络广播" radio="true",Big B Radio - 韩语流行
+http://kpop.bigbradio.net/s
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s135097/images/logog.png?t=158317" group-title="网络广播" radio="true",Big B Radio - 日语流行
+http://jpop.bigbradio.net/s
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://cdn-profiles.tunein.com/s54185/images/logog.png?t=158645" group-title="网络广播" radio="true",Big B Radio - 亚洲流行
+http://apop.bigbradio.net/s
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="网络广播" radio="true",Modern Radio
+http://play.redefine.ltd/Stream1/FM1058-1.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="网络广播" radio="true",电音电台
+http://play.redefine.ltd/Stream3/FM1058-3.m3u8
+#EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="" group-title="网络广播" radio="true",古典音乐台
+http://play.redefine.ltd/Stream2/FM1058-2.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://mytuner.global.ssl.fastly.net/media/tvos_radios/Lz9bbsba4c.png" group-title="境外广播" radio="true",BBC World Service
 http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_world_service/bbc_world_service.isml/bbc_world_service-audio=320000.m3u8
 #EXTINF:-1 tvg-id="" tvg-name="" tvg-logo="https://live.fanmingming.com/radio/npr.png" group-title="境外广播" radio="true",n p r | News and Culture
